@@ -34,7 +34,7 @@
 	<div class="swiper-wrapper">
 		{#each productsData as product}
 			<div class="swiper-slide">
-                <a href={`/vendor/${product.vendor.slug}/${product.slug}`}>
+                <a data-sveltekit-reload  href={`/vendor/${product.vendor.slug}/${product.slug}`}>
                     <div class="bg-white h-full overflow-hidden rounded-lg card-zoom-hover">
                         <div class="overflow-hidden">
                             <img src={product.images[0].path} class="rounded-t-lg h-[35vh] w-full object-cover" alt="image">

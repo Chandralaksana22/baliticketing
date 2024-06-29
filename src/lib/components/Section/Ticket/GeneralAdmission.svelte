@@ -14,7 +14,7 @@
 			<h5 class="boldfont text-xl text-white text-center">{vendor.name}</h5>
 		</div>
 		<div class="absolute bottom-[5%] left-1/2 z-50 -translate-x-1/2 text-center w-100 text-white">
-			<a
+			<a data-sveltekit-reload 
 				href={`/vendor/${vendor.slug}`}
 				class="p-2 text-lg bg-white rounded-lg text-black slide boldfont text-center"
 			>

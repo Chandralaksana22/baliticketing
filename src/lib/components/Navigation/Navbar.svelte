@@ -3,7 +3,7 @@
 	style="z-index: 99;"
 >
 	<div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-		<a class="flex items-center space-x-3 rtl:space-x-reverse" href="/">
+		<a data-sveltekit-reload class="flex items-center space-x-3 rtl:space-x-reverse" href="/">
 			<img src="/images/logo.png" class="h-16" />
 		</a>
 		<div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
@@ -45,7 +45,7 @@
 				class="flex flex-col font-medium p-4 md:p-0 mt-4 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0"
 			>
 				<li>
-					<a class="block boldfont py-2 px-3 md:p-0 text-white rounded" href="/">Home</a>
+					<a data-sveltekit-reload class="block boldfont py-2 px-3 md:p-0 text-white rounded" href="/">Home</a>
 				</li>
 				<li>
 					<button
@@ -73,16 +73,16 @@
 						<ul class="py-2 px-3 text-sm" aria-labelledby="dropdownLargeButton">
 							<!-- Dynamic links will go here -->
 							<li>
-								<a class="block text-sm boldfont text-black"> </a>
+								<a data-sveltekit-reload class="block text-sm boldfont text-black"> </a>
 							</li>
 						</ul>
 					</div>
 				</li>
 				<li>
-					<a class="block boldfont py-2 px-3 md:p-0 text-white rounded" href="/ticket">Tickets </a>
+					<a data-sveltekit-reload class="block boldfont py-2 px-3 md:p-0 text-white rounded" href="/ticket">Tickets </a>
 				</li>
 				<li>
-					<a class="block boldfont py-2 px-3 md:p-0 text-white rounded" href="/contact">Contact </a>
+					<a data-sveltekit-reload class="block boldfont py-2 px-3 md:p-0 text-white rounded" href="/contact">Contact </a>
 				</li>
 			</ul>
 		</div>

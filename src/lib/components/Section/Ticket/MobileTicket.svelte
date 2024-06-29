@@ -4,7 +4,7 @@
 
 <div>
 	{#each ticketVendor as ticket}
-		<a
+		<a data-sveltekit-reload 
 			href={`/vendor/${ticket.vendor.slug}/${ticket.slug}`}
 			class="grid grid-cols-3 gap-3 pt-5 items-start"
 			style="border-bottom: 1px solid rgb(156, 163, 175);"

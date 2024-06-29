@@ -166,7 +166,7 @@
 							{#each explorerWO as product}
 								{#if product.type === "What's On"}
 									<div>
-										<a href={product.link_address}>
+										<a data-sveltekit-reload  href={product.link_address}>
 											<img
 												class="rounded-none h-[25vh] object-cover w-full object-top"
 												src={product.images[0].path}
@@ -178,7 +178,7 @@
 												{product.name}
 											</h5>
 											<!-- Replace NuxtLink with Svelte Link equivalent -->
-											<a
+											<a data-sveltekit-reload 
 												href={`/ticket-detail/${product.vendor.slug}/${product.slug}`}
 												class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
 											>
@@ -203,7 +203,7 @@
 							{#each balifarmWO as product}
 								{#if product.type === "What's On"}
 									<div>
-										<a href={product.link_address}>
+										<a data-sveltekit-reload  href={product.link_address}>
 											<img
 												class="rounded-none h-[25vh] object-cover w-full object-top"
 												src={product.images[0].path}
@@ -215,7 +215,7 @@
 												{product.name}
 											</h5>
 											<!-- Replace NuxtLink with Svelte Link equivalent -->
-											<a
+											<a data-sveltekit-reload 
 												href={`/ticket-detail/${product.vendor.slug}/${product.slug}`}
 												class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
 											>
@@ -239,7 +239,7 @@
 							{#each balisafariWO as product}
 								{#if product.type === "What's On"}
 									<div>
-										<a href={product.link_address}>
+										<a data-sveltekit-reload  href={product.link_address}>
 											<img
 												class="rounded-none h-[25vh] object-cover w-full object-top"
 												src={product.images[0].path}
@@ -251,7 +251,7 @@
 												{product.name}
 											</h5>
 											<!-- Replace NuxtLink with Svelte Link equivalent -->
-											<a
+											<a data-sveltekit-reload 
 												href={`/ticket-detail/${product.vendor.slug}/${product.slug}`}
 												class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
 											>
@@ -275,7 +275,7 @@
 							{#each balibirdWO as product}
 								{#if product.type === "What's On"}
 									<div>
-										<a href={product.link_address}>
+										<a data-sveltekit-reload  href={product.link_address}>
 											<img
 												class="rounded-none h-[25vh] object-cover w-full object-top"
 												src={product.images[0].path}
@@ -287,7 +287,7 @@
 												{product.name}
 											</h5>
 											<!-- Replace NuxtLink with Svelte Link equivalent -->
-											<a
+											<a data-sveltekit-reload 
 												href={`/ticket-detail/${product.vendor.slug}/${product.slug}`}
 												class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
 											>

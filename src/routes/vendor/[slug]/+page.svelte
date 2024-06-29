@@ -62,7 +62,7 @@
 					>
 						<div class="flex justify-between items-center">
 							<h1 class="text-white font-semibold text-xl">PREMIUM PACKAGE</h1>
-							<a href="" class="p-2 boldfont text-xs bg-white text-black rounded-lg w-fit float-end"
+							<a data-sveltekit-reload  href="" class="p-2 boldfont text-xs bg-white text-black rounded-lg w-fit float-end"
 								>Book Ticket</a
 							>
 						</div>
@@ -76,7 +76,7 @@
 					>
 						<div class="flex justify-between items-center">
 							<h1 class="text-white font-semibold text-xl">PREMIUM PACKAGE</h1>
-							<a href="" class="p-2 boldfont text-xs bg-white text-black rounded-lg w-fit float-end"
+							<a data-sveltekit-reload  href="" class="p-2 boldfont text-xs bg-white text-black rounded-lg w-fit float-end"
 								>Book Ticket</a
 							>
 						</div>
@@ -90,7 +90,7 @@
 					>
 						<div class="flex justify-between items-center">
 							<h1 class="text-white font-semibold text-xl">PREMIUM PACKAGE</h1>
-							<a href="" class="p-2 boldfont text-xs bg-white text-black rounded-lg w-fit float-end"
+							<a data-sveltekit-reload  href="" class="p-2 boldfont text-xs bg-white text-black rounded-lg w-fit float-end"
 								>Book Ticket</a
 							>
 						</div>
@@ -193,7 +193,7 @@
 		<div class="container mx-auto">
 			<h4 class="boldfont text-white text-3xl pt-[5%] mb-5 text-center">OTHER ACTIVITY</h4>
 			<div class="p-10 grid grid-cols-2 gap-4">
-				<ActivityBaliFarm :BaliFarmData="BaliFarmData" :vendorSlug="slug" />
+				<a data-sveltekit-reload ctivityBaliFarm :BaliFarmData="BaliFarmData" :vendorSlug="slug" />
 			</div>
 		</div>
 	</div>

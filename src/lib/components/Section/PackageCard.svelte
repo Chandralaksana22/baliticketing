@@ -50,7 +50,7 @@
 						<p class="text-white"> {product.inclusion.map(item => item.item).join(', ')}</p>
 					</div>
 					<div class="absolute bottom-[5%] left-1/2 -translate-x-1/2 text-center w-full">
-						<a
+						<a data-sveltekit-reload 
 							href={`/vendor/${product.vendor.slug}/${product.slug}`}
 							class="bg-white rounded-lg p-2 slide boldfont text-center">Book Tiket</a
 						>

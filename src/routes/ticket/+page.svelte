@@ -164,7 +164,7 @@
 </section>
 <section class="block lg:hidden bg-white">
 	<div class="flex justify-between p-5 items-center">
-		<a>
+		<a data-sveltekit-reload >
 			<img class="h-[48px] object-contain" src="/images/logomob.png" alt="" />
 		</a>
 		
