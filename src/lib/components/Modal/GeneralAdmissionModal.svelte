@@ -324,7 +324,7 @@
 		transform: translate(-50%, -50%);
 		z-index: 51;
 		background-color: white;
-		max-width: 100%;
+		width: 100%;
 		max-height: calc(100% - 2rem);
 		overflow-y: auto;
 		overflow-x: hidden;
