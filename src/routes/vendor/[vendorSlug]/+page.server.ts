@@ -3,7 +3,7 @@ import type { PageServerLoad } from './$types';
 
 export const load = (async ({ params, url }) => {
 
-    const [detail,product, popularProduct] = await Promise.all([getVendorDetail(params.slug), getProductVendor(params.slug), getPopularProduct(params.slug)])
+    const [detail,product, popularProduct] = await Promise.all([getVendorDetail(params.vendorSlug), getProductVendor(params.vendorSlug), getPopularProduct(params.vendorSlug)])
 
     return {
         maxage: 3600,

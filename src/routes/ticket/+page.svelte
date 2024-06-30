@@ -26,7 +26,6 @@
 	let activeTab = 'styled-profile';
 	let keyword : string = data?.keyword;
 	let listticket = data?.listticket;
-	console.log('data',listticket)
 	const dispatch = createEventDispatcher();
 
 	onMount(() => {

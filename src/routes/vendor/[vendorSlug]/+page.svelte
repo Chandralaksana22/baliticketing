@@ -7,8 +7,10 @@
 	import WhatsOnModalHome from '$lib/components/Modal/DetailVendor/WhatsOnModalHome.svelte';
 	import ZooMapModalHome from '$lib/components/Modal/DetailVendor/ZooMapModalHome.svelte';
 	import PopularActivity from '$lib/components/Section/Vendor/BaliZoo/PopularActivity.svelte';
+	import GeneralAdmissionBaliSafari from '$lib/components/Section/Vendor/BaliSafari/SliderGA.svelte';
 	import type { PageServerData } from './$types';
 	import GeneralAdmissionCard from '$lib/components/Section/Vendor/BaliFarm/GeneralAdmissionCard.svelte';
+	import WhatsOnCard from '$lib/components/Section/Vendor/BaliFarm/WhatsOnCard.svelte';
 	export let data: PageServerData;
 
 	let detail = data?.detail;
@@ -178,11 +180,91 @@
 		<div id="placetogo" class="hidden md:block container mx-auto">
 			<h4 class="boldfont text-white text-3xl text-center">General Admission</h4>
 			<h4 class="text-white text-lg mb-5 text-center">(For Indonesian ID and Kitas holder)</h4>
-			<div class="grid md:grid-cols-2 lg:grid-cols-3 p-10 gap-4">
+			<div class="grid md:grid-cols-2 lg:grid-cols-3 p-10 gap-4 mb-[-10%]">
 				<GeneralAdmissionCard data={product} />
 			</div>
 		</div>
-	{:else if detail.slug === 'bali-safari'}{:else if detail.slug === 'bali-bird-park'}{:else}{/if}
+		<section class="hidden lg:block bg-cover bg-[url('/images/background-biru-desktop.png')]">
+			<div class="container mx-auto">
+				<h4 class="boldfont text-white text-3xl pt-[15%] mb-5 text-center">OTHER ACTIVITY</h4>
+				<div class="p-10 grid grid-cols-2 gap-4">
+					<WhatsOnCard data={product} />
+				</div>
+			</div>
+		</section>
+	{:else if detail.slug === 'bali-safari'}
+		<div class="mt-10">
+			<div id="placetogo" class="container px-10">
+				<h4 class="boldfont text-white text-3xl mb-5 text-center">General Admission</h4>
+				<GeneralAdmissionBaliSafari data={product} />
+			</div>
+		</div>
+		<h4 class="boldfont text-white text-3xl py-10 text-center">WHAT’S NEW ON BALI SAFARI</h4>
+		<div class="px-10 relative z-10">
+			<div
+				class="rounded-xl p-10 bg-cover bg-[url('/images/bg-card.png')] grid grid-cols-2 gap-4 justify-center"
+			>
+				<div>
+					<img src="/assets/varunalogo-BqrHtd8Q.png" class="object-contain h-40 mb-20" alt="" />
+					<h1 class="boldfont text-white text-3xl">Varuna Show</h1>
+					<p class="text-white text-md mt-10">
+						Varuna’s stage bursts to life with vibrant performers, adorned in marine-inspired
+						attire, guiding you through the captivating odyssey of Varuna, the young hero. The
+						voyage unfolds with every dish, act, and moment, creating an immersive narrative.
+					</p>
+				</div>
+				<div class="flex flex-col gap-4">
+					<div
+						class="gap-4 rounded-xl border-2 border-white backdrop-blur-sm bg-white/30 h-fit p-5"
+					>
+						<div class="flex justify-between items-center">
+							<h1 class="text-white font-semibold text-xl">PREMIUM PACKAGE</h1>
+							<a href="" class="p-2 boldfont text-xs bg-white text-black rounded-lg w-fit float-end"
+								>Book Ticket</a
+							>
+						</div>
+						<p class="mt-5 text-sm text-white">
+							Wine (red/white), 3-course lunch, preferential seating, and VIP waiting lounge with
+							free canape &amp; mocktail/cocktail
+						</p>
+					</div>
+					<div
+						class="gap-4 rounded-xl border-2 border-white backdrop-blur-sm bg-white/30 h-fit p-5"
+					>
+						<div class="flex justify-between items-center">
+							<h1 class="text-white font-semibold text-xl">PREMIUM PACKAGE</h1>
+							<a href="" class="p-2 boldfont text-xs bg-white text-black rounded-lg w-fit float-end"
+								>Book Ticket</a
+							>
+						</div>
+						<p class="mt-5 text-sm text-white">
+							Wine (red/white), 3-course lunch, preferential seating, and VIP waiting lounge with
+							free canape &amp; mocktail/cocktail
+						</p>
+					</div>
+					<div
+						class="gap-4 rounded-xl border-2 border-white backdrop-blur-sm bg-white/30 h-fit p-5"
+					>
+						<div class="flex justify-between items-center">
+							<h1 class="text-white font-semibold text-xl">PREMIUM PACKAGE</h1>
+							<a href="" class="p-2 boldfont text-xs bg-white text-black rounded-lg w-fit float-end"
+								>Book Ticket</a
+							>
+						</div>
+						<p class="mt-5 text-sm text-white">
+							Wine (red/white), 3-course lunch, preferential seating, and VIP waiting lounge with
+							free canape &amp; mocktail/cocktail
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<img
+			src="/images/background-biru-desktop.png"
+			class="h-[50vh] mt-[-15%] w-full object-cover hidden lg:block"
+			alt="/images/background-biru-desktop.png"
+		/>
+	{:else if detail.slug === 'bali-bird-park'}{:else}{/if}
 	<!-- <div class="mt-10" v-if="slug === 'bali-zoo'">
 		<PopularActivities :explorerData="explorerData" :vendorSlug="slug" />
 	</div> -->
@@ -205,7 +287,7 @@
 		<h4 class="boldfont text-white text-3xl py-10 text-center">WHAT’S NEW ON BALI SAFARI</h4>
 		<div class="px-10 relative z-10">
 			<div
-				class="rounded-xl p-10 bg-cover bg-[url('../assets/image/bg-card.png')] grid grid-cols-1 lg:grid-cols-2 gap-4 justify-center"
+				class="rounded-xl p-10 bg-cover bg-[url('/images/bg-card.png')] grid grid-cols-1 lg:grid-cols-2 gap-4 justify-center"
 			>
 				<div>
 					<img src="~assets/image/varunalogo.png" class="object-contain h-40 mb-20" alt="" />

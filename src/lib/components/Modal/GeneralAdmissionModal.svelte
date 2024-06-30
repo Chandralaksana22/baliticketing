@@ -137,7 +137,7 @@
 										</h5>
 										<!-- Replace NuxtLink with Svelte Link equivalent -->
 										<a
-											href={`/ticket-detail/${product.vendor.slug}/${product.slug}`}
+											href={`/vendor/${product.vendor.slug}/${product.slug}`}
 											class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
 										>
 									</div>
