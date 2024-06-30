@@ -16,18 +16,18 @@
 	let selectedTicket: item | null = null;
 	let showSummary = false;
 	function handleSubmit(event) {
-    event.preventDefault();
+		event.preventDefault();
 
-    // Simpan data ke localStorage
-    localStorage.setItem("selectedTicket", JSON.stringify(selectedTicket));
-    localStorage.setItem("adultCount", adultCount.toString());
-    localStorage.setItem("childrenCount", childrenCount.toString());
-    localStorage.setItem("infantCount", infantCount.toString());
-    localStorage.setItem("date", date);
+		// Simpan data ke localStorage
+		localStorage.setItem('selectedTicket', JSON.stringify(selectedTicket));
+		localStorage.setItem('adultCount', adultCount.toString());
+		localStorage.setItem('childrenCount', childrenCount.toString());
+		localStorage.setItem('infantCount', infantCount.toString());
+		localStorage.setItem('date', date);
 
-    // Navigasi ke halaman detailcostumer
-    goto("/detailcostumer");
-  }
+		// Navigasi ke halaman detailcostumer
+		goto('/detailcostumer');
+	}
 	function selectTicket(ticket: item) {
 		selectedTicket = ticket;
 		showSummary = true;
@@ -472,9 +472,10 @@
 									</div>
 									<input
 										type="date"
+										datepicker
+										id="default-datepicker"
 										class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 datepicker-input"
 										placeholder="Select date"
-										name="date"
 									/>
 								</div>
 								<button
@@ -846,5 +847,17 @@
 	.menu li > *:not(ul, .menu-title, details, .btn):focus {
 		background-color: transparent;
 		color: inherit;
+	}
+	input[type='date']::-webkit-calendar-picker-indicator {
+		background: transparent;
+		bottom: 0;
+		color: transparent;
+		cursor: pointer;
+		height: auto;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: auto;
 	}
 </style>
