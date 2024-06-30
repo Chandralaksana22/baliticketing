@@ -4,7 +4,7 @@ import type { PageServerLoad } from './$types';
 export const load: PageServerLoad = async ({ params, url, }) => {
     const { vendorSlug, productSlug, } = params;
     const childrenCount: string = url.searchParams.get('children') ?? '';
-    const adultCount: string = url.searchParams.get('adults') ?? '';
+    const adultCount: string = url.searchParams.get('adult') ?? '';
     const infantCount: string = url.searchParams.get('infants') ?? '';
     const date: string = url.searchParams.get('date') ?? '';
 
