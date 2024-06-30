@@ -6,34 +6,17 @@
 	export let balifarmGA: any = [];
 	export let balisafariGA: any = [];
 	export let balibirdGA: any = [];
-	let showModal = false;
 	let activeTab = 'balizooGA';
 
 	const dispatch = createEventDispatcher();
 
-	const openModal = () => {
-		showModal = true;
-	};
-
-	const closeModal = () => {
-		showModal = false;
-	};
-
 	const switchTab = (tabId: string) => {
 		activeTab = tabId;
-	};
-
-	onMount(() => {
-		// Handle initialization or API calls if needed
-	});
-
-	const formatTime = (time: string) => {
-		return time;
 	};
 </script>
 
 <button
-	on:click={openModal}
+	onclick="my_modal_3.showModal()"
 	class="flex flex-col lg:flex-row items-center text-center lg:text-left ticket"
 >
 	<svg
@@ -52,286 +35,227 @@
 		<p class="text-sm hidden lg:block">Purchase a daily pass</p>
 	</div>
 </button>
-
-{#if showModal}
-	<div class="modal-overlay">
+<dialog id="my_modal_3" class="modal">
+	<div class="modal-box w-11/12 max-w-5xl">
 		<div
-			aria-hidden="true"
-			class="overflow-y-auto overflow-x-hidden bg-white rounded-lg shadow dark:bg-gray-700 p-4 md:p-5 mx-10"
+			class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600"
 		>
-			<div
-				class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600"
-			>
-				<h3 class="text-xl text-center boldfont lg:text-start font-semibold text-blue">
-					General Admission
-				</h3>
-				<button
-					type="button"
-					class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-					data-modal-hide="generaladmission-modal"
-					on:click={closeModal}
+			<h3 class="text-xl text-center boldfont lg:text-start font-semibold text-blue">
+				General Admission
+			</h3>
+			<form method="dialog">
+				<button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+			</form>
+		</div>
+		<div class="p-4 md:p-5 space-y-4">
+			<!-- Tab buttons -->
+			<div class="mb-4 sticky top-0 bg-white">
+				<ul
+					class="block lg:flex flex-wrap justify-center -mb-px text-sm font-medium text-center gap-4"
+					id="default-tab"
+					role="tablist"
 				>
-					<svg
-						class="w-3 h-3"
-						aria-hidden="true"
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 14 14"
-					>
-						<path
-							stroke="currentColor"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-						/>
-					</svg>
-					<span class="sr-only">Close modal</span>
-				</button>
+					<li class="me-2" role="presentation">
+						<button
+							class="inline-block mb-2 w-full p-2 px-5 tab-button rounded-lg"
+							id="balizooGA-tab"
+							on:click={() => switchTab('balizooGA')}
+							class:active={activeTab === 'balizooGA'}
+							type="button"
+							role="tab"
+							aria-controls="balizooGA"
+							aria-selected={activeTab === 'balizooGA'}>Bali Zoo</button
+						>
+					</li>
+					<li class="me-2" role="presentation">
+						<button
+							class="inline-block mb-2 w-full p-2 px-5 tab-button rounded-lg"
+							id="balifarmGA-tab"
+							on:click={() => switchTab('balifarmGA')}
+							class:active={activeTab === 'balifarmGA'}
+							type="button"
+							role="tab"
+							aria-controls="balifarmGA"
+							aria-selected={activeTab === 'balifarmGA'}>Bali Farm House</button
+						>
+					</li>
+					<li class="me-2" role="presentation">
+						<button
+							class="inline-block mb-2 w-full p-2 px-5 tab-button rounded-lg"
+							id="balisafariGA-tab"
+							on:click={() => switchTab('balisafariGA')}
+							class:active={activeTab === 'balisafariGA'}
+							type="button"
+							role="tab"
+							aria-controls="balisafariGA"
+							aria-selected={activeTab === 'balisafariGA'}>Bali Safari</button
+						>
+					</li>
+					<li class="me-2" role="presentation">
+						<button
+							class="inline-block mb-2 w-full p-2 px-5 tab-button rounded-lg"
+							id="balibirdGA-tab"
+							on:click={() => switchTab('balibirdGA')}
+							class:active={activeTab === 'balibirdGA'}
+							type="button"
+							role="tab"
+							aria-controls="balibirdGA"
+							aria-selected={activeTab === 'balibirdGA'}>Bali Bird Park</button
+						>
+					</li>
+					<!-- Add more tab buttons here -->
+				</ul>
 			</div>
-			<div class="p-4 md:p-5 space-y-4">
-				<!-- Tab buttons -->
-				<div class="mb-4 sticky top-0 bg-white">
-					<ul
-						class="block lg:flex flex-wrap justify-center -mb-px text-sm font-medium text-center gap-4"
-						id="default-tab"
-						role="tablist"
-					>
-						<li class="me-2" role="presentation">
-							<button
-								class="inline-block mb-2 w-full p-2 px-5 tab-button rounded-lg"
-								id="balizooGA-tab"
-								on:click={() => switchTab('balizooGA')}
-								class:active={activeTab === 'balizooGA'}
-								type="button"
-								role="tab"
-								aria-controls="balizooGA"
-								aria-selected={activeTab === 'balizooGA'}>Bali Zoo</button
-							>
-						</li>
-						<li class="me-2" role="presentation">
-							<button
-								class="inline-block mb-2 w-full p-2 px-5 tab-button rounded-lg"
-								id="balifarmGA-tab"
-								on:click={() => switchTab('balifarmGA')}
-								class:active={activeTab === 'balifarmGA'}
-								type="button"
-								role="tab"
-								aria-controls="balifarmGA"
-								aria-selected={activeTab === 'balifarmGA'}>Bali Farm House</button
-							>
-						</li>
-						<li class="me-2" role="presentation">
-							<button
-								class="inline-block mb-2 w-full p-2 px-5 tab-button rounded-lg"
-								id="balisafariGA-tab"
-								on:click={() => switchTab('balisafariGA')}
-								class:active={activeTab === 'balisafariGA'}
-								type="button"
-								role="tab"
-								aria-controls="balisafariGA"
-								aria-selected={activeTab === 'balisafariGA'}>Bali Safari</button
-							>
-						</li>
-						<li class="me-2" role="presentation">
-							<button
-								class="inline-block mb-2 w-full p-2 px-5 tab-button rounded-lg"
-								id="balibirdGA-tab"
-								on:click={() => switchTab('balibirdGA')}
-								class:active={activeTab === 'balibirdGA'}
-								type="button"
-								role="tab"
-								aria-controls="balibirdGA"
-								aria-selected={activeTab === 'balibirdGA'}>Bali Bird Park</button
-							>
-						</li>
-						<!-- Add more tab buttons here -->
-					</ul>
-				</div>
 
-				<!-- Tab content -->
-				<div id="default-tab-content">
-					<!-- Content for each tab -->
+			<!-- Tab content -->
+			<div id="default-tab-content">
+				<!-- Content for each tab -->
+				<div
+					class="p-4 rounded-lg bg-gray-50 dark:bg-gray-800"
+					id="balizooGA"
+					role="tabpanel"
+					aria-labelledby="balizooGA-tab"
+					hidden={activeTab !== 'balizooGA'}
+				>
 					<div
-						class="p-4 rounded-lg bg-gray-50 dark:bg-gray-800"
-						id="balizooGA"
-						role="tabpanel"
-						aria-labelledby="balizooGA-tab"
-						hidden={activeTab !== 'balizooGA'}
+						class="overflow-y-auto h-[50vh] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 w-full"
 					>
-						<div
-							class="overflow-y-auto h-[50vh] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 w-full"
-						>
-							<!-- Svelte loop for products -->
-							{#each explorerGA as product}
-								{#if product.type === 'General Admission'}
-									<div>
-										<a data-sveltekit-reload  href={product.link_address}>
-											<img
-												class="rounded-none h-[25vh] object-cover w-full object-top"
-												src={product.images[0].path}
-												alt={product.name}
-											/>
-										</a>
-										<div class="p-2 text-center">
-											<h5 class="mb-2 text-md font-bold tracking-tight text-gray-900">
-												{product.name}
-											</h5>
-											<!-- Replace NuxtLink with Svelte Link equivalent -->
-											<a data-sveltekit-reload 
-												href={`/ticket-detail/${product.vendor.slug}/${product.slug}`}
-												class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
-											>
-										</div>
+						<!-- Svelte loop for products -->
+						{#each explorerGA as product}
+							{#if product.type === 'General Admission'}
+								<div>
+									<a href={product.link_address}>
+										<img
+											class="rounded-none h-[25vh] object-cover w-full object-top"
+											src={product.images[0].path}
+											alt={product.name}
+										/>
+									</a>
+									<div class="p-2 text-center">
+										<h5 class="mb-2 text-md font-bold tracking-tight text-gray-900">
+											{product.name}
+										</h5>
+										<!-- Replace NuxtLink with Svelte Link equivalent -->
+										<a
+											href={`/ticket-detail/${product.vendor.slug}/${product.slug}`}
+											class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
+										>
 									</div>
-								{/if}
-							{/each}
-						</div>
+								</div>
+							{/if}
+						{/each}
 					</div>
-					<!-- Add more tab content here -->
+				</div>
+				<!-- Add more tab content here -->
+				<div
+					class="p-4 rounded-lg bg-gray-50 dark:bg-gray-800"
+					id="balifarmGA"
+					role="tabpanel"
+					aria-labelledby="balifarmGA-tab"
+					hidden={activeTab !== 'balifarmGA'}
+				>
 					<div
-						class="p-4 rounded-lg bg-gray-50 dark:bg-gray-800"
-						id="balifarmGA"
-						role="tabpanel"
-						aria-labelledby="balifarmGA-tab"
-						hidden={activeTab !== 'balifarmGA'}
+						class="overflow-y-auto h-[50vh] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 w-full"
 					>
-						<div
-							class="overflow-y-auto h-[50vh] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 w-full"
-						>
-							<!-- Svelte loop for products -->
-							{#each balifarmGA as product}
-								{#if product.type === 'General Admission'}
-									<div>
-										<a data-sveltekit-reload  href={product.link_address}>
-											<img
-												class="rounded-none h-[25vh] object-cover w-full object-top"
-												src={product.images[0].path}
-												alt={product.name}
-											/>
-										</a>
-										<div class="p-2 text-center">
-											<h5 class="mb-2 text-md font-bold tracking-tight text-gray-900">
-												{product.name}
-											</h5>
-											<!-- Replace NuxtLink with Svelte Link equivalent -->
-											<a data-sveltekit-reload 
-												href={`/ticket-detail/${product.vendor.slug}/${product.slug}`}
-												class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
-											>
-										</div>
+						<!-- Svelte loop for products -->
+						{#each balifarmGA as product}
+							{#if product.type === 'General Admission'}
+								<div>
+									<a href={product.link_address}>
+										<img
+											class="rounded-none h-[25vh] object-cover w-full object-top"
+											src={product.images[0].path}
+											alt={product.name}
+										/>
+									</a>
+									<div class="p-2 text-center">
+										<h5 class="mb-2 text-md font-bold tracking-tight text-gray-900">
+											{product.name}
+										</h5>
+										<!-- Replace NuxtLink with Svelte Link equivalent -->
+										<a
+											href={`/ticket-detail/${product.vendor.slug}/${product.slug}`}
+											class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
+										>
 									</div>
-								{/if}
-							{/each}
-						</div>
+								</div>
+							{/if}
+						{/each}
 					</div>
+				</div>
+				<div
+					class="p-4 rounded-lg bg-gray-50 dark:bg-gray-800"
+					id="balisafariGA"
+					role="tabpanel"
+					aria-labelledby="balisafariGA-tab"
+					hidden={activeTab !== 'balisafariGA'}
+				>
 					<div
-						class="p-4 rounded-lg bg-gray-50 dark:bg-gray-800"
-						id="balisafariGA"
-						role="tabpanel"
-						aria-labelledby="balisafariGA-tab"
-						hidden={activeTab !== 'balisafariGA'}
+						class="overflow-y-auto h-[50vh] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 w-full"
 					>
-						<div
-							class="overflow-y-auto h-[50vh] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 w-full"
-						>
-							<!-- Svelte loop for products -->
-							{#each balisafariGA as product}
-								{#if product.type === 'General Admission'}
-									<div>
-										<a data-sveltekit-reload  href={product.link_address}>
-											<img
-												class="rounded-none h-[25vh] object-cover w-full object-top"
-												src={product.images[0].path}
-												alt={product.name}
-											/>
-										</a>
-										<div class="p-2 text-center">
-											<h5 class="mb-2 text-md font-bold tracking-tight text-gray-900">
-												{product.name}
-											</h5>
-											<!-- Replace NuxtLink with Svelte Link equivalent -->
-											<a data-sveltekit-reload 
-												href={`/ticket-detail/${product.vendor.slug}/${product.slug}`}
-												class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
-											>
-										</div>
+						<!-- Svelte loop for products -->
+						{#each balisafariGA as product}
+							{#if product.type === 'General Admission'}
+								<div>
+									<a href={product.link_address}>
+										<img
+											class="rounded-none h-[25vh] object-cover w-full object-top"
+											src={product.images[0].path}
+											alt={product.name}
+										/>
+									</a>
+									<div class="p-2 text-center">
+										<h5 class="mb-2 text-md font-bold tracking-tight text-gray-900">
+											{product.name}
+										</h5>
+										<!-- Replace NuxtLink with Svelte Link equivalent -->
+										<a
+											href={`/ticket-detail/${product.vendor.slug}/${product.slug}`}
+											class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
+										>
 									</div>
-								{/if}
-							{/each}
-						</div>
+								</div>
+							{/if}
+						{/each}
 					</div>
+				</div>
+				<div
+					class="p-4 rounded-lg bg-gray-50 dark:bg-gray-800"
+					id="balibirdGA"
+					role="tabpanel"
+					aria-labelledby="balibirdGA-tab"
+					hidden={activeTab !== 'balibirdGA'}
+				>
 					<div
-						class="p-4 rounded-lg bg-gray-50 dark:bg-gray-800"
-						id="balibirdGA"
-						role="tabpanel"
-						aria-labelledby="balibirdGA-tab"
-						hidden={activeTab !== 'balibirdGA'}
+						class="overflow-y-auto h-[50vh] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 w-full"
 					>
-						<div
-							class="overflow-y-auto h-[50vh] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 w-full"
-						>
-							<!-- Svelte loop for products -->
-							{#each balibirdGA as product}
-								{#if product.type === 'General Admission'}
-									<div>
-										<a data-sveltekit-reload  href={product.link_address}>
-											<img
-												class="rounded-none h-[25vh] object-cover w-full object-top"
-												src={product.images[0].path}
-												alt={product.name}
-											/>
-										</a>
-										<div class="p-2 text-center">
-											<h5 class="mb-2 text-md font-bold tracking-tight text-gray-900">
-												{product.name}
-											</h5>
-											<!-- Replace NuxtLink with Svelte Link equivalent -->
-											<a data-sveltekit-reload 
-												href={`/ticket-detail/${product.vendor.slug}/${product.slug}`}
-												class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
-											>
-										</div>
+						<!-- Svelte loop for products -->
+						{#each balibirdGA as product}
+							{#if product.type === 'General Admission'}
+								<div>
+									<a href={product.link_address}>
+										<img
+											class="rounded-none h-[25vh] object-cover w-full object-top"
+											src={product.images[0].path}
+											alt={product.name}
+										/>
+									</a>
+									<div class="p-2 text-center">
+										<h5 class="mb-2 text-md font-bold tracking-tight text-gray-900">
+											{product.name}
+										</h5>
+										<!-- Replace NuxtLink with Svelte Link equivalent -->
+										<a
+											href={`/ticket-detail/${product.vendor.slug}/${product.slug}`}
+											class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
+										>
 									</div>
-								{/if}
-							{/each}
-						</div>
+								</div>
+							{/if}
+						{/each}
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-{/if}
-
-<style>
-	.modal-overlay {
-		background-color: rgba(0, 0, 0, 0.5);
-		position: fixed;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		z-index: 99;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-
-	#openinghour-modal {
-		position: fixed;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		z-index: 51;
-		background-color: white;
-		width: 100%;
-		max-height: calc(100% - 2rem);
-		overflow-y: auto;
-		overflow-x: hidden;
-		border-radius: 0.5rem;
-		padding: 1rem;
-		box-shadow:
-			0 4px 6px rgba(0, 0, 0, 0.1),
-			0 1px 3px rgba(0, 0, 0, 0.08);
-	}
-</style>
+</dialog>

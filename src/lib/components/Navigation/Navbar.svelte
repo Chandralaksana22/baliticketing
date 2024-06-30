@@ -1,3 +1,26 @@
+<script lang="ts">
+	import { onMount } from 'svelte';
+	import axios from 'axios';
+
+	let vendors: any[] = [];
+
+	onMount(async () => {
+		let config = {
+			method: 'get',
+			maxBodyLength: Infinity,
+			url: 'https://balitiket.mindimedia.com/api/v1/get-vendor',
+			headers: {}
+		};
+
+		try {
+			const response = await axios.request(config);
+			vendors = response.data;
+		} catch (error) {
+			console.log(error);
+		}
+	});
+</script>
+
 <nav
 	class="px-2 sm:px-4 py-2.5 hidden md:block fixed w-full top-0 left-0 bg-transparent bg-gradient-to-b from-black to-transparent"
 	style="z-index: 99;"
@@ -45,44 +68,65 @@
 				class="flex flex-col font-medium p-4 md:p-0 mt-4 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0"
 			>
 				<li>
-					<a data-sveltekit-reload class="block boldfont py-2 px-3 md:p-0 text-white rounded" href="/">Home</a>
+					<a
+						data-sveltekit-reload
+						class="block boldfont py-2 px-3 md:p-0 text-white rounded"
+						href="/">Home</a
+					>
 				</li>
 				<li>
-					<button
-						id="dropdownNavbarLink"
-						data-dropdown-toggle="dropdownNavbar"
-						class="flex items-center justify-between w-fullblock boldfont py-2 px-3 md:p-0 text-white rounded"
-						>Places to go
-						<svg
-							class="w-2.5 h-2.5 ms-2.5"
-							aria-hidden="true"
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 10 6"
+					<div class="dropdown">
+						<div
+							tabindex="0"
+							role="button"
+							class="flex items-center justify-between w-fullblock boldfont py-2 px-3 md:p-0 text-white rounded"
 						>
-							<path
-								stroke="currentColor"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="m1 1 4 4 4-4"
-							/>
-						</svg>
-					</button>
-					<div id="dropdownNavbar" class="z-10 hidden font-normal bg-white rounded-lg w-52">
-						<ul class="py-2 px-3 text-sm" aria-labelledby="dropdownLargeButton">
-							<!-- Dynamic links will go here -->
-							<li>
-								<a data-sveltekit-reload class="block text-sm boldfont text-black"> </a>
-							</li>
+							Places to go
+							<svg
+								class="w-2.5 h-2.5 ms-2.5"
+								aria-hidden="true"
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 10 6"
+							>
+								<path
+									stroke="currentColor"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="m1 1 4 4 4-4"
+								/>
+							</svg>
+						</div>
+						<ul
+							tabindex="0"
+							class="dropdown-content menu bg-base-100 rounded-box z-[1] py-2 px-3 w-52 text-sm shadow"
+						>
+							{#each vendors as vendor}
+								<li>
+									<a data-sveltekit-reload href={`/vendor/${vendor.slug}`} class="block text-sm boldfont text-black"
+										>{vendor.name}</a
+									>
+								</li>
+							{/each}
 						</ul>
 					</div>
 				</li>
 				<li>
-					<a data-sveltekit-reload class="block boldfont py-2 px-3 md:p-0 text-white rounded" href="/ticket">Tickets </a>
+					<a
+						data-sveltekit-reload
+						class="block boldfont py-2 px-3 md:p-0 text-white rounded"
+						href="/ticket"
+						>Tickets
+					</a>
 				</li>
 				<li>
-					<a data-sveltekit-reload class="block boldfont py-2 px-3 md:p-0 text-white rounded" href="/contact">Contact </a>
+					<a
+						data-sveltekit-reload
+						class="block boldfont py-2 px-3 md:p-0 text-white rounded"
+						href="/contact"
+						>Contact
+					</a>
 				</li>
 			</ul>
 		</div>

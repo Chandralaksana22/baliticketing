@@ -28,7 +28,7 @@
 	id="button-modal-opening"
 	class="flex flex-col lg:flex-row items-center text-center lg:text-left clock"
 	type="button"
-	on:click={() => (showModal = true)}
+	onclick="my_modal_4.showModal()"
 >
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
@@ -46,95 +46,63 @@
 		<p class="text-sm hidden lg:block">Check all opening hour</p>
 	</div>
 </button>
-
-{#if showModal}
-	<div class="modal-overlay">
-		<div
-			id="openinghour-modal"
-			data-modal-backdrop="openinghour"
-			tabindex="-1"
-			aria-hidden="true"
-			class="overflow-y-auto overflow-x-hidden bg-white rounded-lg shadow dark:bg-gray-700 max-w-2xl p-4 md:p-5"
-		>
-			<div class="relative">
-				<div class="flex items-center justify-between border-b rounded-t dark:border-gray-600">
-					<h3 class="text-xl text-center boldfont lg:text-start font-semibold text-blue">
-						Opening Hour
-					</h3>
-					<button
-						type="button"
-						class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-						id="closeButton-openinghour-modal"
-						on:click={closeModal}
-					>
-						<svg
-							class="w-3 h-3"
-							aria-hidden="true"
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 14 14"
-						>
-							<path
-								stroke="currentColor"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-							/>
-						</svg>
-						<span class="sr-only">Close modal</span>
-					</button>
-				</div>
-				<div class="p-4 md:p-5 space-y-4">
-					<div class="mb-4">
-						<ul
-							class="block lg:flex flex-wrap justify-center -mb-px text-sm font-medium text-center gap-4"
-							id="default-tab"
-							data-tabs-toggle="#default-tab-content"
-							role="tablist"
-						>
-							{#each data as vendor}
-								<li>
-									<button
-										class="inline-block mb-2 w-full p-2 px-5 tab-button rounded-lg"
-										data-tabs-target={'#' + vendor.slug}
-										type="button"
-										role="tab"
-										aria-controls={vendor.slug}
-										aria-selected={activeTab === vendor.slug ? 'true' : 'false'}
-										on:click={() => activateTab(vendor.slug)}
-									>
-										{vendor.name}
-									</button>
-								</li>
-							{/each}
-						</ul>
-					</div>
-					<div id="default-tab-content">
-						{#each data as vendor}
-							<div
-								id={vendor.slug}
-								class="{activeTab === vendor.slug
-									? 'block'
-									: 'hidden'} p-4 rounded-lg bg-gray-50 dark:bg-gray-800"
-								role="tabpanel"
-								aria-labelledby={vendor.slug}
+<dialog id="my_modal_4" class="modal">
+	<div class="relative bg-white">
+		<div class="flex items-center justify-between border-b rounded-t dark:border-gray-600">
+			<h3 class="text-xl text-center boldfont lg:text-start font-semibold text-blue">
+				Opening Hour
+			</h3>
+			<form method="dialog">
+				<button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+			</form>
+		</div>
+		<div class="p-4 md:p-5 space-y-4">
+			<div class="mb-4">
+				<ul
+					class="block lg:flex flex-wrap justify-center -mb-px text-sm font-medium text-center gap-4"
+					id="default-tab"
+					data-tabs-toggle="#default-tab-content"
+					role="tablist"
+				>
+					{#each data as vendor}
+						<li>
+							<button
+								class="inline-block mb-2 w-full p-2 px-5 tab-button rounded-lg"
+								data-tabs-target={'#' + vendor.slug}
+								type="button"
+								role="tab"
+								aria-controls={vendor.slug}
+								aria-selected={activeTab === vendor.slug ? 'true' : 'false'}
+								on:click={() => activateTab(vendor.slug)}
 							>
-								<div class="grid grid-cols-2 gap-2 w-full lg:w-3/4">
-									{#each vendor.schedule as schedule}
-										<p class="font-bold">{schedule.day}</p>
-										<p>{schedule.start_time.slice(11, 16)} - {schedule.end_time.slice(11, 16)}</p>
-									{/each}
-								</div>
-							</div>
-						{/each}
+								{vendor.name}
+							</button>
+						</li>
+					{/each}
+				</ul>
+			</div>
+			<div id="default-tab-content">
+				{#each data as vendor}
+					<div
+						id={vendor.slug}
+						class="{activeTab === vendor.slug
+							? 'block'
+							: 'hidden'} p-4 rounded-lg bg-gray-50 dark:bg-gray-800"
+						role="tabpanel"
+						aria-labelledby={vendor.slug}
+					>
+						<div class="grid grid-cols-2 gap-2 w-full lg:w-3/4">
+							{#each vendor.schedule as schedule}
+								<p class="font-bold">{schedule.day}</p>
+								<p>{schedule.start_time.slice(11, 16)} - {schedule.end_time.slice(11, 16)}</p>
+							{/each}
+						</div>
 					</div>
-				</div>
+				{/each}
 			</div>
 		</div>
 	</div>
-{/if}
-
+</dialog>
 <style>
 	.modal-overlay {
 		background-color: rgba(0, 0, 0, 0.5);

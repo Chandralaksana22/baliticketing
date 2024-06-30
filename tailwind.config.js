@@ -5,7 +5,7 @@ const config = {
   ],
 
   plugins: [
-    require('flowbite/plugin')
+    require('daisyui')
   ],
   theme: {
   }

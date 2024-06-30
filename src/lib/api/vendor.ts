@@ -60,3 +60,19 @@ export async function getVendorDetail(slug: any,) {
 		console.log(error);
 	}
 }
+export async function getProductVendor(slug: any,) {
+	try {
+		const resp = await apiClient.get(`/get-product?slug=${slug}`);
+		return resp.data;
+	} catch (error) {
+		console.log(error);
+	}
+}
+export async function getPopularProduct(slug: any,) {
+	try {
+		const resp = await apiClient.get(`/get-popular-product-2?slug=${slug}`);
+		return resp.data;
+	} catch (error) {
+		console.log(error);
+	}
+}

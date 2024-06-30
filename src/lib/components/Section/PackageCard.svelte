@@ -6,7 +6,7 @@
 	export let productsData: any = [];
 
 	onMount(() => {
-		const swiper = new Swiper('.mySwiper', {
+		const swiper = new Swiper('.mySwiperpackage', {
 			modules: [Navigation],
 			navigation: {
 				nextEl: '.swiper-button-next',
@@ -30,7 +30,7 @@
 	});
 </script>
 
-<div class="swiper mySwiper">
+<div class="swiper mySwiperpackage">
 	<div class="swiper-wrapper">
 		{#each productsData as product}
 			<div class="swiper-slide">

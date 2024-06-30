@@ -55,48 +55,7 @@
 			</form>
 		</div>
 		<div class="p-4 md:p-5 space-y-4">
-			<div class="mb-4">
-				<ul
-					class="block lg:flex flex-wrap justify-center -mb-px text-sm font-medium text-center gap-4"
-					id="default-tab"
-					data-tabs-toggle="#default-tab-content"
-					role="tablist"
-				>
-					{#each data as vendor}
-						<li>
-							<button
-								class="inline-block mb-2 w-full p-2 px-5 tab-button rounded-lg"
-								data-tabs-target={'#' + vendor.slug}
-								type="button"
-								role="tab"
-								aria-controls={vendor.slug}
-								aria-selected={activeTab === vendor.slug ? 'true' : 'false'}
-								on:click={() => activateTab(vendor.slug)}
-							>
-								{vendor.name}
-							</button>
-						</li>
-					{/each}
-				</ul>
-			</div>
-			<div id="default-tab-content">
-				{#each data as vendor}
-					<div
-						id={vendor.slug}
-						class="{activeTab === vendor.slug
-							? 'block'
-							: 'hidden'} p-4 rounded-lg bg-gray-50 dark:bg-gray-800"
-						role="tabpanel"
-						aria-labelledby={vendor.slug}
-					>
-						<img
-							class="rounded-t-lg mx-auto h-[25rem] object-contain"
-							src="/images/maps.jpeg"
-							alt=""
-						/>
-					</div>
-				{/each}
-			</div>
+			<img class="rounded-t-lg mx-auto h-[25rem] object-contain" src="/images/maps.jpeg" alt="" />
 		</div>
 	</div>
 </dialog>

@@ -1,14 +1,61 @@
 <script lang="ts">
+	import PackageCard from '$lib/components/Section/PackageCard.svelte';
+	import { onMount, createEventDispatcher } from 'svelte';
+	import GeneralAdmissionSlider from '$lib/components/Section/Vendor/BaliZoo/GeneralAdmissionSlider.svelte';
+	import GeneralAdmissionModal from '$lib/components/Modal/DetailVendor/GeneralAdmissionModal.svelte';
+	import OpeningHour from '$lib/components/Modal/DetailVendor/OpeningHour.svelte';
+	import WhatsOnModalHome from '$lib/components/Modal/DetailVendor/WhatsOnModalHome.svelte';
+	import ZooMapModalHome from '$lib/components/Modal/DetailVendor/ZooMapModalHome.svelte';
+	import PopularActivity from '$lib/components/Section/Vendor/BaliZoo/PopularActivity.svelte';
 	import type { PageServerData } from './$types';
+	import GeneralAdmissionCard from '$lib/components/Section/Vendor/BaliFarm/GeneralAdmissionCard.svelte';
 	export let data: PageServerData;
 
 	let detail = data?.detail;
+	let product = data?.product;
+	let popular = data?.popularProduct;
+	let singlePackages = data?.product.filter((item: any) => {
+		return item.type === "What's On" && item.category === 'Single Package';
+	});
+	let comboPackages = data?.product.filter((item: any) => {
+		return item.type === "What's On" && item.category === 'Combo Package';
+	});
+
+	let stayPackages = data?.product.filter((item: any) => {
+		return item.type === "What's On" && item.category === 'Stay Package';
+	});
+
+	let activeTab = 'styled-profile';
+	const dispatch = createEventDispatcher();
+
+	onMount(() => {
+		showTab(activeTab);
+	});
+
+	function showTab(tabId: string) {
+		dispatch('changeTab', tabId);
+
+		activeTab = tabId;
+
+		const tabs = document.querySelectorAll('[data-tabs-toggle] button');
+		tabs.forEach((tab) => {
+			const selected = tab.getAttribute('data-tabs-target') === `#${tabId}`;
+			tab.setAttribute('aria-selected', selected ? 'true' : 'false');
+		});
+
+		const tabContents = document.querySelectorAll('[role="tabpanel"]');
+		tabContents.forEach((content) => {
+			const isVisible = content.id === tabId;
+			content.classList.toggle('hidden', !isVisible);
+			content.setAttribute('aria-hidden', isVisible ? 'false' : 'true');
+		});
+	}
 	console.log('detail', detail);
 </script>
 
 <svelte:head>
 	<title>
-		{detail?.title}
+		{detail?.name} | TiketXplorer
 	</title>
 </svelte:head>
 
@@ -18,11 +65,124 @@
 		alt={detail?.images[0].path}
 		class="h-[100vh] object-cover w-full"
 	/>
-	<!-- <div class="hidden md:block px-5 pb-0 md:pb-44 md:px-10 container mx-auto">
-        <div class="panel-transparent p-5 md:p-10 rounded-3xl mt-10 mb-[-20%] relative">
-            <PanelInfo />
-        </div>
-    </div> -->
+	<div class="hidden md:block px-5 pb-0 md:pb-44 md:px-10 container mx-auto">
+		<div class="panel-transparent p-5 md:p-10 rounded-3xl mt-10 mb-[-20%] relative">
+			<div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+				<OpeningHour data={detail} />
+				<GeneralAdmissionModal explorerGA={product} />
+				<ZooMapModalHome />
+				<WhatsOnModalHome explorerWO={product} />
+			</div>
+		</div>
+	</div>
+	{#if detail.slug === 'bali-zoo'}
+		<PopularActivity data={popular} />
+		<div class="hidden md:block bg-cover bg-[url('../images/background-biru-desktop.png')]">
+			<h4 class="boldfont text-white text-3xl pt-[15%] mb-5 text-center">
+				ALL PACKAGES, GET MORE PAY LESS
+			</h4>
+			<div class="p-10">
+				<div class="mb-4">
+					<ul
+						class="flex flex-wrap -mb-px text-sm font-medium mx-auto justify-center text-center"
+						id="default-styled-tab"
+						data-tabs-toggle="#default-styled-tab-content"
+						role="tablist"
+					>
+						<li class="me-2" role="presentation">
+							<button
+								class="inline-block package boldfont rounded-lg p-4"
+								id="profile-styled-tab"
+								on:click={() => showTab('styled-profile')}
+								aria-controls="styled-profile"
+								aria-selected={activeTab === 'styled-profile' ? 'true' : 'false'}
+								type="button"
+								role="tab">SINGLE PACKAGE</button
+							>
+						</li>
+						<li class="me-2" role="presentation">
+							<button
+								class="inline-block package boldfont rounded-lg p-4"
+								id="dashboard-styled-tab"
+								on:click={() => showTab('styled-dashboard')}
+								aria-controls="styled-dashboard"
+								aria-selected={activeTab === 'styled-dashboard' ? 'true' : 'false'}
+								type="button"
+								role="tab">COMBO PACKAGE</button
+							>
+						</li>
+						<li class="me-2" role="presentation">
+							<button
+								class="inline-block package boldfont rounded-lg p-4"
+								id="settings-styled-tab"
+								on:click={() => showTab('styled-settings')}
+								aria-controls="styled-settings"
+								aria-selected={activeTab === 'styled-settings' ? 'true' : 'false'}
+								type="button"
+								role="tab">STAY PACKAGE</button
+							>
+						</li>
+					</ul>
+				</div>
+				<div id="default-styled-tab-content">
+					<div
+						class="{activeTab === 'styled-profile' ? '' : 'hidden'} h-[400px]"
+						id="styled-profile"
+						role="tabpanel"
+						aria-labelledby="profile-styled-tab"
+					>
+						<PackageCard productsData={singlePackages} />
+					</div>
+					<div
+						class="{activeTab === 'styled-dashboard' ? '' : 'hidden'} h-[400px]"
+						id="styled-dashboard"
+						role="tabpanel"
+						aria-labelledby="dashboard-styled-tab"
+					>
+						<PackageCard productsData={comboPackages} />
+					</div>
+					<div
+						class="{activeTab === 'styled-settings' ? '' : 'hidden'} h-[400px]"
+						id="styled-settings"
+						role="tabpanel"
+						aria-labelledby="settings-styled-tab"
+					>
+						<PackageCard productsData={stayPackages} />
+					</div>
+				</div>
+			</div>
+		</div>
+		<section class="hidden md:block">
+			<div>
+				<div class="grid grid-cols-1 md:grid-cols-12">
+					<div class="col-span-5">
+						<GeneralAdmissionSlider data={product} />
+					</div>
+					<div class="col-span-7 bg-cover bg-center bg-[url('/images/bg-hijau.png')]">
+						<button
+							type="button"
+							class="bg-yellow p-3 boldfont text-xl rounded-b-xl"
+							style="position: relative; top:50%; transform-origin: top left; transform: rotate(-90deg) translateX(-50%);"
+						>
+							<h3 class="boldfont">MEMBERSHIP</h3>
+						</button>
+						<div class="flex flex-col items-center justify-center pt-10 mx-auto px-10 space-y-4">
+							<img class="object-contain h-[35vh]" src="/images/member1.png" alt="Member 1" />
+							<img class="object-contain h-[35vh]" src="/images/member2.png" alt="Member 2" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	{:else if detail.slug === 'bali-farm-house'}
+		<div id="placetogo" class="hidden md:block container mx-auto">
+			<h4 class="boldfont text-white text-3xl text-center">General Admission</h4>
+			<h4 class="text-white text-lg mb-5 text-center">(For Indonesian ID and Kitas holder)</h4>
+			<div class="grid md:grid-cols-2 lg:grid-cols-3 p-10 gap-4">
+				<GeneralAdmissionCard data={product} />
+			</div>
+		</div>
+	{:else if detail.slug === 'bali-safari'}{:else if detail.slug === 'bali-bird-park'}{:else}{/if}
 	<!-- <div class="mt-10" v-if="slug === 'bali-zoo'">
 		<PopularActivities :explorerData="explorerData" :vendorSlug="slug" />
 	</div> -->
@@ -113,7 +273,7 @@
 		<BaliBirdCard :vendorBaliBird="vendorBaliBird" />
 	</div> -->
 </section>
-<section class="hidden md:block bg-cover bg-[url('../assets/image/background-biru-desktop.png')]">
+<section class="hidden md:block bg-cover bg-[url('../images/background-biru-desktop.png')]">
 	<!-- <div class="mt-10" v-if="slug === 'bali-zoo'">
 		<h4 class="boldfont text-white text-3xl pt-[15%] mb-5 text-center">
 			ALL PACKAGES, GET MORE PAY LESS
@@ -213,33 +373,15 @@
 		</div>
 	</div> -->
 </section>
-<!-- <section class="hidden md:block" v-if="slug === 'bali-zoo'">
-	<div>
-		<div class="grid grid-cols-1 md:grid-cols-12">
-			<div class="col-span-5">
-				<GeneralAdmission :generalAdmissionData="generalAdmissionData" />
-			</div>
-			<div class="col-span-7 bg-cover bg-center bg-[url('../assets/image/bg-hijau.png')]">
-				<button
-					type="button"
-					class="bg-yellow p-3 boldfont text-xl rounded-b-xl"
-					style="position: relative; top:50%; transform-origin: top left; transform: rotate(-90deg) translateX(-50%);"
-				>
-					<h3 class="boldfont">MEMBERSHIP</h3>
-				</button>
-				<div class="flex flex-col items-center justify-center pt-10 mx-auto px-10 space-y-4">
-					<img
-						class="object-contain h-[35vh]"
-						src="../../assets/image/member1.png"
-						alt="Member 1"
-					/>
-					<img
-						class="object-contain h-[35vh]"
-						src="../../assets/image/member2.png"
-						alt="Member 2"
-					/>
-				</div>
-			</div>
-		</div>
-	</div>
-</section> -->
+
+<style>
+	button.package[aria-selected='false'] {
+		background-color: #0887be;
+		color: #ffd600;
+	}
+
+	button.package[aria-selected='true'] {
+		background-color: #ffd600;
+		color: #0887be;
+	}
+</style>
