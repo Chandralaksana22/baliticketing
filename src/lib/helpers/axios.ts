@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = "https://balitiket.mindimedia.com/api/v1";
+const BASE_URL = "https://main.tiketxplorer.com/api/v1";
 
 const apiClient = axios.create({
 	baseURL: BASE_URL,

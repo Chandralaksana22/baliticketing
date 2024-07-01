@@ -23,7 +23,7 @@
 	<div
 		class="bg-center bg-cover h-[100] bg-no-repeat bg-[url('/images/Homepage-mobile.png')] lg:bg-[url('/images/bg-home.png')]"
 	>
-		<div class="h-[100vh] px-5 lg:px-10 container mx-auto flex items-center">
+		<div class="hidden lg:flex h-[100vh] px-5 lg:px-10 container mx-auto items-center">
 			<h1
 				class="hidden lg:block mb-4 boldfont text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl"
 			>
@@ -47,7 +47,7 @@
 		</div>
 		<div>
 			<div
-				class="panel-home bg-[#FFD600] p-5 lg:p-10 rounded-3xl mt-10 lg:mt-44 mb-[-20%] relative"
+				class="hidden lg:block panel-home bg-[#FFD600] p-5 lg:p-10 rounded-3xl mt-10 lg:mt-44 mb-[-20%] relative"
 			>
 				<div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
                     <OpeningHourModal data={vendor}/>
@@ -60,7 +60,7 @@
 	</div>
 </section>
 <section
-	class="bg-cover h-[25vh] lg:h-auto bg-[url('/images/background-biru-desktop.png')]"
+	class="hidden lg:block bg-cover h-[25vh] lg:h-auto bg-[url('/images/background-biru-desktop.png')]"
 >
 	<div class="hidden lg:grid grid-cols-1 lg:grid-cols-12 gap-4">
 		<div class="col-span-7 pt-24">

@@ -8,7 +8,7 @@
 		let config = {
 			method: 'get',
 			maxBodyLength: Infinity,
-			url: 'https://balitiket.mindimedia.com/api/v1/get-vendor',
+			url: 'https://main.tiketxplorer.com/api/v1/get-vendor',
 			headers: {}
 		};
 
@@ -30,7 +30,9 @@
 			<img src="/images/logo.png" class="h-16" />
 		</a>
 		<div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-			<a href="/ticket" data-sveltekit-reload
+			<a
+				href="/ticket"
+				data-sveltekit-reload
 				type="button"
 				class="text-white border border-gray-300 boldfont bg-transparentfont-medium rounded-lg text-sm px-4 py-2 text-center hover:bg-white hover:text-black"
 				>Enquire</a
@@ -191,3 +193,15 @@
 		>
 	</div>
 </div>
+
+<style>
+	.nav-bottom-bar {
+		width: 100%;
+		justify-content: space-between;
+		align-items: center;
+		flex-shrink: 0;
+		background: #0009;
+		-webkit-backdrop-filter: blur(5px);
+		backdrop-filter: blur(5px);
+	}
+</style>

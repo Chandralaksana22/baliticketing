@@ -45,13 +45,7 @@
 	async function handleSubmit(event) {
 		event.preventDefault();
 		loading = true;
-		const selectedDate = new Date(selectedTicket.date);
-		const day = selectedDate.getDate().toString().padStart(2, '0');
-		const month = (selectedDate.getMonth() + 1).toString().padStart(2, '0');
-		const year = selectedDate.getFullYear().toString();
-		const formattedDate = `${year}-${month}-${day}`;
-
-		const url = `https://balitiket.mindimedia.com/api/v1/send-form?adult=${adultCount}&children=${childrenCount}&infant=${infantCount}&total_price=${totalPrice}&adult_price=${selectedTicket.adult_price}&children_price=${selectedTicket.children_price}&infant_price=${selectedTicket.infant_price}&total_adult_price=${selectedTicket.total_adult}&total_children_price=${selectedTicket.total_children}&total_infant_price=${selectedTicket.total_infant}&arrival=${date}&firstname=${firstname}&lastname=${lastname}&email=${email}&phone=${phone}&country=${selectedCountry}&terms=${terms}&id=${selectedTicket.id}&product_id=${selectedTicket.product_id}&vendor_id=${selectedTicket.vendor_id}&slug=${selectedTicket.slug}`;
+		const url = `https://main.tiketxplorer.com/api/v1/send-form?adult=${adultCount}&children=${childrenCount}&infant=${infantCount}&total_price=${totalPrice}&adult_price=${selectedTicket.adult_price}&children_price=${selectedTicket.children_price}&infant_price=${selectedTicket.infant_price}&total_adult_price=${selectedTicket.total_adult}&total_children_price=${selectedTicket.total_children}&total_infant_price=${selectedTicket.total_infant}&arrival=${date}&firstname=${firstname}&lastname=${lastname}&email=${email}&phone=${phone}&country=${selectedCountry}&terms=${terms}&id=${selectedTicket.id}&product_id=${selectedTicket.product_id}&vendor_id=${selectedTicket.vendor_id}&slug=${selectedTicket.slug}`;
 
 		try {
 			const response = await axios.post(url);
