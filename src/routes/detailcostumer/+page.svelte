@@ -1,7 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
 	import axios from 'axios';
-	let guestname = '';
 	let firstname = '';
 	let lastname = '';
 	let phone = '';
@@ -52,7 +51,7 @@
 		const year = selectedDate.getFullYear().toString();
 		const formattedDate = `${year}-${month}-${day}`;
 
-		const url = `https://balitiket.mindimedia.com/api/v1/send-form?adult=${adultCount}&children=${childrenCount}&infant=${infantCount}&total_price=${totalPrice}&adult_price=${selectedTicket.adult_price}&children_price=${selectedTicket.children_price}&infant_price=${selectedTicket.infant_price}&total_adult_price=${selectedTicket.total_adult}&total_children_price=${selectedTicket.total_children}&total_infant_price=${selectedTicket.total_infant}&arrival=${date}&guestname=${guestname}&firstname=${firstname}&lastname=${lastname}&email=${email}&phone=${phone}&country=${selectedCountry}&terms=${terms}&id=${selectedTicket.id}&product_id=${selectedTicket.product_id}&vendor_id=${selectedTicket.vendor_id}&slug=${selectedTicket.slug}`;
+		const url = `https://balitiket.mindimedia.com/api/v1/send-form?adult=${adultCount}&children=${childrenCount}&infant=${infantCount}&total_price=${totalPrice}&adult_price=${selectedTicket.adult_price}&children_price=${selectedTicket.children_price}&infant_price=${selectedTicket.infant_price}&total_adult_price=${selectedTicket.total_adult}&total_children_price=${selectedTicket.total_children}&total_infant_price=${selectedTicket.total_infant}&arrival=${date}&firstname=${firstname}&lastname=${lastname}&email=${email}&phone=${phone}&country=${selectedCountry}&terms=${terms}&id=${selectedTicket.id}&product_id=${selectedTicket.product_id}&vendor_id=${selectedTicket.vendor_id}&slug=${selectedTicket.slug}`;
 
 		try {
 			const response = await axios.post(url);
@@ -87,22 +86,6 @@
 				<div class="space-y-4">
 					<h2 class="text-xl font-semibold text-gray-900 dark:text-white">Confirmation Payment</h2>
 					<form class="grid grid-cols-1 gap-4 sm:grid-cols-2" on:submit={handleSubmit}>
-						<div>
-							<label
-								for="guestname"
-								class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
-								>Guest Name*</label
-							>
-							<input
-								type="text"
-								id="guestname"
-								name="guestname"
-								bind:value={guestname}
-								class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-								placeholder="Bonnie"
-								required
-							/>
-						</div>
 						<div>
 							<label
 								for="firstname"
