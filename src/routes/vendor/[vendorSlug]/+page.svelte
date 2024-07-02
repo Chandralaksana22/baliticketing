@@ -16,17 +16,19 @@
 	let detail = data?.detail;
 	let product = data?.product;
 	let popular = data?.popularProduct;
-	let singlePackages = data?.product.filter((item: any) => {
-		return item.type === "What's On" && item.category === 'Single Package';
+	console.log('product', popular)
+	let singlePackages = data?.product?.filter((item: any) => {
+		return item?.type === "What's On" && item?.category === 'Single Package';
 	});
-	let comboPackages = data?.product.filter((item: any) => {
-		return item.type === "What's On" && item.category === 'Combo Package';
-	});
-
-	let stayPackages = data?.product.filter((item: any) => {
-		return item.type === "What's On" && item.category === 'Stay Package';
+	let comboPackages = data?.product?.filter((item: any) => {
+		return item?.type === "What's On" && item?.category === 'Combo Package';
 	});
 
+	let stayPackages = data?.product?.filter((item: any) => {
+		return item?.type === "What's On" && item?.category === 'Stay Package';
+	});
+
+	
 	let activeTab = 'styled-profile';
 	const dispatch = createEventDispatcher();
 
@@ -52,7 +54,6 @@
 			content.setAttribute('aria-hidden', isVisible ? 'false' : 'true');
 		});
 	}
-	console.log('detail', detail);
 </script>
 
 <svelte:head>

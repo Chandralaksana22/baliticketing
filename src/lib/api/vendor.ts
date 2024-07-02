@@ -5,7 +5,7 @@ export async function getVendor() {
 		const resp = await apiClient.get(
 			`/get-list-vendor`
 		);
-		return resp.data;
+		return resp.data.data;
 	} catch (error) {
 		console.log(error);
 	}
@@ -15,7 +15,7 @@ export async function getBaliZooPopular() {
 		const resp = await apiClient.get(
 			`/get-popular-product-2?slug=bali-zoo`
 		);
-		return resp.data;
+		return resp.data.data;
 	} catch (error) {
 		console.log(error);
 	}
@@ -26,7 +26,7 @@ export async function getBaliBirdParkPopular() {
 		const resp = await apiClient.get(
 			`/get-popular-product-2?slug=bali-bird-park`
 		);
-		return resp.data;
+		return resp.data.data;
 	} catch (error) {
 		console.log(error);
 	}
@@ -37,7 +37,7 @@ export async function getBaliFarmPopular() {
 		const resp = await apiClient.get(
 			`/get-popular-product-2?slug=bali-farm-house`
 		);
-		return resp.data;
+		return resp.data.data;
 	} catch (error) {
 		console.log(error);
 	}
@@ -47,7 +47,7 @@ export async function getBaliSafariPopular() {
 		const resp = await apiClient.get(
 			`/get-popular-product-2?slug=bali-safari`
 		);
-		return resp.data;
+		return resp.data.data;
 	} catch (error) {
 		console.log(error);
 	}
@@ -63,7 +63,7 @@ export async function getVendorDetail(slug: any,) {
 export async function getProductVendor(slug: any,) {
 	try {
 		const resp = await apiClient.get(`/get-product?slug=${slug}`);
-		return resp.data;
+		return resp.data.data;
 	} catch (error) {
 		console.log(error);
 	}
