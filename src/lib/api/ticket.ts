@@ -15,7 +15,7 @@ export async function getProduct(vendorSlug: any, productSlug:any) {
 		const resp = await apiClient.get(
 			`/get-detail-product?vendor=${vendorSlug}&product=${productSlug}`
 		);
-		return resp.data.data;
+		return resp.data
 	} catch (error) {
 		console.log(error);
 	}
