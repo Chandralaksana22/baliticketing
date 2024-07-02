@@ -1,9 +1,9 @@
 import preprocess from 'svelte-preprocess';
-import nodeAdapter from '@sveltejs/adapter-node';
+import adapter  from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 const config = {
 	kit: {
-		adapter: nodeAdapter(),
+		adapter: adapter (),
 		alias: {
 			$assets: '/src/assets',
 			$lib: '/src/lib'
