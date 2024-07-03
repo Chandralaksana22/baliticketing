@@ -17,15 +17,11 @@
 	let showSummary = false;
 	function handleSubmit(event) {
 		event.preventDefault();
-
-		// Simpan data ke localStorage
 		localStorage.setItem('selectedTicket', JSON.stringify(selectedTicket));
 		localStorage.setItem('adultCount', adultCount.toString());
 		localStorage.setItem('childrenCount', childrenCount.toString());
 		localStorage.setItem('infantCount', infantCount.toString());
 		localStorage.setItem('date', date);
-
-		// Navigasi ke halaman detailcostumer
 		goto('/detailcostumer');
 	}
 	function selectTicket(ticket: item) {
@@ -207,7 +203,7 @@
 				<div class="hidden lg:block">
 					<h1 class="boldfont my-5">Ticket Availability Check</h1>
 					<div class="p-5 border-2 border-sky-500 rounded-xl">
-						<form action={`/vendor/${detail.vendor.slug}/${detail.slug}`} data-sveltekit-reload>
+						<form action={`/vendor/${detail.vendor.slug}/${detail.slug}`} data-sveltekit-noscroll>
 							<div class="grid grid-cols-3 gap-4">
 								<div class="dropdown">
 									<div
@@ -471,8 +467,10 @@
 										>
 									</div>
 									<input
-										type="date" required
+										type="date"
+										required
 										name="date"
+										bind:value={date}
 										class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 datepicker-input"
 										placeholder="Select date"
 									/>
@@ -487,224 +485,237 @@
 					</div>
 				</div>
 				<TabsDetail data={detail} />
-				<div class="mt-5">
-					<div id="accordion-open" data-accordion="open">
-						<h2 id="accordion-open-heading-1">
-							<button
-								type="button"
-								class="flex items-center bg-blue justify-between w-full p-5 font-medium text-white rtl:text-right button-text-white border-sky-400 rounded-xl gap-3 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white"
-								data-accordion-target="#accordion-open-body-1"
-								aria-expanded="true"
-								aria-controls="accordion-open-body-1"
-								on:click={() => (open = !open)}
-							>
-								{listTicket?.length} Ticket available
-								<svg
-									class="w-3 h-3 shrink-0 transition-transform duration-300"
-									aria-hidden="true"
-									xmlns="http://www.w3.org/2000/svg"
-									fill="none"
-									viewBox="0 0 10 6"
-									style={open ? 'transform: rotate(180deg);' : ''}
+				{#if listTicket}
+					<div class="mt-5">
+						<div id="accordion-open" data-accordion="open">
+							<h2 id="accordion-open-heading-1">
+								<button
+									type="button"
+									class="flex items-center bg-blue justify-between w-full p-5 font-medium text-white rtl:text-right button-text-white border-sky-400 rounded-xl gap-3 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white"
+									data-accordion-target="#accordion-open-body-1"
+									aria-expanded="true"
+									aria-controls="accordion-open-body-1"
+									on:click={() => (open = !open)}
 								>
-									<path
-										stroke="currentColor"
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										stroke-width="2"
-										d="M9 5 5 1 1 5"
-									></path>
-								</svg>
-							</button>
-						</h2>
-						{#if open}
-							{#each listTicket as item}
-								<div
-									id={`accordion-open-body-${item.id}`}
-									class=""
-									aria-labelledby={`accordion-open-heading-${item.id}`}
-								>
-									<div class="border border-sky-400 mt-5 rounded-xl">
-										<div class="p-5">
-											<div id="accordion-sub-open" data-accordion="open">
-												<h2 id={`accordion-sub-open-heading-${item.id}`}>
-													<button
-														type="button"
-														class="flex items-center bg-transparent justify-between w-full font-bold rtl:text-right button-text-blue bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white"
-														data-accordion-target={`#accordion-sub-open-body-${item.id}`}
-														aria-expanded="true"
-														aria-controls={`accordion-sub-open-body-${item.id}`}
-													>
-														{item?.name}
-														<svg
-															data-accordion-icon=""
-															class="w-3 h-3 shrink-0"
-															aria-hidden="true"
-															xmlns="http://www.w3.org/2000/svg"
-															fill="none"
-															viewBox="0 0 10 6"
+									{listTicket?.length} Ticket available
+									<svg
+										class="w-3 h-3 shrink-0 transition-transform duration-300"
+										aria-hidden="true"
+										xmlns="http://www.w3.org/2000/svg"
+										fill="none"
+										viewBox="0 0 10 6"
+										style={open ? 'transform: rotate(180deg);' : ''}
+									>
+										<path
+											stroke="currentColor"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="2"
+											d="M9 5 5 1 1 5"
+										></path>
+									</svg>
+								</button>
+							</h2>
+							{#if open}
+								{#each listTicket as item}
+									<div
+										id={`accordion-open-body-${item.id}`}
+										class=""
+										aria-labelledby={`accordion-open-heading-${item.id}`}
+									>
+										<div class="border border-sky-400 mt-5 rounded-xl">
+											<div class="p-5">
+												<div id="accordion-sub-open" data-accordion="open">
+													<h2 id={`accordion-sub-open-heading-${item.id}`}>
+														<button
+															type="button"
+															class="flex items-center bg-transparent justify-between w-full font-bold rtl:text-right button-text-blue bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white"
+															data-accordion-target={`#accordion-sub-open-body-${item.id}`}
+															aria-expanded="true"
+															aria-controls={`accordion-sub-open-body-${item.id}`}
 														>
-															<path
-																stroke="currentColor"
-																stroke-linecap="round"
-																stroke-linejoin="round"
-																stroke-width="2"
-																d="M9 5 5 1 1 5"
-															/>
-														</svg>
-													</button>
-												</h2>
-												<div
-													id={`accordion-sub-open-body-${item.id}`}
-													class=""
-													aria-labelledby={`accordion-sub-open-heading-${item.id}`}
-												>
-													<div class="grid grid-cols-3 my-3">
-														<div class="">
-															<p class="text-xs font-semibold text-gray-500">Date</p>
-															<p class="text-sm text-black font-semibold">
-																{new Date(item.created_at).toLocaleDateString('en-US', {
-																	weekday: 'long',
-																	year: 'numeric',
-																	month: 'long',
-																	day: 'numeric'
-																})}
-															</p>
-														</div>
-														<div class="">
-															<p class="text-xs font-semibold text-gray-500">Zoo Opening Hour</p>
-															<p class="text-sm text-black font-semibold">
-																{item?.start_time && convertTo12HourFormat(item.start_time)} - {item?.end_time &&
-																	convertTo12HourFormat(item.end_time)}
-															</p>
-														</div>
-														<div class="">
-															<p class="text-xs font-semibold text-gray-500">Cancellation Policy</p>
-															<p class="text-sm text-black font-semibold">{item.cancellation}</p>
-														</div>
-													</div>
-													<hr />
-													<div class="mt-5 grid grid-cols-3">
-														<div class="col-span-1">
-															<h1 class="text-xs font-semibold text-gray-500">Inclusion</h1>
-															<ul class="text-left text-black mt-3">
-																{#each item?.inclusion as inclusionItem}
-																	<li
-																		class="flex items-center space-x-3 mb-1 rtl:space-x-reverse text-sm font-semibold"
-																	>
-																		<svg
-																			class="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400"
-																			aria-hidden="true"
-																			xmlns="http://www.w3.org/2000/svg"
-																			fill="none"
-																			viewBox="0 0 16 12"
-																		>
-																			<path
-																				stroke="currentColor"
-																				stroke-linecap="round"
-																				stroke-linejoin="round"
-																				stroke-width="2"
-																				d="M1 5.917 5.724 10.5 15 1.5"
-																			/>
-																		</svg>
-																		<span>{inclusionItem.item}</span>
-																	</li>
-																{/each}
-															</ul>
-														</div>
-														<div class="col-span-2">
-															<a
-																href=""
-																class="text-blue text-xs font-semibold underline underline-offset-4"
-																>See Terms & Condition</a
+															{item?.name}
+															<svg
+																data-accordion-icon=""
+																class="w-3 h-3 shrink-0"
+																aria-hidden="true"
+																xmlns="http://www.w3.org/2000/svg"
+																fill="none"
+																viewBox="0 0 10 6"
 															>
-															<h1 class="text-xs font-semibold text-gray-500 my-2">
-																Price Breakdown
-															</h1>
-															{#if adultCount > 0}
-																<div class="flex justify-between">
-																	<p class="text-sm font-semibold">
-																		Adult {adultCount} x {item.adult_price}
-																	</p>
-																	<p class="text-md text-blue font-semibold">
-																		IDR {adultCount * item.adult_price}
-																	</p>
-																</div>
-															{/if}
+																<path
+																	stroke="currentColor"
+																	stroke-linecap="round"
+																	stroke-linejoin="round"
+																	stroke-width="2"
+																	d="M9 5 5 1 1 5"
+																/>
+															</svg>
+														</button>
+													</h2>
+													<div
+														id={`accordion-sub-open-body-${item.id}`}
+														class=""
+														aria-labelledby={`accordion-sub-open-heading-${item.id}`}
+													>
+														<div class="grid grid-cols-3 my-3">
+															<div class="">
+																<p class="text-xs font-semibold text-gray-500">Date</p>
+																<p class="text-sm text-black font-semibold">
+																	{new Date(date).toLocaleDateString('en-US', {
+																		weekday: 'long',
+																		year: 'numeric',
+																		month: 'long',
+																		day: 'numeric'
+																	})}
+																</p>
+															</div>
+															<div class="">
+																<p class="text-xs font-semibold text-gray-500">Zoo Opening Hour</p>
+																<p class="text-sm text-black font-semibold">
+																	{item?.start_time && convertTo12HourFormat(item.start_time)} - {item?.end_time &&
+																		convertTo12HourFormat(item.end_time)}
+																</p>
+															</div>
+															<div class="">
+																<p class="text-xs font-semibold text-gray-500">
+																	Cancellation Policy
+																</p>
+																<p class="text-sm text-black font-semibold">{item.cancellation}</p>
+															</div>
+														</div>
+														<hr />
+														<div class="mt-5 grid grid-cols-3">
+															<div class="col-span-1">
+																<h1 class="text-xs font-semibold text-gray-500">Inclusion</h1>
+																<ul class="text-left text-black mt-3">
+																	{#each item?.inclusion as inclusionItem}
+																		<li
+																			class="flex items-center space-x-3 mb-1 rtl:space-x-reverse text-sm font-semibold"
+																		>
+																			<svg
+																				class="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400"
+																				aria-hidden="true"
+																				xmlns="http://www.w3.org/2000/svg"
+																				fill="none"
+																				viewBox="0 0 16 12"
+																			>
+																				<path
+																					stroke="currentColor"
+																					stroke-linecap="round"
+																					stroke-linejoin="round"
+																					stroke-width="2"
+																					d="M1 5.917 5.724 10.5 15 1.5"
+																				/>
+																			</svg>
+																			<span>{inclusionItem.item}</span>
+																		</li>
+																	{/each}
+																</ul>
+															</div>
+															<div class="col-span-2">
+																<a
+																	href=""
+																	class="text-blue text-xs font-semibold underline underline-offset-4"
+																	>See Terms & Condition</a
+																>
+																<h1 class="text-xs font-semibold text-gray-500 my-2">
+																	Price Breakdown
+																</h1>
+																{#if adultCount > 0}
+																	<div class="flex justify-between">
+																		<p class="text-sm font-semibold">
+																			Adult {adultCount} x {item.adult_price}
+																		</p>
+																		<p class="text-md text-blue font-semibold">
+																			IDR {adultCount * item.adult_price}
+																		</p>
+																	</div>
+																{/if}
 
-															{#if childrenCount > 0}
-																<div class="flex justify-between">
-																	<p class="text-sm font-semibold">
-																		Children {childrenCount} x {item.children_price}
-																	</p>
-																	<p class="text-md text-blue font-semibold">
-																		IDR {childrenCount * item.children_price}
-																	</p>
-																</div>
-															{/if}
+																{#if childrenCount > 0}
+																	<div class="flex justify-between">
+																		<p class="text-sm font-semibold">
+																			Children {childrenCount} x {item.children_price}
+																		</p>
+																		<p class="text-md text-blue font-semibold">
+																			IDR {childrenCount * item.children_price}
+																		</p>
+																	</div>
+																{/if}
 
-															{#if infantCount > 0}
-																<div class="flex justify-between">
-																	<p class="text-sm font-semibold">
-																		Infant {infantCount} x IDR {item.infant_price}
-																	</p>
-																	<p class="text-md text-blue font-semibold">
-																		IDR {infantCount * item.infant_price}
-																	</p>
-																</div>
-															{/if}
+																{#if infantCount > 0}
+																	<div class="flex justify-between">
+																		<p class="text-sm font-semibold">
+																			Infant {infantCount} x IDR {item.infant_price}
+																		</p>
+																		<p class="text-md text-blue font-semibold">
+																			IDR {infantCount * item.infant_price}
+																		</p>
+																	</div>
+																{/if}
+															</div>
 														</div>
 													</div>
 												</div>
 											</div>
-										</div>
-										<div class="bg-sky-200 p-5 rounded-b-xl">
-											<div class="flex justify-between items-center">
-												<div>
-													<p class="text-xs font-bold text-black">Total Price</p>
-													<p class="text-blue text-md font-bold">
-														IDR {(adultCount * item?.adult_price +
-															childrenCount * item?.children_price +
-															infantCount * item?.infant_price) *
-															(1 - item?.discount_percentage / 100)}
-													</p>
-													<div class="flex gap-4">
-														<p class="text-xs line-through">
-															{adultCount * item?.adult_price +
+											<div class="bg-sky-200 p-5 rounded-b-xl">
+												<div class="flex justify-between items-center">
+													<div>
+														<p class="text-xs font-bold text-black">Total Price</p>
+														<p class="text-blue text-md font-bold">
+															IDR {(adultCount * item?.adult_price +
 																childrenCount * item?.children_price +
-																infantCount * item?.infant_price}
+																infantCount * item?.infant_price) *
+																(1 - item?.discount_percentage / 100)}
 														</p>
-														<p
-															class="bg-yellow text-black text-xs font-bold me-2 px-2.5 py-0.5 rounded-full"
-														>
-															{item?.discount_percentage}% Off
-														</p>
+														<div class="flex gap-4">
+															<p class="text-xs line-through">
+																{adultCount * item?.adult_price +
+																	childrenCount * item?.children_price +
+																	infantCount * item?.infant_price}
+															</p>
+															<p
+																class="bg-yellow text-black text-xs font-bold me-2 px-2.5 py-0.5 rounded-full"
+															>
+																{item?.discount_percentage}% Off
+															</p>
+														</div>
 													</div>
+													<button
+														class="text-xs text-white p-2 rounded-lg font-semibold"
+														class:bg-blue={selectedTicket && selectedTicket === item ? false : true}
+														class:bg-red-500={selectedTicket && selectedTicket === item
+															? true
+															: false}
+														on:click={() => {
+															if (selectedTicket === item) {
+																unselectTicket();
+															} else {
+																selectTicket(item);
+															}
+														}}
+													>
+														{selectedTicket && selectedTicket === item
+															? 'Unselect'
+															: 'Select Ticket'}
+													</button>
 												</div>
-												<button
-													class="text-xs text-white p-2 rounded-lg font-semibold"
-													class:bg-blue={selectedTicket && selectedTicket === item ? false : true}
-													class:bg-red-500={selectedTicket && selectedTicket === item
-														? true
-														: false}
-													on:click={() => {
-														if (selectedTicket === item) {
-															unselectTicket();
-														} else {
-															selectTicket(item);
-														}
-													}}
-												>
-													{selectedTicket && selectedTicket === item ? 'Unselect' : 'Select Ticket'}
-												</button>
 											</div>
 										</div>
 									</div>
-								</div>
-							{/each}
-						{/if}
+								{/each}
+							{/if}
+						</div>
 					</div>
-				</div>
+				{:else}
+					<div
+						class="p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400"
+						role="alert"
+					>
+						<span class="font-medium">Results!</span> No Ticket Availability
+					</div>
+				{/if}
 			</div>
 			<div class="col-span-1">
 				{#if showSummary}

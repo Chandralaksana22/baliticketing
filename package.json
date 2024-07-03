@@ -51,6 +51,7 @@
 		"swiper": "^8.4.4",
 		"tailwind-merge": "^2.3.0",
 		"terser": "^5.31.1",
+		"ua-parser-js": "^1.0.38",
 		"vite-plugin-compression": "^0.5.1",
 		"vite-plugin-minify": "^1.5.2"
 	}
