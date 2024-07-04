@@ -63,14 +63,14 @@
 	class="hidden lg:block bg-cover h-[25vh] lg:h-auto bg-[url('/images/background-biru-desktop.png')]"
 >
 	<div class="hidden lg:grid grid-cols-1 lg:grid-cols-12 gap-4">
-		<div class="col-span-7 pt-24">
+		<div class="col-span-7 pt-32">
 			<h4 class="boldfont text-white text-3xl text-center">Explore Bali Zoo</h4>
 			<div class="py-20 mx-auto px-10">
 				<BaliZooHome data={balizoo}/>
 			</div>
 		</div>
 		<div class="col-span-5 bg-[url('/images/plan.png')]">
-			<div class="pt-24">
+			<div class="pt-32">
 				<h4 class="boldfont text-white text-3xl text-center">
 					A WELL SPENT DAY <br /> at BALI BIRD PARK
 				</h4>
