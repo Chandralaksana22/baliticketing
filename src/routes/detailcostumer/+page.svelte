@@ -79,7 +79,7 @@
 			<div class="min-w-0 flex-1 space-y-8">
 				<div class="space-y-4">
 					<h2 class="text-xl font-semibold text-gray-900 dark:text-white">Confirmation Payment</h2>
-					<form class="grid grid-cols-1 gap-4 sm:grid-cols-2" on:submit={handleSubmit}>
+					<form class="grid grid-cols-1 gap-4 sm:grid-cols-2" on:submit|preventDefault={handleSubmit}>
 						<div>
 							<label
 								for="firstname"
