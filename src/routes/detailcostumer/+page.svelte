@@ -45,7 +45,7 @@
 	async function handleSubmit(event) {
 		event.preventDefault();
 		loading = true;
-		const url = `https://main.tiketxplorer.com/api/v1/send-form?adult=${adultCount}&children=${childrenCount}&infant=${infantCount}&total_price=${totalPrice}&adult_price=${selectedTicket.adult_price}&children_price=${selectedTicket.children_price}&infant_price=${selectedTicket.infant_price}&total_adult_price=${selectedTicket.total_adult}&total_children_price=${selectedTicket.total_children}&total_infant_price=${selectedTicket.total_infant}&arrival=${date}&firstname=${firstname}&lastname=${lastname}&email=${email}&phone=${phone}&country=${selectedCountry}&terms=${terms}&id=${selectedTicket.id}&product_id=${selectedTicket.product_id}&vendor_id=${selectedTicket.vendor_id}&slug=${selectedTicket.vendor.slug}`;
+		const url = `https://main.tiketxplorer.com/api/v1/send-form?adult=${adultCount}&children=${childrenCount}&infant=${infantCount}&total_price=${totalPrice}&adult_price=${selectedTicket.adult_price}&children_price=${selectedTicket.children_price}&infant_price=${selectedTicket.infant_price}&total_adult_price=${selectedTicket.total_adult}&total_children_price=${selectedTicket.total_children}&total_infant_price=${selectedTicket.total_infant}&arrival=${date}&firstname=${firstname}&lastname=${lastname}&email=${email}&phone=${phone}&country=${selectedCountry}&terms=${terms}&id=${selectedTicket.id}&product_id=${selectedTicket.product_id}&vendor_id=${selectedTicket.vendor_id}&slug=${selectedTicket.slug}`;
 
 		try {
 			const response = await axios.post(url);
@@ -109,10 +109,10 @@
 								bind:value={lastname}
 								class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
 								placeholder="Green"
-								required 
+								required
 							/>
 						</div>
-						<div class="sm:col-span-2">
+						<div>
 							<div class="mb-2 flex items-center gap-2">
 								<label
 									for="select-country-input-3"
