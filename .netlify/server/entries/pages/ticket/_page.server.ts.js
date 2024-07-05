@@ -1,0 +1,2 @@
+import{g as a,a as r,b as s,c as o,d as i}from"../../../chunks/vendor.js";import{g as t}from"../../../chunks/ticket.js";const e=async({params:e,url:c})=>{const m=c.searchParams.get("keyword")??"",[l,n,b,d,k,f]=await Promise.all([a(),r(),s(),o(),i(),t(m)]);return{maxage:3600,keyword:m,vendor:l,balifarm:n,balizoo:b,balibird:d,balisafari:k,listticket:f}};export{e as load};
+//# sourceMappingURL=_page.server.ts.js.map

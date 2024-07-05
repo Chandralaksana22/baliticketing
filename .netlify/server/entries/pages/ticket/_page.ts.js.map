@@ -1,0 +1,1 @@
+{"version":3,"file":"_page.ts.js","sources":["../../../../../../src/routes/ticket/+page.ts"],"sourcesContent":["import type { PageLoad } from './$types';\n\nexport const load = (({ url, data }) => {\n\treturn {\n\t\t...data,\n\t};\n}) satisfies PageLoad;\n"],"names":["load","url","data"],"mappings":"AAEO,MAAMA,EAAQ,EAAGC,MAAKC,WACrB,IACHA"}

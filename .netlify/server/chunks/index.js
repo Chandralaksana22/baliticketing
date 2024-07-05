@@ -1,0 +1,2 @@
+import{n,l as t}from"./ssr.js";const s=[];function e(n,t){return{subscribe:o(n,t).subscribe}}function o(e,o=n){let r;const u=new Set;function c(n){if(t(e,n)&&(e=n,r)){const n=!s.length;for(const t of u)t[1](),s.push(t,e);if(n){for(let n=0;n<s.length;n+=2)s[n][0](s[n+1]);s.length=0}}}function i(n){c(n(e))}return{set:c,update:i,subscribe:function(t,s=n){const f=[t,s];return u.add(f),1===u.size&&(r=o(c,i)||n),t(e),()=>{u.delete(f),0===u.size&&r&&(r(),r=null)}}}}export{e as r,o as w};
+//# sourceMappingURL=index.js.map

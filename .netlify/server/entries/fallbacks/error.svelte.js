@@ -1,0 +1,2 @@
+import{g as s,c as e,d as r,b as a}from"../../chunks/ssr.js";import"../../chunks/client.js";const t={subscribe:e=>(()=>{const e=s("__svelte__");return{page:{subscribe:e.page.subscribe},navigating:{subscribe:e.navigating.subscribe},updated:e.updated}})().page.subscribe(e)},u=e(((s,e,u,b)=>{let i,c;return c=r(t,(s=>i=s)),c(),`<h1>${a(i.status)}</h1> <p>${a(i.error?.message)}</p>`}));export{u as default};
+//# sourceMappingURL=error.svelte.js.map

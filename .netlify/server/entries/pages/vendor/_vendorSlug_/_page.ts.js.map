@@ -1,0 +1,1 @@
+{"version":3,"file":"_page.ts.js","sources":["../../../../../../../src/routes/vendor/[vendorSlug]/+page.ts"],"sourcesContent":["import type { PageLoad } from './$types';\r\n\r\nexport const load = (({ url, data }) => {\r\n\treturn {\r\n\t\t...data,\r\n\t};\r\n}) satisfies PageLoad;\r\n"],"names":["load","url","data"],"mappings":"AAEO,MAAMA,EAAQ,EAAGC,MAAKC,WACrB,IACHA"}

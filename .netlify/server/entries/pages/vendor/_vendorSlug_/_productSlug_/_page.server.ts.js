@@ -1,0 +1,2 @@
+import{a,b as t}from"../../../../../chunks/ticket.js";const r=async({params:r,url:e})=>{const{vendorSlug:s,productSlug:c}=r,n=e.searchParams.get("children")??"",o=e.searchParams.get("adult")??"",i=e.searchParams.get("infants")??"",u=e.searchParams.get("date")??"";try{const r=await a(s,c);return{maxage:3600,detail:r,listTicket:await t(s,c,n,o,i,u),childrenCount:n,adultCount:o,infantCount:i,date:u}}catch(d){throw console.error("Error fetching product details:",d),d}};export{r as load};
+//# sourceMappingURL=_page.server.ts.js.map
