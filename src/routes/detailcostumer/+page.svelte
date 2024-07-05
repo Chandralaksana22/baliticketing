@@ -112,7 +112,7 @@
 								required
 							/>
 						</div>
-						<div>
+						<div class="sm:col-span-2">
 							<div class="mb-2 flex items-center gap-2">
 								<label
 									for="select-country-input-3"
