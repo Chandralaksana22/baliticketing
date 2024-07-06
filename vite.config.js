@@ -5,14 +5,14 @@ import compression from 'vite-plugin-compression';
 export default defineConfig({
 	plugins: [
 		sveltekit(),
-		// compression({
-		// 	algorithm: 'gzip',
-		// 	ext: '.gz',
-		// }),
-		// compression({
-		// 	algorithm: 'brotliCompress',
-		// 	ext: '.br',
-		// }),
+		compression({
+			algorithm: 'gzip',
+			ext: '.gz',
+		}),
+		compression({
+			algorithm: 'brotliCompress',
+			ext: '.br',
+		}),
 	],
 	build: {
 		// minify: 'terser',
