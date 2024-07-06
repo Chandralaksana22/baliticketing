@@ -9,10 +9,10 @@ export default defineConfig({
 			algorithm: 'gzip',
 			ext: '.gz',
 		}),
-		compression({
-			algorithm: 'brotliCompress',
-			ext: '.br',
-		}),
+		// compression({
+		// 	algorithm: 'brotliCompress',
+		// 	ext: '.br',
+		// }),
 	],
 	build: {
 		minify: 'terser',
