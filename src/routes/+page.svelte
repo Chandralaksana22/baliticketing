@@ -21,7 +21,7 @@
 
 <section class="bg-cover bg-[url('/images/bg-desktop.png')]">
 	<div
-		class="bg-center bg-cover h-[100] bg-no-repeat bg-[url('/images/Header.png')] lg:bg-[url('/images/bg-home.png')]"
+		class="bg-center bg-cover h-[100vh] bg-no-repeat bg-[url('/images/Header.png')] lg:bg-[url('/images/bg-home.png')]"
 	>
 		<div class="hidden lg:flex h-[100vh] px-5 lg:px-10 container mx-auto items-center">
 			<h1
