@@ -151,7 +151,7 @@
 				></path></svg
 			>
 			<p class="text-white text-center text-xs">Home</p></a
-		><a data-sveltekit-reload href="/ticket" class="flex flex-col items-center"
+		><a data-sveltekit-reload href="/placetogo" class="flex flex-col items-center"
 			><svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="24"
