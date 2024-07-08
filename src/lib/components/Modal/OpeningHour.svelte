@@ -47,8 +47,8 @@
 	</div>
 </button>
 <dialog id="my_modal_4" class="modal">
-	<div class="relative bg-white">
-		<div class="flex items-center justify-between border-b rounded-t dark:border-gray-600">
+	<div class="relative bg-white rounded-lg">
+		<div class="flex items-center justify-between border-b rounded-t dark:border-gray-600 p-5">
 			<h3 class="text-xl text-center boldfont lg:text-start font-semibold text-blue">
 				Opening Hour
 			</h3>
@@ -62,7 +62,6 @@
 					class="block lg:flex flex-wrap justify-center -mb-px text-sm font-medium text-center gap-4"
 					id="default-tab"
 					data-tabs-toggle="#default-tab-content"
-					role="tablist"
 				>
 					{#each data as vendor}
 						<li>
@@ -70,7 +69,6 @@
 								class="inline-block mb-2 w-full p-2 px-5 tab-button rounded-lg"
 								data-tabs-target={'#' + vendor.slug}
 								type="button"
-								role="tab"
 								aria-controls={vendor.slug}
 								aria-selected={activeTab === vendor.slug ? 'true' : 'false'}
 								on:click={() => activateTab(vendor.slug)}
@@ -88,7 +86,6 @@
 						class="{activeTab === vendor.slug
 							? 'block'
 							: 'hidden'} p-4 rounded-lg bg-gray-50 dark:bg-gray-800"
-						role="tabpanel"
 						aria-labelledby={vendor.slug}
 					>
 						<div class="grid grid-cols-2 gap-2 w-full lg:w-3/4">

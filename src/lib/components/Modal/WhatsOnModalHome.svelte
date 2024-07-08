@@ -71,9 +71,8 @@
 					<ul
 						class="block lg:flex flex-wrap justify-center -mb-px text-sm font-medium text-center WOp-4"
 						id="default-tab"
-						role="tablist"
 					>
-						<li class="me-2" role="presentation">
+						<li class="me-2">
 							<button
 								class="inline-block mb-2 w-full p-2 px-5 tab-button rounded-lg"
 								id="balizooWO-tab"
@@ -85,7 +84,7 @@
 								aria-selected={activeTab === 'balizooWO'}>Bali Zoo</button
 							>
 						</li>
-						<li class="me-2" role="presentation">
+						<li class="me-2">
 							<button
 								class="inline-block mb-2 w-full p-2 px-5 tab-button rounded-lg"
 								id="balifarmWO-tab"
@@ -97,7 +96,7 @@
 								aria-selected={activeTab === 'balifarmWO'}>Bali Farm House</button
 							>
 						</li>
-						<li class="me-2" role="presentation">
+						<li class="me-2">
 							<button
 								class="inline-block mb-2 w-full p-2 px-5 tab-button rounded-lg"
 								id="balisafariWO-tab"
@@ -109,7 +108,7 @@
 								aria-selected={activeTab === 'balisafariWO'}>Bali Safari</button
 							>
 						</li>
-						<li class="me-2" role="presentation">
+						<li class="me-2">
 							<button
 								class="inline-block mb-2 w-full p-2 px-5 tab-button rounded-lg"
 								id="balibirdWO-tab"
@@ -131,7 +130,6 @@
 					<div
 						class="p-4 rounded-lg bg-gray-50 dark:bg-gray-800"
 						id="balizooWO"
-						role="tabpanel"
 						aria-labelledby="balizooWO-tab"
 						hidden={activeTab !== 'balizooWO'}
 					>
@@ -169,7 +167,6 @@
 					<div
 						class="p-4 rounded-lg bg-gray-50 dark:bg-gray-800"
 						id="balifarmWO"
-						role="tabpanel"
 						aria-labelledby="balifarmWO-tab"
 						hidden={activeTab !== 'balifarmWO'}
 					>
@@ -206,7 +203,6 @@
 					<div
 						class="p-4 rounded-lg bg-gray-50 dark:bg-gray-800"
 						id="balisafariWO"
-						role="tabpanel"
 						aria-labelledby="balisafariWO-tab"
 						hidden={activeTab !== 'balisafariWO'}
 					>
@@ -243,7 +239,6 @@
 					<div
 						class="p-4 rounded-lg bg-gray-50 dark:bg-gray-800"
 						id="balibirdWO"
-						role="tabpanel"
 						aria-labelledby="balibirdWO-tab"
 						hidden={activeTab !== 'balibirdWO'}
 					>

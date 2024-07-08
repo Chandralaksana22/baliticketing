@@ -53,52 +53,47 @@
 				<ul
 					class="block lg:flex flex-wrap justify-center -mb-px text-sm font-medium text-center gap-4"
 					id="default-tab"
-					role="tablist"
 				>
-					<li class="me-2" role="presentation">
+					<li class="me-2">
 						<button
 							class="inline-block mb-2 w-full p-2 px-5 tab-button rounded-lg"
 							id="balizooGA-tab"
 							on:click={() => switchTab('balizooGA')}
 							class:active={activeTab === 'balizooGA'}
 							type="button"
-							role="tab"
 							aria-controls="balizooGA"
 							aria-selected={activeTab === 'balizooGA'}>Bali Zoo</button
 						>
 					</li>
-					<li class="me-2" role="presentation">
+					<li class="me-2">
 						<button
 							class="inline-block mb-2 w-full p-2 px-5 tab-button rounded-lg"
 							id="balifarmGA-tab"
 							on:click={() => switchTab('balifarmGA')}
 							class:active={activeTab === 'balifarmGA'}
 							type="button"
-							role="tab"
 							aria-controls="balifarmGA"
 							aria-selected={activeTab === 'balifarmGA'}>Bali Farm House</button
 						>
 					</li>
-					<li class="me-2" role="presentation">
+					<li class="me-2">
 						<button
 							class="inline-block mb-2 w-full p-2 px-5 tab-button rounded-lg"
 							id="balisafariGA-tab"
 							on:click={() => switchTab('balisafariGA')}
 							class:active={activeTab === 'balisafariGA'}
 							type="button"
-							role="tab"
 							aria-controls="balisafariGA"
 							aria-selected={activeTab === 'balisafariGA'}>Bali Safari</button
 						>
 					</li>
-					<li class="me-2" role="presentation">
+					<li class="me-2">
 						<button
 							class="inline-block mb-2 w-full p-2 px-5 tab-button rounded-lg"
 							id="balibirdGA-tab"
 							on:click={() => switchTab('balibirdGA')}
 							class:active={activeTab === 'balibirdGA'}
 							type="button"
-							role="tab"
 							aria-controls="balibirdGA"
 							aria-selected={activeTab === 'balibirdGA'}>Bali Bird Park</button
 						>
@@ -150,8 +145,6 @@
 				<div
 					class="p-4 rounded-lg bg-gray-50 dark:bg-gray-800"
 					id="balifarmGA"
-					role="tabpanel"
-					aria-labelledby="balifarmGA-tab"
 					hidden={activeTab !== 'balifarmGA'}
 				>
 					<div
@@ -186,8 +179,6 @@
 				<div
 					class="p-4 rounded-lg bg-gray-50 dark:bg-gray-800"
 					id="balisafariGA"
-					role="tabpanel"
-					aria-labelledby="balisafariGA-tab"
 					hidden={activeTab !== 'balisafariGA'}
 				>
 					<div
@@ -222,8 +213,6 @@
 				<div
 					class="p-4 rounded-lg bg-gray-50 dark:bg-gray-800"
 					id="balibirdGA"
-					role="tabpanel"
-					aria-labelledby="balibirdGA-tab"
 					hidden={activeTab !== 'balibirdGA'}
 				>
 					<div

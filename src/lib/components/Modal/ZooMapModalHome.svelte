@@ -60,7 +60,6 @@
 					class="block lg:flex flex-wrap justify-center -mb-px text-sm font-medium text-center gap-4"
 					id="default-tab"
 					data-tabs-toggle="#default-tab-content"
-					role="tablist"
 				>
 					{#each data as vendor}
 						<li>
@@ -68,7 +67,6 @@
 								class="inline-block mb-2 w-full p-2 px-5 tab-button rounded-lg"
 								data-tabs-target={'#' + vendor.slug}
 								type="button"
-								role="tab"
 								aria-controls={vendor.slug}
 								aria-selected={activeTab === vendor.slug ? 'true' : 'false'}
 								on:click={() => activateTab(vendor.slug)}
@@ -86,7 +84,6 @@
 						class="{activeTab === vendor.slug
 							? 'block'
 							: 'hidden'} p-4 rounded-lg bg-gray-50 dark:bg-gray-800"
-						role="tabpanel"
 						aria-labelledby={vendor.slug}
 					>
 						<img
