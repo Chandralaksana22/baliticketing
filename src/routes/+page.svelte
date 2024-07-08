@@ -23,7 +23,7 @@
 	<div
 		class="bg-center bg-cover h-[100vh] bg-no-repeat bg-[url('/images/Header.png')] lg:bg-[url('/images/bg-home.png')]"
 	>
-		<div class="hidden lg:flex h-[100vh] px-5 lg:px-10 container mx-auto items-center">
+		<div class="flex h-[100vh] px-5 lg:px-10 container mx-auto items-center">
 			<h1
 				class="hidden lg:block mb-4 boldfont text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl"
 			>
