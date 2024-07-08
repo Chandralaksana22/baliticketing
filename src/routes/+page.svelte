@@ -21,7 +21,7 @@
 
 <section class="bg-cover bg-[url('/images/bg-desktop.png')]">
 	<div
-		class="bg-center bg-cover h-[100] bg-no-repeat bg-[url('/images/Homepage-mobile.png')] lg:bg-[url('/images/bg-home.png')]"
+		class="bg-center bg-cover h-[100] bg-no-repeat bg-[url('/images/Header.png')] lg:bg-[url('/images/bg-home.png')]"
 	>
 		<div class="hidden lg:flex h-[100vh] px-5 lg:px-10 container mx-auto items-center">
 			<h1
@@ -38,6 +38,7 @@
 			</h1>
 		</div>
 	</div>
+	
 	<div class="px-5 pb-0 lg:pb-44 lg:px-10 container mx-auto">
 		<div id="feature">
 			<h5 class="text-center font-bold text-white text-2xl boldfont">Places To Go</h5>
