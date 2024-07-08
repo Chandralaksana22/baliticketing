@@ -24,7 +24,7 @@
 					<div class="relative">
 						<img
                             src={item.images[0]?.path}
-							alt="item.name"
+							alt={item.name}
 							class="h-[50vh] w-full object-cover filter brightness-50 rounded-[20px]"
 						/>
 					</div>

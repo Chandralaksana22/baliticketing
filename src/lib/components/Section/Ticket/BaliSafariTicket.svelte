@@ -39,7 +39,7 @@
 						<img
 							src={product.images[0].path}
 							class="filter brightness-50"
-							alt=""
+							alt="img"
 							style="height: 15rem;"
 						/>
 						<div class="cover p-5">

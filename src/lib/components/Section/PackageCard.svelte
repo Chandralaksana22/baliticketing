@@ -38,7 +38,7 @@
 					<img
 						class="filter brightness-50 rounded-lg h-[400px] w-full object-cover"
 						src={product.images[0].path}
-						alt=""
+						alt="image"
 					/>
 					<div class="absolute top-[25%] left-1/2 -translate-x-1/2 text-center w-full px-4">
 						<h5 class="boldfont text-2xl text-yellow text-center">{product.name}</h5>
