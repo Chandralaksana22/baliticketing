@@ -10,6 +10,16 @@ export async function getTicket(keyword: any) {
 		console.log(error);
 	}
 }
+export async function getTicketVendor(vendorSlug: any) {
+	try {
+		const resp = await apiClient.get(
+			`/get-all-ticket-by-vendor?vendor=${vendorSlug}`
+		);
+		return resp.data.data;
+	} catch (error) {
+		console.log(error);
+	}
+}
 export async function getProduct(vendorSlug: any, productSlug:any) {
 	try {
 		const resp = await apiClient.get(

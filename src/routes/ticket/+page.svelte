@@ -3,7 +3,6 @@
 	import { onMount, createEventDispatcher } from 'svelte';
 	import GeneralAdmission from '$lib/components/Section/Ticket/GeneralAdmission.svelte';
 	import type { PageServerData } from './$types';
-	import { Tabs, TabItem } from 'flowbite-svelte';
 	import BaliSafariTicket from '$lib/components/Section/Ticket/BaliSafariTicket.svelte';
 	import CardEvent from '$lib/components/Section/CardEvent.svelte';
 	import MobileTicket from '$lib/components/Section/Ticket/MobileTicket.svelte';
