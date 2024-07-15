@@ -26,15 +26,6 @@
 	let selectedTicket: item | null = null;
 	let showSummary = false;
 	const decryptedTicket = writable<any>(null);
-	function handleSubmit(event) {
-		event.preventDefault();
-		localStorage.setItem('selectedTicket', JSON.stringify(selectedTicket));
-		localStorage.setItem('adultCount', adultCount.toString());
-		localStorage.setItem('childrenCount', childrenCount.toString());
-		localStorage.setItem('infantCount', infantCount.toString());
-		localStorage.setItem('date', date);
-		goto('/detailcostumer');
-	}
 	function selectTicket(ticket: item) {
 		selectedTicket = ticket;
 		showSummary = true;
@@ -97,6 +88,32 @@
 			decryptedTicket.set(null);
 		}
 	});
+	function handleSubmit(event) {
+		event.preventDefault();
+
+		// Simpan data ke local storage
+		localStorage.setItem('selectedTicket', JSON.stringify(selectedTicket));
+		localStorage.setItem('adultCount', adultCount.toString());
+		localStorage.setItem('childrenCount', childrenCount.toString());
+		localStorage.setItem('infantCount', infantCount.toString());
+		localStorage.setItem('date', date);
+
+		// Enkripsi data sebelum disimpan ke session storage
+		const secretKey = sessionStorage.getItem('key');
+		const dataToEncrypt = {
+			decryptedTicket: $decryptedTicket,
+			detail,
+			adultCount,
+			childrenCount,
+			infantCount,
+			date
+		};
+		const encryptedData = CryptoJS.AES.encrypt(JSON.stringify(dataToEncrypt), secretKey).toString();
+		sessionStorage.setItem('encryptedData', encryptedData);
+
+		// Navigasi ke halaman detailcostumer
+		goto('/mobileticket/detailcostumer');
+	}
 </script>
 
 <svelte:head>
@@ -159,7 +176,7 @@
 									<p class="text-gray-600 text-xs">Ticket Name</p>
 									<p class="text-black text-md font-bold">{$decryptedTicket?.name}</p>
 								</div>
-								<form action="" method="post">
+								<form on:submit={handleSubmit}>
 									<div class="p-4">
 										<div class="relative mt-5">
 											<div
@@ -476,18 +493,21 @@
 											<div>
 												<p class="text-sm">Total Price</p>
 												<p class="text-blue text-xl font-bold">
-													{adultCount * $decryptedTicket?.adult_price +
+													{(adultCount * $decryptedTicket?.adult_price +
 														childrenCount * $decryptedTicket?.children_price +
-														infantCount * $decryptedTicket?.infant_price}
+														infantCount * $decryptedTicket?.infant_price) *
+														(1 - $decryptedTicket?.discount_percentage / 100)}
 												</p>
 											</div>
-											<!-- <div>
+											<div>
 												<p class="text-xs text-blue font-semibold">
-													By purchasing from this website, you’ve saved IDR 250,000
+													By purchasing from this website, you’ve saved <span class="text-lg"
+														>%{$decryptedTicket?.discount_percentage}</span
+													>
 												</p>
-											</div> -->
+											</div>
 										</div>
-										<button class="p-3 w-full rounded-lg bg-blue text-white text-md"
+										<button type="submit" class="p-3 w-full rounded-lg bg-blue text-white text-md"
 											>Procced to Payment</button
 										>
 									</div>
