@@ -203,7 +203,7 @@
 		</form>
 	</div>
 	<div>
-		<MobileTicket ticketVendor={listticket}/>
+		<MobileTicket listTicket={listticket}/>
 	</div>
 </section>
 

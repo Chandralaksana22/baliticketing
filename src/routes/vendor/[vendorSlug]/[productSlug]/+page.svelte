@@ -77,7 +77,7 @@
 	</title>
 </svelte:head>
 <div
-	class="bg-center bg-cover h-[100] bg-no-repeat bg-gray-600 bg-blend-multiply lg:bg-[url('/images/hero-ticket.png')]"
+	class="hidden lg:block bg-center bg-cover h-[100] bg-no-repeat bg-gray-600 bg-blend-multiply lg:bg-[url('/images/hero-ticket.png')]"
 >
 	<div class="h-[25vh] lg:h-[50vh] px-5 lg:px-10 flex items-center">
 		<h1
@@ -87,7 +87,7 @@
 		</h1>
 	</div>
 </div>
-<div class="bg-white">
+<div class="bg-white hidden lg:block">
 	<div class="container mx-auto px-5 lg:px-20">
 		<div class="my-10">
 			<h1 class="boldfont text-lg lg:text-2xl">{detail?.name}</h1>
@@ -105,12 +105,12 @@
 				<img
 					src={detail?.images[0]?.path}
 					alt={detail?.images[0]?.path}
-					class="hidden lg:block rounded-lg h-[25vh] mb-[2vh] w-full object-cover"
+					class=" rounded-lg h-[25vh] mb-[2vh] w-full object-cover"
 				/>
 				<img
 					src={detail?.images[0]?.path}
 					alt={detail?.images[0]?.path}
-					class="hidden lg:block rounded-lg h-[25vh] w-full object-cover"
+					class=" rounded-lg h-[25vh] w-full object-cover"
 				/>
 			</div>
 		</div>
@@ -200,7 +200,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="hidden lg:block">
+				<div>
 					<h1 class="boldfont my-5">Ticket Availability Check</h1>
 					<div class="p-5 border-2 border-sky-500 rounded-xl">
 						<form action={`/vendor/${detail.vendor.slug}/${detail.slug}`} data-sveltekit-noscroll>
@@ -520,7 +520,6 @@
 								{#each listTicket as item}
 									<div
 										id={`accordion-open-body-${item.id}`}
-										class=""
 										aria-labelledby={`accordion-open-heading-${item.id}`}
 									>
 										<div class="border border-sky-400 mt-5 rounded-xl">
@@ -555,11 +554,10 @@
 													</h2>
 													<div
 														id={`accordion-sub-open-body-${item.id}`}
-														class=""
 														aria-labelledby={`accordion-sub-open-heading-${item.id}`}
 													>
 														<div class="grid grid-cols-3 my-3">
-															<div class="">
+															<div>
 																<p class="text-xs font-semibold text-gray-500">Date</p>
 																<p class="text-sm text-black font-semibold">
 																	{new Date(date).toLocaleDateString('en-US', {
@@ -570,14 +568,14 @@
 																	})}
 																</p>
 															</div>
-															<div class="">
+															<div>
 																<p class="text-xs font-semibold text-gray-500">Zoo Opening Hour</p>
 																<p class="text-sm text-black font-semibold">
 																	{item?.start_time && convertTo12HourFormat(item.start_time)} - {item?.end_time &&
 																		convertTo12HourFormat(item.end_time)}
 																</p>
 															</div>
-															<div class="">
+															<div>
 																<p class="text-xs font-semibold text-gray-500">
 																	Cancellation Policy
 																</p>
@@ -719,7 +717,7 @@
 			</div>
 			<div class="col-span-1">
 				{#if showSummary}
-					<div class="hidden lg:block sticky top-28">
+					<div class=" sticky top-28">
 						<h1 class="font-bold text-xl text-blue mb-5">Ticket Summary</h1>
 						<div class="block w-full p-6 bg-sky-100 border border-sky-500 rounded-2xl">
 							<h1 class="mb-2 text-lg font-bold text-black">{selectedTicket.name}</h1>
@@ -841,6 +839,23 @@
 					</div>
 				{/if}
 			</div>
+		</div>
+	</div>
+</div>
+<div class="block lg:hidden">
+	<div class="text-center">
+		<img
+			loading="lazy"
+			src="/images/pleasewait.png"
+			height="600"
+			width="600"
+			class="img-fluid mx-auto"
+			alt="arrow"
+		/>
+		<div class="text-center my-10">
+			<h1>Sorry, you don't have access to this page. Please return.
+			</h1>
+			<a data-sveltekit-preload-data="tap" href="/" class="text-red-600">Back to Home</a>
 		</div>
 	</div>
 </div>

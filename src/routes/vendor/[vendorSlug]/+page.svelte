@@ -1,4 +1,5 @@
 <script lang="ts">
+	import CryptoJS from 'crypto-js';
 	import PackageCard from '$lib/components/Section/PackageCard.svelte';
 	import { onMount, createEventDispatcher } from 'svelte';
 	import GeneralAdmissionSlider from '$lib/components/Section/Vendor/BaliZoo/GeneralAdmissionSlider.svelte';
@@ -12,13 +13,29 @@
 	import GeneralAdmissionCard from '$lib/components/Section/Vendor/BaliFarm/GeneralAdmissionCard.svelte';
 	import WhatsOnCard from '$lib/components/Section/Vendor/BaliFarm/WhatsOnCard.svelte';
 	export let data: PageServerData;
+	import { goto } from '$app/navigation';
+	// function navigateToMobileTicket(listTicket: any) {
+	//     sessionStorage.setItem('selectedTicket', JSON.stringify(listTicket));
+	//     goto('/mobileticket');
+	// }
+	function generateSecretKey() {
+		return CryptoJS.lib.WordArray.random(16).toString();
+	}
+
+	export function navigateToMobileTicket(listTicket: any) {
+		const secretKey = generateSecretKey();
+		const encryptedData = CryptoJS.AES.encrypt(JSON.stringify(listTicket), secretKey).toString();
+		sessionStorage.setItem('item', encryptedData);
+		sessionStorage.setItem('key', secretKey);
+		const url = `/vendor/${listTicket.vendor.slug}/${listTicket.product.slug}`;
+		goto(url);
+	}
 
 	let detail = data?.detail;
 	let product = data?.product;
 	let popular = data?.popularProduct;
 	let listTicket = data?.listTicket;
 
-	console.log('product', detail);
 	let singlePackages = data?.product?.filter((item: any) => {
 		return item?.type === "What's On" && item?.category === 'Single Package';
 	});
@@ -420,9 +437,10 @@
 			{#each listTicket as listTicket}
 				<div>
 					<a
-						href="/ticket-detail"
+						href="/mobileticket"
 						class="grid grid-cols-3 gap-3 pt-5 items-start"
 						style="border-bottom: 1px solid rgb(156, 163, 175);"
+						on:click|preventDefault={() => navigateToMobileTicket(listTicket)}
 						><div class="col-span-1">
 							<img
 								src={listTicket?.images[0]?.path}
@@ -451,9 +469,7 @@
 										currency: 'IDR',
 										minimumFractionDigits: 0,
 										maximumFractionDigits: 0
-									}).format(
-										(listTicket?.adult_price ?? 0)
-									)}
+									}).format(listTicket?.adult_price ?? 0)}
 								</p>
 								<p class="text-md text-[#EF681C] font-bold">
 									From IDR {new Intl.NumberFormat('id-ID', {
@@ -462,7 +478,8 @@
 										minimumFractionDigits: 0,
 										maximumFractionDigits: 0
 									}).format(
-										(listTicket?.adult_price ?? 0) * (1 - (listTicket?.discount_percentage ?? 0) / 100)
+										(listTicket?.adult_price ?? 0) *
+											(1 - (listTicket?.discount_percentage ?? 0) / 100)
 									)} <span class="text-sm text-black">/person</span>
 								</p>
 							</div>
