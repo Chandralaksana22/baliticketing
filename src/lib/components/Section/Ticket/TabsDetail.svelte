@@ -4,7 +4,7 @@
 </script>
 
 <Tabs tabStyle="underline">
-	<TabItem open title="Highliht">
+	<TabItem open title="Highlight">
 		<p class="text-sm text-gray-500 dark:text-gray-400">
 			{@html data.highlight}
 		</p>
