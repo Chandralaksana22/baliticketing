@@ -11,7 +11,7 @@
 	let adultCount = data?.adultCount || 1;
 	let childrenCount = data?.childrenCount || 0;
 	let infantCount = data?.infantCount || 0;
-	let date = data?.date;
+	let date = data?.date || new Date();
 	let openAccordionIndex = 0;
 	let selectedTicket: item | null = null;
 	let showSummary = false;
