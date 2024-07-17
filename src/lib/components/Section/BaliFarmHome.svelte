@@ -54,7 +54,7 @@
     </div>
     <div class="absolute z-50 bottom-[6rem] left-1/2 -translate-x-1/2 text-center w-full text-white">
         <a data-sveltekit-reload 
-            href={`/vendor/${data[0]?.slug}`}
+            href={`/vendor/${data[0].vendor.slug}/${data[0]?.slug}`}
             class="px-2 py-3 bg-white text-black rounded-md slide boldfont">View Detail</a>
     </div>
 </div>
