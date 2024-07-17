@@ -28,11 +28,11 @@
 	let totalPrice;
 
 	onMount(() => {
-		selectedTicket = JSON.parse(localStorage.getItem('selectedTicket')) || {};
-		adultCount = parseInt(localStorage.getItem('adultCount'), 10) || 0;
-		childrenCount = parseInt(localStorage.getItem('childrenCount'), 10) || 0;
-		infantCount = parseInt(localStorage.getItem('infantCount'), 10) || 0;
-		date = localStorage.getItem('date') || '';
+		selectedTicket = JSON.parse(sessionStorage.getItem('selectedTicket')) || {};
+		adultCount = parseInt(sessionStorage.getItem('adultCount'), 10) || 0;
+		childrenCount = parseInt(sessionStorage.getItem('childrenCount'), 10) || 0;
+		infantCount = parseInt(sessionStorage.getItem('infantCount'), 10) || 0;
+		date = sessionStorage.getItem('date') || '';
 
 		if (selectedTicket) {
 			totalPrice =
@@ -59,11 +59,9 @@
 					showConfirmation = true;
 				} else {
 					console.error('Redirect URL not found in response:', response.data.response);
-					
 				}
 			} else {
 				console.error('Unexpected response:', response.data);
-				
 			}
 		} catch (error) {
 			console.error('Error submitting form:', error);
@@ -71,15 +69,27 @@
 	}
 </script>
 
-
-
-<section class="bg-white py-8 px-5 antialiased dark:bg-gray-900 md:py-16">
-	<div class="mx-auto max-w-screen-xl px-4 2xl:px-0">
-		<div class="mt-32 lg:flex lg:items-start lg:gap-12 xl:gap-16">
-			<div class="min-w-0 flex-1 space-y-8">
-				<div class="space-y-4">
-					<h2 class="text-xl font-semibold text-gray-900 dark:text-white">Confirmation Payment</h2>
-					<form class="grid grid-cols-1 gap-4 sm:grid-cols-2" on:submit={handleSubmit}>
+<section class="bg-cover bg-[url('/images/bg-desktop.png')]">
+	<div
+		class="bg-center bg-cover h-[100] bg-no-repeat"
+		style="background-image: url('/images/herocontact.jpeg');"
+	>
+		<div class="h-[25vh] lg:h-[50vh] px-5 lg:px-10 flex items-center">
+			<h1
+				class="mb-4 boldfont text-lg text-center mx-auto tracking-tight leading-none text-white md:text-xl lg:text-4xl"
+			>
+				Contact Us
+			</h1>
+		</div>
+	</div>
+	<div class="container mx-auto px-5 lg:px-20 pb-20">
+		<div
+			class="bg-white mt-[-10%] p-5 lg:p-10 rounded-xl shadow-xl lg:py-5 grid lg:grid-cols-2 gap-8 lg:gap-16"
+		>
+			<div>
+				<div class="w-full lg:max-w-xl">
+					<h2 class="text-2xl boldfont font-bold text-blue dark:text-white">Detaiil Costumer</h2>
+					<form class="grid grid-cols-1 gap-4 sm:grid-cols-2 mt-3" on:submit={handleSubmit}>
 						<div>
 							<label
 								for="firstname"
@@ -246,34 +256,37 @@
 					</form>
 				</div>
 			</div>
-			<div class="mt-6 w-full space-y-6 sm:mt-8 lg:mt-0 lg:max-w-xs xl:max-w-md">
-				<div class="flow-root">
-					{#if selectedTicket}
-						<div class="-my-3 divide-y divide-gray-200 dark:divide-gray-800">
-							<dl class="flex items-center justify-between gap-4 py-3">
-								<dt class="text-base font-normal text-gray-500 dark:text-gray-400">Ticket</dt>
-								<dd class="text-base font-medium text-gray-900 dark:text-white">
-									{selectedTicket?.name}
-								</dd>
-							</dl>
-							<dl class="flex items-center justify-between gap-4 py-3">
-								<dt class="text-base font-normal text-gray-500 dark:text-gray-400">Occupancy</dt>
-								<dd class="text-base font-medium text-gray-500">
-									{adultCount} Adult, {childrenCount} Children, {infantCount} Infant
-								</dd>
-							</dl>
-							<dl class="flex items-center justify-between gap-4 py-3">
-								<dt class="text-base font-normal text-gray-500 dark:text-gray-400">Date</dt>
-								<dd class="text-base font-medium text-gray-900 dark:text-white">
-									{date}
-								</dd>
-							</dl>
-							<dl class="flex items-center justify-between gap-4 py-3">
-								<dt class="text-base font-bold text-gray-900 dark:text-white">Total</dt>
-								<dd class="text-base font-bold text-gray-900 dark:text-white">{totalPrice}</dd>
-							</dl>
-						</div>
-					{/if}
+			<div>
+				<h1 class="text-2xl boldfont font-bold text-blue dark:text-white">Detail Payment</h1>
+				<div class="mt-5 w-full space-y-6 sm:mt-8 lg:mt-5 lg:max-w-xs xl:max-w-md">
+					<div class="flow-root">
+						{#if selectedTicket}
+							<div class="-my-3 divide-y divide-gray-200 dark:divide-gray-800">
+								<dl class="flex items-center justify-between gap-4 py-3">
+									<dt class="text-base font-normal text-gray-500 dark:text-gray-400">Ticket</dt>
+									<dd class="text-base font-medium text-gray-900 dark:text-white">
+										{selectedTicket?.name}
+									</dd>
+								</dl>
+								<dl class="flex items-center justify-between gap-4 py-3">
+									<dt class="text-base font-normal text-gray-500 dark:text-gray-400">Occupancy</dt>
+									<dd class="text-base font-medium text-gray-500">
+										{adultCount} Adult, {childrenCount} Children, {infantCount} Infant
+									</dd>
+								</dl>
+								<dl class="flex items-center justify-between gap-4 py-3">
+									<dt class="text-base font-normal text-gray-500 dark:text-gray-400">Date</dt>
+									<dd class="text-base font-medium text-gray-900 dark:text-white">
+										{date}
+									</dd>
+								</dl>
+								<dl class="flex items-center justify-between gap-4 py-3">
+									<dt class="text-base font-bold text-gray-900 dark:text-white">Total</dt>
+									<dd class="text-base font-bold text-gray-900 dark:text-white">{totalPrice}</dd>
+								</dl>
+							</div>
+						{/if}
+					</div>
 				</div>
 			</div>
 		</div>

@@ -17,11 +17,11 @@
 	let showSummary = false;
 	function handleSubmit(event) {
 		event.preventDefault();
-		localStorage.setItem('selectedTicket', JSON.stringify(selectedTicket));
-		localStorage.setItem('adultCount', adultCount.toString());
-		localStorage.setItem('childrenCount', childrenCount.toString());
-		localStorage.setItem('infantCount', infantCount.toString());
-		localStorage.setItem('date', date);
+		sessionStorage.setItem('selectedTicket', JSON.stringify(selectedTicket));
+		sessionStorage.setItem('adultCount', adultCount.toString());
+		sessionStorage.setItem('childrenCount', childrenCount.toString());
+		sessionStorage.setItem('infantCount', infantCount.toString());
+		sessionStorage.setItem('date', date);
 		goto('/detailcostumer');
 	}
 	function selectTicket(ticket: item) {

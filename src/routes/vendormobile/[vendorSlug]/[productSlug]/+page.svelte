@@ -90,7 +90,10 @@
 	});
 	function handleSubmit(event) {
 		event.preventDefault();
-
+		const totalPrice = (adultCount * $decryptedTicket?.adult_price +
+			childrenCount * $decryptedTicket?.children_price +
+			infantCount * $decryptedTicket?.infant_price) *
+			(1 - $decryptedTicket?.discount_percentage / 100);
 		// Simpan data ke local storage
 		localStorage.setItem('selectedTicket', JSON.stringify(selectedTicket));
 		localStorage.setItem('adultCount', adultCount.toString());
@@ -106,7 +109,8 @@
 			adultCount,
 			childrenCount,
 			infantCount,
-			date
+			date,
+			totalPrice
 		};
 		const encryptedData = CryptoJS.AES.encrypt(JSON.stringify(dataToEncrypt), secretKey).toString();
 		sessionStorage.setItem('encryptedData', encryptedData);

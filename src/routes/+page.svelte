@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { PageServerData } from './$types';
 	import VendorHome from '$lib/components/Section/VendorHome.svelte';
+	import VendorHomeMobile from '$lib/components/Section/VendorHomeMobile.svelte';
 	import BaliFarmHome from '$lib/components/Section/BaliFarmHome.svelte';
 	import BaliZooHome from '$lib/components/Section/BaliZooHome.svelte';
 	import BaliBirdParkHome from '$lib/components/Section/BaliBirdParkHome.svelte';
@@ -42,7 +43,10 @@
 	<div class="px-5 pb-0 lg:pb-44 lg:px-10 container mx-auto">
 		<div id="feature">
 			<h5 class="text-center font-bold text-white text-2xl boldfont">Places To Go</h5>
-			<div class="grid grid-cols-1 lg:grid-cols-12 py-5 gap-6">
+			<div class="grid lg:hidden grid-cols-1 lg:grid-cols-12 py-5 gap-6">
+				<VendorHomeMobile data={vendor} />
+			</div>
+			<div class="hidden lg:grid grid-cols-1 lg:grid-cols-12 py-5 gap-6">
 				<VendorHome data={vendor} />
 			</div>
 		</div>

@@ -80,7 +80,7 @@
 		<div class="grid grid-cols-2 gap-2 w-full">
 			{#each detail?.schedule as schedule}
 				<p class="font-bold">{schedule?.day}</p>
-				<p>{schedule.start_time.slice(11, 16)} - {schedule.end_time.slice(11, 16)}</p>
+				<p>{schedule?.start_time.slice(11, 16)} - {schedule?.end_time.slice(11, 16)}</p>
 			{/each}
 		</div>
 		<div class="my-10 flex items-start">

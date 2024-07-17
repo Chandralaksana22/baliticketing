@@ -4,11 +4,11 @@
     $: items = data ?? [];
 </script>
 
-{#each items as vendor, index}
+{#each items as vendor}
     <div
-        class="feature-port {index % 4 === 0 || index % 4 === 3 ? 'col-span-12 lg:col-span-7' : 'col-span-12 lg:col-span-5'}"
+        class="feature-port"
     >
-        <a data-sveltekit-reload  href={`/vendor/${vendor.slug}`} class="vendor-port h-[13rem] lg:h-[25rem] img-border">
+        <a data-sveltekit-reload  href={`/vendormobile/${vendor.slug}`} class="vendor-port h-[13rem] lg:h-[25rem] img-border">
             <img
                 src={vendor.images.length > 0
                     ? vendor.images[1].path
