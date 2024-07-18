@@ -117,22 +117,22 @@
 					>
 						<!-- Svelte loop for products -->
 						{#each explorerGA as product}
-							{#if product.type === 'General Admission'}
+							{#if product?.type === 'General Admission'}
 								<div>
-									<a href={product.link_address}>
+									<a href={product?.link_address}>
 										<img
 											class="rounded-none h-[25vh] object-cover w-full object-top"
-											src={product.images[0].path}
-											alt={product.name}
+											src={product?.images[0]?.path}
+											alt={product?.name}
 										/>
 									</a>
 									<div class="p-2 text-center">
 										<h5 class="mb-2 text-md font-bold tracking-tight text-gray-900">
-											{product.name}
+											{product?.name}
 										</h5>
 										<!-- Replace NuxtLink with Svelte Link equivalent -->
 										<a
-											href={`/vendor/${product.vendor.slug}/${product.slug}`}
+											href={`/vendor/${product?.vendor.slug}/${product?.slug}`}
 											class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
 										>
 									</div>
@@ -152,22 +152,22 @@
 					>
 						<!-- Svelte loop for products -->
 						{#each balifarmGA as product}
-							{#if product.type === 'General Admission'}
+							{#if product?.type === 'General Admission'}
 								<div>
-									<a href={product.link_address}>
+									<a href={product?.link_address}>
 										<img
 											class="rounded-none h-[25vh] object-cover w-full object-top"
-											src={product.images[0].path}
-											alt={product.name}
+											src={product?.images[0]?.path}
+											alt={product?.name}
 										/>
 									</a>
 									<div class="p-2 text-center">
 										<h5 class="mb-2 text-md font-bold tracking-tight text-gray-900">
-											{product.name}
+											{product?.name}
 										</h5>
 										<!-- Replace NuxtLink with Svelte Link equivalent -->
 										<a
-											href={`/ticket-detail/${product.vendor.slug}/${product.slug}`}
+											href={`/ticket-detail/${product?.vendor.slug}/${product?.slug}`}
 											class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
 										>
 									</div>
@@ -186,22 +186,22 @@
 					>
 						<!-- Svelte loop for products -->
 						{#each balisafariGA as product}
-							{#if product.type === 'General Admission'}
+							{#if product?.type === 'General Admission'}
 								<div>
-									<a href={product.link_address}>
+									<a href={product?.link_address}>
 										<img
 											class="rounded-none h-[25vh] object-cover w-full object-top"
-											src={product.images[0].path}
-											alt={product.name}
+											src={product?.images[0]?.path}
+											alt={product?.name}
 										/>
 									</a>
 									<div class="p-2 text-center">
 										<h5 class="mb-2 text-md font-bold tracking-tight text-gray-900">
-											{product.name}
+											{product?.name}
 										</h5>
 										<!-- Replace NuxtLink with Svelte Link equivalent -->
 										<a
-											href={`/ticket-detail/${product.vendor.slug}/${product.slug}`}
+											href={`/ticket-detail/${product?.vendor.slug}/${product?.slug}`}
 											class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
 										>
 									</div>
@@ -220,22 +220,22 @@
 					>
 						<!-- Svelte loop for products -->
 						{#each balibirdGA as product}
-							{#if product.type === 'General Admission'}
+							{#if product?.type === 'General Admission'}
 								<div>
-									<a href={product.link_address}>
+									<a href={product?.link_address}>
 										<img
 											class="rounded-none h-[25vh] object-cover w-full object-top"
-											src={product.images[0].path}
-											alt={product.name}
+											src={product?.images[0]?.path}
+											alt={product?.name}
 										/>
 									</a>
 									<div class="p-2 text-center">
 										<h5 class="mb-2 text-md font-bold tracking-tight text-gray-900">
-											{product.name}
+											{product?.name}
 										</h5>
 										<!-- Replace NuxtLink with Svelte Link equivalent -->
 										<a
-											href={`/ticket-detail/${product.vendor.slug}/${product.slug}`}
+											href={`/ticket-detail/${product?.vendor.slug}/${product?.slug}`}
 											class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
 										>
 									</div>

@@ -67,13 +67,13 @@
 						<li>
 							<button
 								class="inline-block mb-2 w-full p-2 px-5 tab-button rounded-lg"
-								data-tabs-target={'#' + vendor.slug}
+								data-tabs-target={'#' + vendor?.slug}
 								type="button"
-								aria-controls={vendor.slug}
-								aria-selected={activeTab === vendor.slug ? 'true' : 'false'}
-								on:click={() => activateTab(vendor.slug)}
+								aria-controls={vendor?.slug}
+								aria-selected={activeTab === vendor?.slug ? 'true' : 'false'}
+								on:click={() => activateTab(vendor?.slug)}
 							>
-								{vendor.name}
+								{vendor?.name}
 							</button>
 						</li>
 					{/each}
@@ -82,16 +82,16 @@
 			<div id="default-tab-content">
 				{#each data as vendor}
 					<div
-						id={vendor.slug}
-						class="{activeTab === vendor.slug
+						id={vendor?.slug}
+						class="{activeTab === vendor?.slug
 							? 'block'
 							: 'hidden'} p-4 rounded-lg bg-gray-50 dark:bg-gray-800"
-						aria-labelledby={vendor.slug}
+						aria-labelledby={vendor?.slug}
 					>
 						<div class="grid grid-cols-2 gap-2 w-full lg:w-3/4">
-							{#each vendor.schedule as schedule}
-								<p class="font-bold">{schedule.day}</p>
-								<p>{schedule.start_time.slice(11, 16)} - {schedule.end_time.slice(11, 16)}</p>
+							{#each vendor?.schedule as schedule}
+								<p class="font-bold">{schedule?.day}</p>
+								<p>{schedule?.start_time.slice(11, 16)} - {schedule?.end_time.slice(11, 16)}</p>
 							{/each}
 						</div>
 					</div>

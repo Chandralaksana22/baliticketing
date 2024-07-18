@@ -138,23 +138,23 @@
 						>
 							<!-- Svelte loop for products -->
 							{#each explorerWO as product}
-								{#if product.type === "What's On"}
+								{#if product?.type === "What's On"}
 									<div>
-										<a data-sveltekit-reload >
+										<a data-sveltekit-reload href={`/vendor/${product?.vendor.slug}/${product?.slug}`} >
 											<img
 												class="rounded-none h-[25vh] object-cover w-full object-top"
-												src={product.images[0].path}
-												alt={product.name}
+												src={product?.images[0]?.path}
+												alt={product?.name}
 											/>
 										</a>
 										<div class="p-2 text-center">
 											<h5 class="mb-2 text-md font-bold tracking-tight text-gray-900">
-												{product.name}
+												{product?.name}
 											</h5>
 											<!-- Replace NuxtLink with Svelte Link equivalent -->
 											<a
 												data-sveltekit-reload
-												href={`/vendor/${product.vendor.slug}/${product.slug}`}
+												href={`/vendor/${product?.vendor.slug}/${product?.slug}`}
 												class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
 											>
 										</div>
@@ -175,23 +175,23 @@
 						>
 							<!-- Svelte loop for products -->
 							{#each balifarmWO as product}
-								{#if product.type === "What's On"}
+								{#if product?.type === "What's On"}
 									<div>
-										<a data-sveltekit-reload>
+										<a data-sveltekit-reload href={`/vendor/${product?.vendor.slug}/${product?.slug}`}>
 											<img
 												class="rounded-none h-[25vh] object-cover w-full object-top"
-												src={product.images[0].path}
-												alt={product.name}
+												src={product?.images[0]?.path}
+												alt={product?.name}
 											/>
 										</a>
 										<div class="p-2 text-center">
 											<h5 class="mb-2 text-md font-bold tracking-tight text-gray-900">
-												{product.name}
+												{product?.name}
 											</h5>
 											<!-- Replace NuxtLink with Svelte Link equivalent -->
 											<a
 												data-sveltekit-reload
-												href={`/ticket-detail/${product.vendor.slug}/${product.slug}`}
+												href={`/ticket-detail/${product?.vendor.slug}/${product?.slug}`}
 												class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
 											>
 										</div>
@@ -211,23 +211,23 @@
 						>
 							<!-- Svelte loop for products -->
 							{#each balisafariWO as product}
-								{#if product.type === "What's On"}
+								{#if product?.type === "What's On"}
 									<div>
-										<a data-sveltekit-reload>
+										<a data-sveltekit-reload href={`/vendor/${product?.vendor.slug}/${product?.slug}`}>
 											<img
 												class="rounded-none h-[25vh] object-cover w-full object-top"
-												src={product.images[0].path}
-												alt={product.name}
+												src={product?.images[0]?.path}
+												alt={product?.name}
 											/>
 										</a>
 										<div class="p-2 text-center">
 											<h5 class="mb-2 text-md font-bold tracking-tight text-gray-900">
-												{product.name}
+												{product?.name}
 											</h5>
 											<!-- Replace NuxtLink with Svelte Link equivalent -->
 											<a
 												data-sveltekit-reload
-												href={`/ticket-detail/${product.vendor.slug}/${product.slug}`}
+												href={`/ticket-detail/${product?.vendor.slug}/${product?.slug}`}
 												class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
 											>
 										</div>
@@ -247,23 +247,23 @@
 						>
 							<!-- Svelte loop for products -->
 							{#each balibirdWO as product}
-								{#if product.type === "What's On"}
+								{#if product?.type === "What's On"}
 									<div>
-										<a data-sveltekit-reload>
+										<a data-sveltekit-reload href={`/vendor/${product?.vendor.slug}/${product?.slug}`}>
 											<img
 												class="rounded-none h-[25vh] object-cover w-full object-top"
-												src={product.images[0].path}
-												alt={product.name}
+												src={product?.images[0]?.path}
+												alt={product?.name}
 											/>
 										</a>
 										<div class="p-2 text-center">
 											<h5 class="mb-2 text-md font-bold tracking-tight text-gray-900">
-												{product.name}
+												{product?.name}
 											</h5>
 											<!-- Replace NuxtLink with Svelte Link equivalent -->
 											<a
 												data-sveltekit-reload
-												href={`/ticket-detail/${product.vendor.slug}/${product.slug}`}
+												href={`/ticket-detail/${product?.vendor.slug}/${product?.slug}`}
 												class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
 											>
 										</div>

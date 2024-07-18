@@ -33,7 +33,6 @@
 
 	let detail = data?.detail;
 	let product = data?.product;
-	console.log('product',product)
 	let popular = data?.popularProduct;
 	let listTicket = data?.listTicket;
 
@@ -82,8 +81,8 @@
 
 <section class="bg-cover bg-white md:bg-[url('/images/bg-desktop.png')] hidden md:block">
 	<img
-		src={detail?.images[0].path}
-		alt={detail?.images[0].path}
+		src={detail?.images[0]?.path}
+		alt={detail?.images[0]?.path}
 		class="h-[100vh] object-cover w-full"
 	/>
 	<div class="hidden md:block px-5 pb-0 md:pb-44 md:px-10 container mx-auto">
@@ -384,7 +383,7 @@
 		</h1>
 	</div>
 </div>
-<div class="block lg:hidden bg-white">
+<div class="bg-white block lg:hidden">
 	<div class="container mx-auto px-5 lg:px-20">
 		<div class="my-10 flex items-start">
 			<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none"
@@ -398,7 +397,7 @@
 		<div class="grid grid-cols-2 gap-2 w-full">
 			{#each detail?.schedule as schedule}
 				<p class="font-bold">{schedule?.day}</p>
-				<p>{schedule.start_time.slice(11, 16)} - {schedule.end_time.slice(11, 16)}</p>
+				<p>{schedule?.start_time.slice(11, 16)} - {schedule?.end_time.slice(11, 16)}</p>
 			{/each}
 		</div>
 		<div class="my-10 flex items-start">

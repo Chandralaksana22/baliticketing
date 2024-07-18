@@ -5,7 +5,7 @@ export async function getTicket(keyword: any) {
 		const resp = await apiClient.get(
 			`/get-all-ticket?keyword=${keyword}`
 		);
-		return resp.data.data;
+		return resp.data;
 	} catch (error) {
 		console.log(error);
 	}
@@ -15,7 +15,7 @@ export async function getTicketVendor(vendorSlug: any) {
 		const resp = await apiClient.get(
 			`/get-all-ticket-by-vendor?vendor=${vendorSlug}`
 		);
-		return resp.data.data;
+		return resp.data;
 	} catch (error) {
 		console.log(error);
 	}
@@ -35,7 +35,7 @@ export async function getListTicket(vendorSlug: any, productSlug:any, children:a
 		const resp = await apiClient.get(
 			`/get-form-list-ticket?vendor=${vendorSlug}&product=${productSlug}&children=${children}&adult=${adults}&infant=${infants}&date=${date}`
 		);
-		return resp.data.data;
+		return resp.data;
 	} catch (error) {
 		console.log(error);
 	}

@@ -42,22 +42,22 @@
 				class="overflow-y-auto h-[50vh] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 w-full"
 			>
 				{#each explorerGA as product}
-					{#if product.type === 'General Admission'}
+					{#if product?.type === 'General Admission'}
 						<div>
 							<a>
 								<img
 									class="rounded-none h-[25vh] object-cover w-full object-top"
-									src={product.images[0].path}
-									alt={product.name}
+									src={product?.images[0]?.path}
+									alt={product?.name}
 								/>
 							</a>
 							<div class="p-2 text-center">
 								<h5 class="mb-2 text-md font-bold tracking-tight text-gray-900">
-									{product.name}
+									{product?.name}
 								</h5>
 								<!-- Replace NuxtLink with Svelte Link equivalent -->
 								<a
-									href={`/vendor/${product.vendor.slug}/${product.slug}`}
+									href={`/vendor/${product?.vendor?.slug}/${product?.slug}`}
 									class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
 								>
 							</div>

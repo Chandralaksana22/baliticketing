@@ -36,9 +36,9 @@
 		</div>
 		<div class="p-4 md:p-5 space-y-4">
 			<div class="grid grid-cols-2 gap-2 w-full">
-				{#each data.schedule as schedule}
-					<p class="font-bold">{schedule.day}</p>
-					<p>{schedule.start_time.slice(11, 16)} - {schedule.end_time.slice(11, 16)}</p>
+				{#each data?.schedule as schedule}
+					<p class="font-bold">{schedule?.day}</p>
+					<p>{schedule?.start_time.slice(11, 16)} - {schedule?.end_time.slice(11, 16)}</p>
 				{/each}
 			</div>
 		</div>

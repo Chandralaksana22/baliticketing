@@ -63,7 +63,7 @@ export async function getVendorDetail(slug: any,) {
 export async function getProductVendor(slug: any,) {
 	try {
 		const resp = await apiClient.get(`/get-product?slug=${slug}`);
-		return resp.data.data;
+		return resp.data;
 	} catch (error) {
 		console.log(error);
 	}
