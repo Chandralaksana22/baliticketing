@@ -4,7 +4,18 @@
 	import 'swiper/swiper-bundle.css';
 
 	export let productsData: any = [];
+	let today = new Date().toLocaleDateString('en-US', { weekday: 'long' });
 
+	function getEndTime(schedule) {
+		let todaySchedule = schedule.find((item) => item.day === today);
+		if (todaySchedule) {
+			return new Date(todaySchedule.end_time).toLocaleTimeString('en-US', {
+				hour: '2-digit',
+				minute: '2-digit'
+			});
+		}
+		return 'No schedule';
+	}
 	onMount(() => {
 		const swiper = new Swiper('.mySwiperpackage', {
 			modules: [Navigation],
@@ -43,14 +54,22 @@
 					<div class="absolute top-[25%] left-1/2 -translate-x-1/2 text-center w-full px-4">
 						<h5 class="boldfont text-2xl text-yellow text-center">{product.name}</h5>
 						<p class="text-md text-yellow">
-							Session :Morning <br />
-							Last check-in : 09.00
+							Last check-in :
+							{#if product?.vendor?.schedule}
+								{getEndTime(product.vendor.schedule)}
+							{/if}
 						</p>
 						<p class="mt-5 font-bold text-white">INCLUSION :</p>
-						<p class="text-white"> {product.inclusion.map(item => item.item).join(', ')}</p>
+						<p class="text-white">
+							{product.inclusion
+								.slice(0, 5)
+								.map((item) => item.item)
+								.join(', ')}
+						</p>
 					</div>
 					<div class="absolute bottom-[5%] left-1/2 -translate-x-1/2 text-center w-full">
-						<a data-sveltekit-reload 
+						<a
+							data-sveltekit-reload
 							href={`/vendor/${product.vendor.slug}/${product.slug}`}
 							class="bg-white rounded-lg p-2 slide boldfont text-center">Book Tiket</a
 						>
