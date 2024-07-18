@@ -4,6 +4,7 @@
 	import type { PageServerData } from './$types';
 	export let data: PageServerData;
 	import { goto } from '$app/navigation';
+	let isLoading = false;
 	// function navigateToMobileTicket(listTicket: any) {
 	//     sessionStorage.setItem('selectedTicket', JSON.stringify(listTicket));
 	//     goto('/mobileticket');
@@ -13,12 +14,15 @@
 	}
 
 	export function navigateToMobileTicket(listTicket: any) {
+		isLoading = true;
 		const secretKey = generateSecretKey();
 		const encryptedData = CryptoJS.AES.encrypt(JSON.stringify(listTicket), secretKey).toString();
 		sessionStorage.setItem('item', encryptedData);
 		sessionStorage.setItem('key', secretKey);
 		const url = `/vendormobile/${listTicket.vendor.slug}/${listTicket.product.slug}`;
-		goto(url);
+		goto(url).then(() => {
+			isLoading = false;
+		});
 	}
 
 	let detail = data?.detail;
@@ -55,7 +59,9 @@
 		{detail?.name} | TiketXplorer
 	</title>
 </svelte:head>
-
+{#if isLoading}
+	<div class="loading-overlay">Loading Ticket...</div>
+{/if}
 <div
 	class="bg-center bg-cover bg-no-repeat bg-gray-600 bg-blend-multiply"
 	style="background-image: url({detail?.images[0]?.path});"
@@ -106,7 +112,7 @@
 			{#each listTicket as listTicket}
 				<div>
 					<a
-						href="/mobileticket"
+						href="#"
 						class="grid grid-cols-3 gap-3 pt-5 items-start"
 						style="border-bottom: 1px solid rgb(156, 163, 175);"
 						on:click|preventDefault={() => navigateToMobileTicket(listTicket)}
@@ -160,7 +166,6 @@
 	</div>
 </div>
 
-
 <style>
 	button.package[aria-selected='false'] {
 		background-color: #0887be;
@@ -170,5 +175,17 @@
 	button.package[aria-selected='true'] {
 		background-color: #ffd600;
 		color: #0887be;
+	}
+	.loading-overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(255, 255, 255, 0.7);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		z-index: 9999;
 	}
 </style>

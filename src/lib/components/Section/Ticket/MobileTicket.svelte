@@ -5,20 +5,26 @@
 	function generateSecretKey() {
 		return CryptoJS.lib.WordArray.random(16).toString();
 	}
-
+	let isLoading = false;
 	export function navigateToMobileTicket(listTicket: any) {
+		isLoading = true;
 		const secretKey = generateSecretKey();
 		const encryptedData = CryptoJS.AES.encrypt(JSON.stringify(listTicket), secretKey).toString();
 		sessionStorage.setItem('item', encryptedData);
 		sessionStorage.setItem('key', secretKey);
 		const url = `/vendormobile/${listTicket.vendor.slug}/${listTicket.product.slug}`;
-		goto(url);
+		goto(url).then(() => {
+			isLoading = false; // Set loading to false after navigation
+		});
 	}
 </script>
 
+{#if isLoading}
+	<div class="loading-overlay">Loading Ticket...</div>
+{/if}
 <div>
 	{#each listTicket as listTicket}
-		<a data-sveltekit-reload 
+		<a
 			href="#"
 			on:click|preventDefault={() => navigateToMobileTicket(listTicket)}
 			class="grid grid-cols-3 gap-3 pt-5 px-3 items-start"
@@ -47,10 +53,28 @@
 					<h1 class="text-md text-black font-bold">{listTicket?.name}</h1>
 					<p class="text-xs text-gray-600 line-through">From Rp {listTicket?.adult_price}</p>
 					<p class="text-md text-[#EF681C] font-bold">
-						From Rp { Math.round(listTicket.adult_price - (listTicket.adult_price * listTicket.discount_percentage / 100)) }<span class="text-sm text-black">/person</span>
+						From Rp {Math.round(
+							listTicket.adult_price -
+								(listTicket.adult_price * listTicket.discount_percentage) / 100
+						)}<span class="text-sm text-black">/person</span>
 					</p>
 				</div>
 			</div>
 		</a>
 	{/each}
 </div>
+
+<style>
+	.loading-overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(255, 255, 255, 0.7);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		z-index: 9999;
+	}
+</style>

@@ -8,7 +8,10 @@ const config = {
     require('daisyui')
   ],
   theme: {
-  }
+  },
+  daisyui: {
+    themes: ["light", "dark", "cupcake"],
+  },
 };
 
 module.exports = config;

@@ -126,7 +126,7 @@
 	</title>
 </svelte:head>
 <div
-	class="bg-center bg-cover h-[100] bg-no-repeat bg-gray-600 bg-blend-multiply lg:bg-[url('/images/hero-ticket.png')]"
+	class="bg-center bg-cover h-[100] bg-no-repeat bg-gray-600 bg-blend-multiply" style="background-image: url({detail?.images[0]?.path});"
 >
 	<div class="h-[25vh] lg:h-[50vh] px-5 lg:px-10 flex items-center">
 		<h1
