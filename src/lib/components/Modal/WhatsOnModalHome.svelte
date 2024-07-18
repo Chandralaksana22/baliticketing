@@ -148,7 +148,7 @@
 											/>
 										</a>
 										<div class="p-2 text-center">
-											<h5 class="mb-2 text-md font-bold tracking-tight text-gray-900">
+											<h5 class="mb-2 text-md font-bold tracking-tight text-gray-900 truncate">
 												{product?.name}
 											</h5>
 											<!-- Replace NuxtLink with Svelte Link equivalent -->
@@ -185,7 +185,7 @@
 											/>
 										</a>
 										<div class="p-2 text-center">
-											<h5 class="mb-2 text-md font-bold tracking-tight text-gray-900">
+											<h5 class="mb-2 text-md font-bold tracking-tight text-gray-900 truncate">
 												{product?.name}
 											</h5>
 											<!-- Replace NuxtLink with Svelte Link equivalent -->
@@ -221,7 +221,7 @@
 											/>
 										</a>
 										<div class="p-2 text-center">
-											<h5 class="mb-2 text-md font-bold tracking-tight text-gray-900">
+											<h5 class="mb-2 text-md font-bold tracking-tight text-gray-900 truncate">
 												{product?.name}
 											</h5>
 											<!-- Replace NuxtLink with Svelte Link equivalent -->
@@ -257,7 +257,7 @@
 											/>
 										</a>
 										<div class="p-2 text-center">
-											<h5 class="mb-2 text-md font-bold tracking-tight text-gray-900">
+											<h5 class="mb-2 text-md font-bold tracking-tight text-gray-900 truncate">
 												{product?.name}
 											</h5>
 											<!-- Replace NuxtLink with Svelte Link equivalent -->

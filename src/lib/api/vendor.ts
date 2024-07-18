@@ -13,7 +13,7 @@ export async function getVendor() {
 export async function getBaliZooPopular() {
 	try {
 		const resp = await apiClient.get(
-			`/get-popular-product-2?slug=bali-zoo`
+			`/get-product?slug=bali-zoo`
 		);
 		return resp.data;
 	} catch (error) {
