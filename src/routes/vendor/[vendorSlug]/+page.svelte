@@ -33,6 +33,7 @@
 
 	let detail = data?.detail;
 	let product = data?.product;
+	console.log('product',product)
 	let popular = data?.popularProduct;
 	let listTicket = data?.listTicket;
 
@@ -383,7 +384,7 @@
 		</h1>
 	</div>
 </div>
-<div class="bg-white">
+<div class="block lg:hidden bg-white">
 	<div class="container mx-auto px-5 lg:px-20">
 		<div class="my-10 flex items-start">
 			<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none"

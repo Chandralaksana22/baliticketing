@@ -42,7 +42,7 @@
 					{#each explorerWO as product}
 						{#if product.type === "What's On"}
 							<div>
-								<a data-sveltekit-reload href={product.link_address}>
+								<a data-sveltekit-reload>
 									<img
 										class="rounded-none h-[25vh] object-cover w-full object-top"
 										src={product.images[0].path}
@@ -56,7 +56,7 @@
 									<!-- Replace NuxtLink with Svelte Link equivalent -->
 									<a
 										data-sveltekit-reload
-										href={`/ticket-detail/${product.vendor.slug}/${product.slug}`}
+										href={`/vendor/${product.vendor.slug}/${product.slug}`}
 										class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
 									>
 								</div>

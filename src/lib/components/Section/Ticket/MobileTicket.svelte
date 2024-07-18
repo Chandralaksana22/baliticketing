@@ -21,7 +21,7 @@
 		<a data-sveltekit-reload 
 			href="#"
 			on:click|preventDefault={() => navigateToMobileTicket(listTicket)}
-			class="grid grid-cols-3 gap-3 pt-5 items-start"
+			class="grid grid-cols-3 gap-3 pt-5 px-3 items-start"
 			style="border-bottom: 1px solid rgb(156, 163, 175);"
 		>
 			<div class="col-span-1">
@@ -44,7 +44,7 @@
 				</div> -->
 				<div class="my-5">
 					<h2 class="text-xs text-gray-400 font-bold">{listTicket?.vendor?.name}</h2>
-					<h1 class="text-lg text-black font-bold">{listTicket?.name}</h1>
+					<h1 class="text-md text-black font-bold">{listTicket?.name}</h1>
 					<p class="text-xs text-gray-600 line-through">From Rp {listTicket?.adult_price}</p>
 					<p class="text-md text-[#EF681C] font-bold">
 						From Rp { Math.round(listTicket.adult_price - (listTicket.adult_price * listTicket.discount_percentage / 100)) }<span class="text-sm text-black">/person</span>

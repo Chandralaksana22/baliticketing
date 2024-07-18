@@ -140,7 +140,7 @@
 							{#each explorerWO as product}
 								{#if product.type === "What's On"}
 									<div>
-										<a data-sveltekit-reload href={product.link_address}>
+										<a data-sveltekit-reload >
 											<img
 												class="rounded-none h-[25vh] object-cover w-full object-top"
 												src={product.images[0].path}
@@ -177,7 +177,7 @@
 							{#each balifarmWO as product}
 								{#if product.type === "What's On"}
 									<div>
-										<a data-sveltekit-reload href={product.link_address}>
+										<a data-sveltekit-reload>
 											<img
 												class="rounded-none h-[25vh] object-cover w-full object-top"
 												src={product.images[0].path}
@@ -213,7 +213,7 @@
 							{#each balisafariWO as product}
 								{#if product.type === "What's On"}
 									<div>
-										<a data-sveltekit-reload href={product.link_address}>
+										<a data-sveltekit-reload>
 											<img
 												class="rounded-none h-[25vh] object-cover w-full object-top"
 												src={product.images[0].path}
@@ -249,7 +249,7 @@
 							{#each balibirdWO as product}
 								{#if product.type === "What's On"}
 									<div>
-										<a data-sveltekit-reload href={product.link_address}>
+										<a data-sveltekit-reload>
 											<img
 												class="rounded-none h-[25vh] object-cover w-full object-top"
 												src={product.images[0].path}

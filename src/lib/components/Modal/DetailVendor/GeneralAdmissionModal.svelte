@@ -44,7 +44,7 @@
 				{#each explorerGA as product}
 					{#if product.type === 'General Admission'}
 						<div>
-							<a href={product.link_address}>
+							<a>
 								<img
 									class="rounded-none h-[25vh] object-cover w-full object-top"
 									src={product.images[0].path}
@@ -57,7 +57,7 @@
 								</h5>
 								<!-- Replace NuxtLink with Svelte Link equivalent -->
 								<a
-									href={`/ticket-detail/${product.vendor.slug}/${product.slug}`}
+									href={`/vendor/${product.vendor.slug}/${product.slug}`}
 									class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
 								>
 							</div>
