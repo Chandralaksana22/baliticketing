@@ -43,6 +43,7 @@
 		"autoprefixer": "^10.4.19",
 		"axios": "^1.7.2",
 		"compression": "^1.7.4",
+		"compressorjs": "^1.2.1",
 		"crypto-js": "^4.2.0",
 		"express": "^4.19.2",
 		"flowbite": "^2.4.1",

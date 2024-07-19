@@ -9,7 +9,7 @@
 		<a
 			data-sveltekit-reload
 			href={`/vendormobile/${vendor.slug}`}
-			class="vendor-port h-[13rem] lg:h-[25rem] img-border"
+			class="vendor-port"
 		>
 			<img loading="lazy"
 				src={vendor.images.length > 0
@@ -20,8 +20,8 @@
 			<div>
 				<div
 					class="px-10 text-white"
-					style="position: absolute;top: 10%;">
-					<h3 class="text-xl boldfont text-[#FFD600] mb-10">{vendor.name}</h3>
+					style="position: absolute;top: 30%;">
+					<h3 class="text-xl boldfont text-[#FFD600] mb-5">{vendor.name}</h3>
 					<div class="text-lg line-clamp-3">{vendor.short_desc}</div>
 				</div>
 			</div>
