@@ -39,18 +39,23 @@
 		class="bg-center bg-cover h-[100vh] bg-no-repeat bg-[url('/images/Header.png')] lg:bg-[url('/images/bg-home.png')]"
 	>
 		<div class="flex h-[100vh] px-5 lg:px-10 container mx-auto items-center">
+			{#if isMobile}
 			<h1
-				class="hidden lg:block mb-4 boldfont text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl"
-			>
-				EXPERIENCE <br /> <span class="text-yellow">A CLOSER LOOK</span> TO <br />
-				BALI’S EXOTIC ANIMALS
-			</h1>
+			class="boldfont text-center mx-auto text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl"
+		>
+			EXPERIENCE <br /> <span class="text-yellow">A CLOSER LOOK</span> <br /> TO BALI’S <br /> EXOTIC
+			ANIMALS
+		</h1>
+			{:else}
 			<h1
-				class="block lg:hidden mb-4 boldfont text-center mx-auto text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl"
-			>
-				EXPERIENCE <br /> <span class="text-yellow">A CLOSER LOOK</span> <br /> TO BALI’S <br /> EXOTIC
-				ANIMALS
-			</h1>
+			class="mb-4 boldfont text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl"
+		>
+			EXPERIENCE <br /> <span class="text-yellow">A CLOSER LOOK</span> TO <br />
+			BALI’S EXOTIC ANIMALS
+		</h1>
+			{/if}
+			
+			
 		</div>
 	</div>
 
