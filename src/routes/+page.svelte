@@ -41,7 +41,7 @@
 		<div class="flex h-[100vh] px-5 lg:px-10 container mx-auto items-center">
 			{#if isMobile}
 			<h1
-			class="boldfont text-center mx-auto text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl"
+			class="boldfont text-center mx-auto text-4xl font-extrabold tracking-tight leading-none text-white"
 		>
 			EXPERIENCE <br /> <span class="text-yellow">A CLOSER LOOK</span> <br /> TO BALI’S <br /> EXOTIC
 			ANIMALS
