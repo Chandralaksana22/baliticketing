@@ -34,14 +34,14 @@
 	let balisafari = data?.balisafari;
 </script>
 
-<section class="bg-cover bg-[url('/images/bg-desktop.png')]">
+<section class="bg-cover bg-[url('/images/bg-desktop.webp')]">
 	<div
-		class="bg-center bg-cover h-[100vh] bg-no-repeat bg-[url('/images/Header.png')] lg:bg-[url('/images/bg-home.png')]"
+		class="bg-center bg-cover h-[100vh] bg-no-repeat bg-[url('/images/Header.webp')] lg:bg-[url('/images/bg-home.webp')]"
 	>
 		<div class="flex h-[100vh] px-5 lg:px-10 container mx-auto items-center">
 			{#if isMobile}
 			<h1
-			class="boldfont text-center mx-auto text-4xl font-extrabold tracking-tight leading-none text-white"
+			class="boldfont text-center mx-auto text-xl font-extrabold tracking-tight leading-none text-white"
 		>
 			EXPERIENCE <br /> <span class="text-yellow">A CLOSER LOOK</span> <br /> TO BALI’S <br /> EXOTIC
 			ANIMALS
@@ -102,7 +102,7 @@
 <!-- svelte-ignore empty-block -->
 {#if isMobile}{:else}
 	<section
-		class="block bg-cover h-[25vh] lg:h-auto bg-[url('/images/background-biru-desktop.png')]"
+		class="block bg-cover h-[25vh] lg:h-auto bg-[url('/images/background-biru-desktop.webp')]"
 	>
 		<div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
 			<div class="col-span-7 pt-32">
@@ -111,7 +111,7 @@
 					<BaliZooHome data={balizoo} />
 				</div>
 			</div>
-			<div class="col-span-5 bg-[url('/images/plan.png')]">
+			<div class="col-span-5 bg-[url('/images/plan.webp')]">
 				<div class="pt-32">
 					<h4 class="boldfont text-white text-3xl text-center">
 						A WELL SPENT DAY <br /> at BALI BIRD PARK
@@ -128,7 +128,7 @@
 			<div class="col-span-5">
 				<BaliFarmHome data={balifarm} />
 			</div>
-			<div class="col-span-7 bg-contain bg-[url('/images/bg-hijau.png')]">
+			<div class="col-span-7 bg-contain bg-[url('/images/bg-hijau.webp')]">
 				<h4 class="boldfont pt-24 text-white text-3xl text-center">
 					WILDLIFE ADVENTURE AT BALI SAFARI
 				</h4>

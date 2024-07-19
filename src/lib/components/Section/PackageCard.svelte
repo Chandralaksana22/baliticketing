@@ -46,7 +46,7 @@
 		{#each productsData as product}
 			<div class="swiper-slide">
 				<div class="rounded-lg overflow-hidden">
-					<img
+					<img loading="lazy"
 						class="filter brightness-50 rounded-lg h-[400px] w-full object-cover"
 						src={product.images[0].path}
 						alt="image"

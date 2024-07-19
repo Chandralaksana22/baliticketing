@@ -23,7 +23,7 @@
 				{#if item?.type === 'General Admission'}
 					<div class="swiper-slide">
 						<div class="relative">
-							<img
+							<img loading="lazy"
 								src={item?.images[0]?.path}
 								class="h-[100vh] w-full object-cover filter brightness-50"
 								alt="images"

@@ -7,7 +7,7 @@
 	
 </script>
 
-<section class="bg-cover bg-[url('/images/bg-desktop.png')]">
+<section class="bg-cover bg-[url('/images/bg-desktop.webp')]">
 
 	<div class="px-5 pb-0 lg:pb-44 lg:px-10 container mx-auto">
 		<div id="feature">

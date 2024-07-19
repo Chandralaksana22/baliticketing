@@ -37,7 +37,7 @@
                 <a data-sveltekit-reload  href={`/vendor/${product.vendor.slug}/${product.slug}`}>
                     <div class="bg-white h-full overflow-hidden rounded-lg card-zoom-hover">
                         <div class="overflow-hidden">
-                            <img src={product.images[0].path} class="rounded-t-lg h-[35vh] w-full object-cover" alt="image">
+                            <img src={product.images[0].path} loading="lazy" class="rounded-t-lg h-[35vh] w-full object-cover" alt="image">
                         </div>
                         <div class="p-5">
                             <h4 class="boldfont text-center text-lg text-blue">{product.name}</h4>

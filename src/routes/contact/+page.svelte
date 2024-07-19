@@ -18,8 +18,8 @@
       fetchCountries();
     });
   </script>
-<section class="bg-cover bg-[url('/images/bg-desktop.png')]">
-    <div class="bg-center bg-cover h-[100] bg-no-repeat" style="background-image: url('/images/herocontact.jpeg');">
+<section class="bg-cover bg-[url('/images/bg-desktop.webp')]">
+    <div class="bg-center bg-cover h-[100] bg-no-repeat" style="background-image: url('/images/herocontact.webp');">
       <div class="h-[25vh] lg:h-[50vh] px-5 lg:px-10 flex items-center">
         <h1 class="mb-4 boldfont text-lg text-center mx-auto tracking-tight leading-none text-white md:text-xl lg:text-4xl">
           Contact Us

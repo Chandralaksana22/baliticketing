@@ -77,7 +77,7 @@
 	</title>
 </svelte:head>
 <div
-	class="hidden lg:block bg-center bg-cover h-[100] bg-no-repeat bg-gray-600 bg-blend-multiply lg:bg-[url('/images/hero-ticket.png')]"
+	class="hidden lg:block bg-center bg-cover h-[100] bg-no-repeat bg-gray-600 bg-blend-multiply lg:bg-[url('/images/hero-ticket.webp')]"
 >
 	<div class="h-[25vh] lg:h-[50vh] px-5 lg:px-10 flex items-center">
 		<h1
@@ -910,7 +910,7 @@
 	<div class="text-center">
 		<img
 			loading="lazy"
-			src="/images/pleasewait.png"
+			src="/images/pleasewait.webp"
 			height="600"
 			width="600"
 			class="img-fluid mx-auto"

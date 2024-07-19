@@ -79,7 +79,7 @@
 	</title>
 </svelte:head>
 
-<section class="bg-cover bg-white md:bg-[url('/images/bg-desktop.png')] hidden md:block">
+<section class="bg-cover bg-white md:bg-[url('/images/bg-desktop.webp')] hidden md:block">
 	<img
 		src={detail?.images[0]?.path}
 		alt={detail?.images[0]?.path}
@@ -97,7 +97,7 @@
 	</div>
 	{#if detail.slug === 'bali-zoo'}
 		<PopularActivity data={popular} />
-		<div class="hidden md:block bg-cover bg-[url('../images/background-biru-desktop.png')]">
+		<div class="hidden md:block bg-cover bg-[url('../images/background-biru-desktop.webp')]">
 			<h4 class="boldfont text-white text-3xl pt-[15%] mb-5 text-center">
 				ALL PACKAGES, GET MORE PAY LESS
 			</h4>
@@ -178,7 +178,7 @@
 					<div class="col-span-5">
 						<GeneralAdmissionSlider data={product} />
 					</div>
-					<div class="col-span-7 bg-cover bg-center bg-[url('/images/bg-hijau.png')]">
+					<div class="col-span-7 bg-cover bg-center bg-[url('/images/bg-hijau.webp')]">
 						<button
 							type="button"
 							class="bg-yellow p-3 boldfont text-xl rounded-b-xl"
@@ -187,8 +187,8 @@
 							<h3 class="boldfont">MEMBERSHIP</h3>
 						</button>
 						<div class="flex flex-col items-center justify-center pt-10 mx-auto px-10 space-y-4">
-							<img class="object-contain h-[35vh]" src="/images/member1.png" alt="Member 1" />
-							<img class="object-contain h-[35vh]" src="/images/member2.png" alt="Member 2" />
+							<img class="object-contain h-[35vh]" src="/images/member1.webp" alt="Member 1" />
+							<img class="object-contain h-[35vh]" src="/images/member2.webp" alt="Member 2" />
 						</div>
 					</div>
 				</div>
@@ -202,7 +202,7 @@
 				<GeneralAdmissionCard data={product} />
 			</div>
 		</div>
-		<section class="hidden lg:block bg-cover bg-[url('/images/background-biru-desktop.png')]">
+		<section class="hidden lg:block bg-cover bg-[url('/images/background-biru-desktop.webp')]">
 			<div class="container mx-auto">
 				<h4 class="boldfont text-white text-3xl pt-[15%] mb-5 text-center">OTHER ACTIVITY</h4>
 				<div class="p-10 grid grid-cols-2 gap-4">
@@ -220,10 +220,10 @@
 		<h4 class="boldfont text-white text-3xl py-10 text-center">WHAT’S NEW ON BALI SAFARI</h4>
 		<div class="px-10 relative z-10">
 			<div
-				class="rounded-xl p-10 bg-cover bg-[url('/images/bg-card.png')] grid grid-cols-2 gap-4 justify-center"
+				class="rounded-xl p-10 bg-cover bg-[url('/images/bg-card.webp')] grid grid-cols-2 gap-4 justify-center"
 			>
 				<div>
-					<img src="/assets/varunalogo-BqrHtd8Q.png" class="object-contain h-40 mb-20" alt="" />
+					<img src="/assets/varunalogo-BqrHtd8Q.webp" class="object-contain h-40 mb-20" alt="images" />
 					<h1 class="boldfont text-white text-3xl">Varuna Show</h1>
 					<p class="text-white text-md mt-10">
 						Varuna’s stage bursts to life with vibrant performers, adorned in marine-inspired
@@ -278,9 +278,9 @@
 			</div>
 		</div>
 		<img
-			src="/images/background-biru-desktop.png"
+			src="/images/background-biru-desktop.webp"
 			class="h-[50vh] mt-[-15%] w-full object-cover hidden lg:block"
-			alt="/images/background-biru-desktop.png"
+			alt="/images/background-biru-desktop.webp"
 		/>
 	{:else if detail.slug === 'bali-bird-park'}{:else}{/if}
 	<!-- <div class="mt-10" v-if="slug === 'bali-zoo'">
@@ -305,10 +305,10 @@
 		<h4 class="boldfont text-white text-3xl py-10 text-center">WHAT’S NEW ON BALI SAFARI</h4>
 		<div class="px-10 relative z-10">
 			<div
-				class="rounded-xl p-10 bg-cover bg-[url('/images/bg-card.png')] grid grid-cols-1 lg:grid-cols-2 gap-4 justify-center"
+				class="rounded-xl p-10 bg-cover bg-[url('/images/bg-card.webp')] grid grid-cols-1 lg:grid-cols-2 gap-4 justify-center"
 			>
 				<div>
-					<img src="~assets/image/varunalogo.png" class="object-contain h-40 mb-20" alt="" />
+					<img src="~assets/image/varunalogo.webp" class="object-contain h-40 mb-20" alt="images" />
 					<h1 class="boldfont text-white text-3xl">Varuna Show</h1>
 					<p class="text-white text-md mt-10">
 						Varuna’s stage bursts to life with vibrant performers, adorned in marine-inspired
@@ -363,9 +363,9 @@
 			</div>
 		</div>
 		<img
-			src="~assets/image/background-biru-desktop.png"
+			src="~assets/image/background-biru-desktop.webp"
 			class="h-[50vh] mt-[-15%] w-full object-cover hidden md:block"
-			alt="~assets/image/background-biru-desktop.png"
+			alt="~assets/image/background-biru-desktop.webp"
 		/>
 	</div> -->
 	<!-- <div class="mt-10" v-if="slug === 'bali-bird-park'">
@@ -490,7 +490,7 @@
 		</div>
 	</div>
 </div>
-<section class="hidden md:block bg-cover bg-[url('../images/background-biru-desktop.png')]">
+<section class="hidden md:block bg-cover bg-[url('../images/background-biru-desktop.webp')]">
 	<!-- <div class="mt-10" v-if="slug === 'bali-zoo'">
 		<h4 class="boldfont text-white text-3xl pt-[15%] mb-5 text-center">
 			ALL PACKAGES, GET MORE PAY LESS

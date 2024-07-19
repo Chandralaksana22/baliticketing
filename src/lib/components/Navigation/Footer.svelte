@@ -1,12 +1,12 @@
 
 
 <template>
-	<footer class="bg-cover bg-[url('/images/bgfooter.png')]">
+	<footer class="bg-cover bg-[url('/images/bgfooter.webp')]">
 		<div class="container mx-auto px-5 pb-40 lg:pb-0 lg:px-10">
 			<div class="bg-brown rounded-b-[30px] p-4 lg:p-14 mb-10">
 				<div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
 					<div class="lg:col-span-2">
-						<img src="/images/logo.png" class="h-[80%] w-auto object-contain mx-auto" alt="" />
+						<img loading="lazy" src="/images/logo.webp" class="h-[80%] w-auto object-contain mx-auto" alt="images" />
 					</div>
 					<div class="lg:col-span-8">
 						<p class="text-white text-center lg:text-left text-sm lg:text-md w-full lg:w-3/4">
@@ -145,43 +145,43 @@
 						Official Partner Of
 					</h1>
 					<div class="hidden lg:grid grid-cols-4 gap-4 items-end">
-						<img src="/images/Logos.png" alt="" />
-						<img src="/images/Logos2.png" alt="" />
-						<img src="/images/Logos3.png" alt="" />
-						<img src="/images/Logos4.png" alt="" />
+						<img loading="lazy" src="/images/Logos.webp" alt="images" />
+						<img loading="lazy" src="/images/Logos2.webp" alt="images" />
+						<img loading="lazy" src="/images/Logos3.webp" alt="images" />
+						<img loading="lazy" src="/images/Logos4.webp" alt="images" />
 					</div>
 					<div class="block lg:hidden">
 						<div class="marquee container">
 							<div class="marquee-content items-end">
 								<div class="marquee-item">
-									<img src="/images/Logos.png" alt="" />
+									<img loading="lazy" src="/images/Logos.webp" alt="images" />
 								</div>
 
 								<div class="marquee-item">
-									<img src="/images/Logos2.png" alt="" />
+									<img loading="lazy" src="/images/Logos2.webp" alt="images" />
 								</div>
 
 								<div class="marquee-item">
-									<img src="/images/Logos3.png" alt="" />
+									<img loading="lazy" src="/images/Logos3.webp" alt="images" />
 								</div>
 
 								<div class="marquee-item">
-									<img src="/images/Logos4.png" alt="" />
+									<img loading="lazy" src="/images/Logos4.webp" alt="images" />
 								</div>
 								<div class="marquee-item">
-									<img src="/images/Logos.png" alt="" />
-								</div>
-
-								<div class="marquee-item">
-									<img src="/images/Logos2.png" alt="" />
+									<img loading="lazy" src="/images/Logos.webp" alt="images" />
 								</div>
 
 								<div class="marquee-item">
-									<img src="/images/Logos3.png" alt="" />
+									<img loading="lazy" src="/images/Logos2.webp" alt="images" />
 								</div>
 
 								<div class="marquee-item">
-									<img src="/images/Logos4.png" alt="" />
+									<img loading="lazy" src="/images/Logos3.webp" alt="images" />
+								</div>
+
+								<div class="marquee-item">
+									<img loading="lazy" src="/images/Logos4.webp" alt="images" />
 								</div>
 							</div>
 						</div>
@@ -193,17 +193,17 @@
 					<div class="grid grid-cols-3 gap-4">
 						<div class="text-center">
 							<p class="text-brown">Trusted By</p>
-							<img class="object-contain mx-auto h-20" src="/images/trip.png" alt="" />
+							<img loading="lazy" class="object-contain mx-auto h-20" src="/images/trip.webp" alt="images" />
 							<p class="text-xs lg:text-md text-brown">As Bali’s no. 1 Zoo Ticket Agent</p>
 						</div>
 						<div class="text-center">
 							<p class="text-brown">Trusted By</p>
-							<img class="object-contain mx-auto h-20" src="/images/iata.png" alt="" />
+							<img loading="lazy" class="object-contain mx-auto h-20" src="/images/iata.webp" alt="images" />
 							<p class="text-xs lg:text-md text-brown">License No. 126.KEP.223/BDG/2011</p>
 						</div>
 						<div class="text-center">
 							<p class="text-brown">Trusted By</p>
-							<img class="object-contain mx-auto h-20" src="/images/klook.png" alt="" />
+							<img loading="lazy" class="object-contain mx-auto h-20" src="/images/klook.webp" alt="images" />
 							<p class="text-xs lg:text-md text-brown">As Safari Ticket Agent Partner</p>
 						</div>
 					</div>

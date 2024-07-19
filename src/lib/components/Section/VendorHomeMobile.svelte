@@ -11,7 +11,7 @@
 			href={`/vendormobile/${vendor.slug}`}
 			class="vendor-port h-[13rem] lg:h-[25rem] img-border"
 		>
-			<img
+			<img loading="lazy"
 				src={vendor.images.length > 0
 					? vendor.images[1].path
 					: 'https://dashboard.bali-zoo.com/storage/photos/shares/Animals/Lion/Lion.jpg'}

@@ -86,10 +86,10 @@
 							: 'hidden'} p-4 rounded-lg bg-gray-50 dark:bg-gray-800"
 						aria-labelledby={vendor?.slug}
 					>
-						<img
+						<img loading="lazy"
 							class="rounded-t-lg mx-auto h-[25rem] object-contain"
-							src="/images/maps.jpeg"
-							alt=""
+							src="/images/maps.webp"
+							alt="images"
 						/>
 					</div>
 				{/each}

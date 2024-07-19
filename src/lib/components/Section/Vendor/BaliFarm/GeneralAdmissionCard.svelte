@@ -5,7 +5,7 @@
 {#each data as item}
 	{#if item.type === 'General Admission'}
 		<div class="relative img-border card overflow-hidden zoom-on-hover">
-			<img
+			<img loading="lazy"
 				class="filter brightness-50 w-full h-[500px] object-cover"
 				src={item.images[0].path}
 				alt={item.name}

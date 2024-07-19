@@ -141,7 +141,7 @@
 								{#if product?.type === "What's On"}
 									<div>
 										<a data-sveltekit-reload href={`/vendor/${product?.vendor.slug}/${product?.slug}`} >
-											<img
+											<img loading="lazy"
 												class="rounded-none h-[25vh] object-cover w-full object-top"
 												src={product?.images[0]?.path}
 												alt={product?.name}
@@ -178,7 +178,7 @@
 								{#if product?.type === "What's On"}
 									<div>
 										<a data-sveltekit-reload href={`/vendor/${product?.vendor.slug}/${product?.slug}`}>
-											<img
+											<img loading="lazy"
 												class="rounded-none h-[25vh] object-cover w-full object-top"
 												src={product?.images[0]?.path}
 												alt={product?.name}
@@ -214,7 +214,7 @@
 								{#if product?.type === "What's On"}
 									<div>
 										<a data-sveltekit-reload href={`/vendor/${product?.vendor.slug}/${product?.slug}`}>
-											<img
+											<img loading="lazy"
 												class="rounded-none h-[25vh] object-cover w-full object-top"
 												src={product?.images[0]?.path}
 												alt={product?.name}
@@ -250,7 +250,7 @@
 								{#if product?.type === "What's On"}
 									<div>
 										<a data-sveltekit-reload href={`/vendor/${product?.vendor.slug}/${product?.slug}`}>
-											<img
+											<img loading="lazy"
 												class="rounded-none h-[25vh] object-cover w-full object-top"
 												src={product?.images[0]?.path}
 												alt={product?.name}

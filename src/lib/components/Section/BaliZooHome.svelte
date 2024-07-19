@@ -21,7 +21,7 @@
 		{#each data as item}
 			<div class="swiper-slide">
 				<div class="relative">
-					<img
+					<img loading="lazy"
 						src={item.images[0]?.path}
 						alt={item.images[0]?.path}
 						class="h-[60vh] w-full object-cover filter brightness-50 rounded-[20px]"

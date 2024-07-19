@@ -55,7 +55,7 @@
 			</form>
 		</div>
 		<div class="p-4 md:p-5 space-y-4">
-			<img class="rounded-t-lg mx-auto h-[25rem] object-contain" src="/images/maps.jpeg" alt="" />
+			<img class="rounded-t-lg mx-auto h-[25rem] object-contain" src="/images/maps.webp" alt="images" />
 		</div>
 	</div>
 </dialog>

@@ -9,7 +9,7 @@
         class="feature-port {index % 4 === 0 || index % 4 === 3 ? 'col-span-12 lg:col-span-7' : 'col-span-12 lg:col-span-5'}"
     >
         <a data-sveltekit-reload  href={`/vendor/${vendor.slug}`} class="vendor-port h-[13rem] lg:h-[25rem] img-border">
-            <img
+            <img loading="lazy"
                 src={vendor.images.length > 0
                     ? vendor.images[1].path
                     : 'https://dashboard.bali-zoo.com/storage/photos/shares/Animals/Lion/Lion.jpg'}

@@ -51,9 +51,9 @@
 	}
 </script>
 
-<section class="hidden lg:block bg-white lg:bg-[url('/images/bg-desktop.png')]">
+<section class="hidden lg:block bg-white lg:bg-[url('/images/bg-desktop.webp')]">
 	<div class="relative w-full">
-		<img src="/images/hero-ticket.png" alt="Hero Ticket" class="w-full h-full object-cover" />
+		<img src="/images/hero-ticket.webp" alt="Hero Ticket" class="w-full h-full object-cover" />
 		<div class="absolute inset-0 flex items-center justify-center">
 			<h1
 				class="boldfont text-3xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-5xl"
@@ -143,7 +143,7 @@
 	</div>
 </section>
 <section
-	class="hidden lg:block bg-cover bg-white lg:bg-[url('/images/background-biru-desktop.png')]"
+	class="hidden lg:block bg-cover bg-white lg:bg-[url('/images/background-biru-desktop.webp')]"
 >
 	<div id="placetogo" class="pt-[15%] container mx-auto">
 		<h4 class="boldfont text-white text-3xl mb-5 text-center">MORE OFFER FROM BALI SAFARI</h4>
@@ -152,7 +152,7 @@
 		</div>
 	</div>
 </section>
-<section class="hidden lg:block bg-cover bg-white lg:bg-[url('/images/bg-hijau.png')]">
+<section class="hidden lg:block bg-cover bg-white lg:bg-[url('/images/bg-hijau.webp')]">
 	<div id="placetogo" class="pt-[15%] container mx-auto">
 		<h4 class="boldfont text-white text-3xl mb-5 text-center">NEW EVENT FROM BALI SAFARI</h4>
 		<div class="p-10 gap-4">
@@ -163,7 +163,7 @@
 <section class="block lg:hidden bg-white">
 	<div class="flex justify-between p-5 items-center">
 		<a data-sveltekit-reload >
-			<img class="h-[48px] object-contain" src="/images/logomob.png" alt="" />
+			<img class="h-[48px] object-contain" src="/images/logomob.webp" alt="images" />
 		</a>
 		
 	</div>

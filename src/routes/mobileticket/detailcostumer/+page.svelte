@@ -67,10 +67,10 @@
 	}
 </script>
 
-<section class="bg-cover bg-[url('/images/bg-desktop.png')]">
+<section class="bg-cover bg-[url('/images/bg-desktop.webp')]">
 	<div
 		class="bg-center bg-cover h-[100] bg-no-repeat"
-		style="background-image: url('/images/herocontact.jpeg');"
+		style="background-image: url('/images/herocontact.webp');"
 	>
 		<div class="h-[25vh] lg:h-[50vh] px-5 lg:px-10 flex items-center">
 			<h1

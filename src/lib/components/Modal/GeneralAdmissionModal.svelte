@@ -120,7 +120,7 @@
 							{#if product?.type === 'General Admission'}
 								<div>
 									<a href={product?.link_address}>
-										<img
+										<img loading="lazy"
 											class="rounded-none h-[25vh] object-cover w-full object-top"
 											src={product?.images[0]?.path}
 											alt={product?.name}
@@ -155,7 +155,7 @@
 							{#if product?.type === 'General Admission'}
 								<div>
 									<a href={product?.link_address}>
-										<img
+										<img loading="lazy"
 											class="rounded-none h-[25vh] object-cover w-full object-top"
 											src={product?.images[0]?.path}
 											alt={product?.name}
@@ -189,7 +189,7 @@
 							{#if product?.type === 'General Admission'}
 								<div>
 									<a href={product?.link_address}>
-										<img
+										<img loading="lazy"
 											class="rounded-none h-[25vh] object-cover w-full object-top"
 											src={product?.images[0]?.path}
 											alt={product?.name}
@@ -223,7 +223,7 @@
 							{#if product?.type === 'General Admission'}
 								<div>
 									<a href={product?.link_address}>
-										<img
+										<img loading="lazy"
 											class="rounded-none h-[25vh] object-cover w-full object-top"
 											src={product?.images[0]?.path}
 											alt={product?.name}

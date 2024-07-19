@@ -8,7 +8,7 @@
 		{#each data as item}
 			<div class="relative">
 				<div class="placetogo-port img-border hover-content">
-					<img src={item?.images[0]?.path} alt={item?.images[0]?.path} class="h-full" />
+					<img loading="lazy" src={item?.images[0]?.path} alt={item?.images[0]?.path} class="h-full" />
 					<div class="cover p-5">
 						<div class="detail text-center text-white">
 							<h3 class="boldfont text-white text-2xl mb-1">{item?.name}</h3>

@@ -5,7 +5,7 @@
 {#each data as item}
 	{#if item.type === "What's On"}
 		<div class="relative">
-			<img
+			<img loading="lazy"
 				src={item.images[0].path}
 				alt={item.name}
 				class="h-[50vh] w-full object-cover filter brightness-50"

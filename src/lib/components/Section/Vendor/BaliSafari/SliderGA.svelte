@@ -36,7 +36,7 @@
 			<div class="swiper-slide">
 				<div class="hover-content relative">
 					<div class="placetogo-port" data-cursor="pointer2" style="height: 100%;">
-						<img
+						<img loading="lazy"
 							src={product.images[0].path}
 							alt={product.name}
 							class="filter brightness-50"
