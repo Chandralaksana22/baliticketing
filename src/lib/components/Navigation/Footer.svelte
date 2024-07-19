@@ -6,7 +6,7 @@
 			<div class="bg-brown rounded-b-[30px] p-4 lg:p-14 mb-10">
 				<div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
 					<div class="lg:col-span-2">
-						<img src="/images/logo.png" class="h-[80%] mx-auto" alt="" />
+						<img src="/images/logo.png" class="h-[80%] w-auto object-contain mx-auto" alt="" />
 					</div>
 					<div class="lg:col-span-8">
 						<p class="text-white text-center lg:text-left text-sm lg:text-md w-full lg:w-3/4">

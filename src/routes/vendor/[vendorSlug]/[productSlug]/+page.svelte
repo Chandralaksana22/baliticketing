@@ -2,11 +2,11 @@
 	import { goto } from '$app/navigation';
 	import TabsDetail from '$lib/components/Section/Ticket/TabsDetail.svelte';
 	import type { PageServerData } from './$types';
-
+	import { Button, Modal } from 'flowbite-svelte';
+	let defaultModal = false;
 	export let data: PageServerData;
 	let detail = data?.detail;
 	let listTicket = data?.listTicket;
-	console.log(listTicket);
 	let open = true;
 	let adultCount = data?.adultCount || 1;
 	let childrenCount = data?.childrenCount || 0;
@@ -87,13 +87,18 @@
 		</h1>
 	</div>
 </div>
+<Modal title="Gallery" bind:open={defaultModal} autoclose>
+    <div class="max-w-4xl space-y-4">
+        
+    </div>
+</Modal>
 <div class="bg-white hidden lg:block">
 	<div class="container mx-auto px-5 lg:px-20">
 		<div class="my-10">
 			<h1 class="boldfont text-lg lg:text-2xl">{detail?.name}</h1>
 			<!-- <div class="text-blue">One price available</div> -->
 		</div>
-		<div class="grid lg:grid-cols-3 gap-4">
+		<div class="grid lg:grid-cols-3 gap-4" on:click={() => (defaultModal = true)}>
 			<div class="col-span-2">
 				<img
 					src={detail?.images[0]?.path}
@@ -103,13 +108,13 @@
 			</div>
 			<div class="col-span-1">
 				<img
-					src={detail?.images[0]?.path}
-					alt={detail?.images[0]?.path}
+					src={detail?.images[1]?.path}
+					alt={detail?.images[1]?.path}
 					class=" rounded-lg h-[25vh] mb-[2vh] w-full object-cover"
 				/>
 				<img
-					src={detail?.images[0]?.path}
-					alt={detail?.images[0]?.path}
+					src={detail?.images[2]?.path}
+					alt={detail?.images[2]?.path}
 					class=" rounded-lg h-[25vh] w-full object-cover"
 				/>
 			</div>
@@ -559,14 +564,18 @@
 														<div class="grid grid-cols-3 my-3">
 															<div>
 																<p class="text-xs font-semibold text-gray-500">Date</p>
-																<p class="text-sm text-black font-semibold">
-																	{new Date(date).toLocaleDateString('en-US', {
-																		weekday: 'long',
-																		year: 'numeric',
-																		month: 'long',
-																		day: 'numeric'
-																	})}
-																</p>
+																{#if date}
+																	<p class="text-sm text-black font-semibold">
+																		{new Date(date).toLocaleDateString('en-US', {
+																			weekday: 'long',
+																			year: 'numeric',
+																			month: 'long',
+																			day: 'numeric'
+																		})}
+																	</p>
+																{:else}
+																	<h1 class="text-sm text-black font-semibold">Choose Date</h1>
+																{/if}
 															</div>
 															<div>
 																<p class="text-xs font-semibold text-gray-500">Zoo Opening Hour</p>
@@ -623,10 +632,21 @@
 																{#if adultCount > 0}
 																	<div class="flex justify-between">
 																		<p class="text-sm font-semibold">
-																			Adult {adultCount} x {item.adult_price}
+																			Adult {adultCount} x IDR {new Intl.NumberFormat('id-ID', {
+																				style: 'currency',
+																				currency: 'IDR',
+																				minimumFractionDigits: 0,
+																				maximumFractionDigits: 0
+																			}).format(item.adult_price ?? 0)}
 																		</p>
 																		<p class="text-md text-blue font-semibold">
-																			IDR {adultCount * item.adult_price}
+																			IDR
+																			{new Intl.NumberFormat('id-ID', {
+																				style: 'currency',
+																				currency: 'IDR',
+																				minimumFractionDigits: 0,
+																				maximumFractionDigits: 0
+																			}).format(item.adult_price ?? 0)}
 																		</p>
 																	</div>
 																{/if}
@@ -634,10 +654,24 @@
 																{#if childrenCount > 0}
 																	<div class="flex justify-between">
 																		<p class="text-sm font-semibold">
-																			Children {childrenCount} x {item.children_price}
+																			Children {childrenCount} x IDR {new Intl.NumberFormat(
+																				'id-ID',
+																				{
+																					style: 'currency',
+																					currency: 'IDR',
+																					minimumFractionDigits: 0,
+																					maximumFractionDigits: 0
+																				}
+																			).format(item.children_price ?? 0)}
 																		</p>
 																		<p class="text-md text-blue font-semibold">
-																			IDR {childrenCount * item.children_price}
+																			IDR
+																			{new Intl.NumberFormat('id-ID', {
+																				style: 'currency',
+																				currency: 'IDR',
+																				minimumFractionDigits: 0,
+																				maximumFractionDigits: 0
+																			}).format(item.children_price ?? 0)}
 																		</p>
 																	</div>
 																{/if}
@@ -645,10 +679,21 @@
 																{#if infantCount > 0}
 																	<div class="flex justify-between">
 																		<p class="text-sm font-semibold">
-																			Infant {infantCount} x IDR {item.infant_price}
+																			Infant {infantCount} x IDR {new Intl.NumberFormat('id-ID', {
+																				style: 'currency',
+																				currency: 'IDR',
+																				minimumFractionDigits: 0,
+																				maximumFractionDigits: 0
+																			}).format(item.infant_price ?? 0)}
 																		</p>
 																		<p class="text-md text-blue font-semibold">
-																			IDR {infantCount * item.infant_price}
+																			IDR
+																			{new Intl.NumberFormat('id-ID', {
+																				style: 'currency',
+																				currency: 'IDR',
+																				minimumFractionDigits: 0,
+																				maximumFractionDigits: 0
+																			}).format(item.infant_price ?? 0)}
 																		</p>
 																	</div>
 																{/if}
@@ -662,16 +707,31 @@
 													<div>
 														<p class="text-xs font-bold text-black">Total Price</p>
 														<p class="text-blue text-md font-bold">
-															IDR {(adultCount * item?.adult_price +
-																childrenCount * item?.children_price +
-																infantCount * item?.infant_price) *
-																(1 - item?.discount_percentage / 100)}
+															IDR
+															{new Intl.NumberFormat('id-ID', {
+																style: 'currency',
+																currency: 'IDR',
+																minimumFractionDigits: 0,
+																maximumFractionDigits: 0
+															}).format(
+																(adultCount * (item?.adult_price ?? 0) +
+																	childrenCount * (item?.children_price ?? 0) +
+																	infantCount * (item?.infant_price ?? 0)) *
+																	(1 - (item?.discount_percentage ?? 0) / 100)
+															)}
 														</p>
 														<div class="flex gap-4">
 															<p class="text-xs line-through">
-																{adultCount * item?.adult_price +
-																	childrenCount * item?.children_price +
-																	infantCount * item?.infant_price}
+																{new Intl.NumberFormat('id-ID', {
+																	style: 'currency',
+																	currency: 'IDR',
+																	minimumFractionDigits: 0,
+																	maximumFractionDigits: 0
+																}).format(
+																	adultCount * (item?.adult_price ?? 0) +
+																		childrenCount * (item?.children_price ?? 0) +
+																		infantCount * (item?.infant_price ?? 0)
+																)}
 															</p>
 															<p
 																class="bg-yellow text-black text-xs font-bold me-2 px-2.5 py-0.5 rounded-full"
@@ -686,7 +746,9 @@
 														class:bg-red-500={selectedTicket && selectedTicket === item
 															? true
 															: false}
+														disabled={!date}
 														on:click={() => {
+															if (!date) return;
 															if (selectedTicket === item) {
 																unselectTicket();
 															} else {
@@ -694,9 +756,11 @@
 															}
 														}}
 													>
-														{selectedTicket && selectedTicket === item
-															? 'Unselect'
-															: 'Select Ticket'}
+														{!date
+															? 'Please choose date'
+															: selectedTicket && selectedTicket === item
+																? 'Unselect'
+																: 'Select Ticket'}
 													</button>
 												</div>
 											</div>
@@ -853,8 +917,7 @@
 			alt="arrow"
 		/>
 		<div class="text-center my-10">
-			<h1>Sorry, you don't have access to this page. Please return.
-			</h1>
+			<h1>Sorry, you don't have access to this page. Please return.</h1>
 			<a data-sveltekit-preload-data="tap" href="/" class="text-red-600">Back to Home</a>
 		</div>
 	</div>

@@ -80,7 +80,6 @@
 				const bytes = CryptoJS.AES.decrypt(encryptedData, secretKey);
 				const decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
 				decryptedTicket.set(decryptedData);
-				console.log('Decrypted Ticket Data:', decryptedData);
 			} catch (e) {
 				decryptedTicket.set(null);
 			}
@@ -153,7 +152,13 @@
 						<div class="grid grid-cols-2 gap-4">
 							<div>
 								<h1 class="text-xs font-bold text-black">Ticket Start From</h1>
-								<p class="text-lg font-bold text-blue">IDR {$decryptedTicket?.adult_price}</p>
+								<p class="text-lg font-bold text-blue">IDR 
+									{new Intl.NumberFormat('id-ID', {
+										style: 'currency',
+										currency: 'IDR',
+										minimumFractionDigits: 0,
+										maximumFractionDigits: 0
+									}).format($decryptedTicket?.adult_price)}
 							</div>
 							<button
 								class="text-white bg-blue rounded-xl text-white font-semibold text-sm"
@@ -214,7 +219,13 @@
 												</div>
 												<div class="block lg:hidden py-4">
 													<div class="font-semibold text-blue text-sm">
-														IDR {$decryptedTicket?.adult_price}
+														IDR 
+														{new Intl.NumberFormat('id-ID', {
+															style: 'currency',
+															currency: 'IDR',
+															minimumFractionDigits: 0,
+															maximumFractionDigits: 0
+														}).format($decryptedTicket?.adult_price ?? 0)}
 													</div>
 												</div>
 												<div class="pe-3 py-4">
@@ -278,7 +289,13 @@
 												</div>
 												<div class="block lg:hidden py-4">
 													<div class="font-semibold text-blue text-sm">
-														IDR {$decryptedTicket?.children_price}
+														IDR
+														{new Intl.NumberFormat('id-ID', {
+															style: 'currency',
+															currency: 'IDR',
+															minimumFractionDigits: 0,
+															maximumFractionDigits: 0
+														}).format($decryptedTicket?.children_price ?? 0)}
 													</div>
 												</div>
 												<div class="pe-3 py-4">
@@ -344,7 +361,13 @@
 												</div>
 												<div class="block lg:hidden py-4">
 													<div class="font-semibold text-blue text-sm">
-														IDR {$decryptedTicket?.infant_price}
+														IDR 
+														{new Intl.NumberFormat('id-ID', {
+															style: 'currency',
+															currency: 'IDR',
+															minimumFractionDigits: 0,
+															maximumFractionDigits: 0
+														}).format($decryptedTicket?.infant_price ?? 0)}
 													</div>
 												</div>
 												<div class="pe-3 py-4">
@@ -418,6 +441,7 @@
 												>
 											</div>
 											<div>
+												{#if date}
 												<h1 class="font-semibold text-xs text-black">
 													{new Date(date).toLocaleDateString('en-US', {
 														weekday: 'long',
@@ -426,6 +450,12 @@
 														day: 'numeric'
 													})}
 												</h1>
+												{:else}
+												<h1 class="font-semibold text-xs text-black">
+													Choose Date
+												</h1>
+												{/if}
+												
 											</div>
 										</div>
 										<div class="flex gap-2">
@@ -497,10 +527,17 @@
 											<div>
 												<p class="text-sm">Total Price</p>
 												<p class="text-blue text-xl font-bold">
-													{(adultCount * $decryptedTicket?.adult_price +
-														childrenCount * $decryptedTicket?.children_price +
-														infantCount * $decryptedTicket?.infant_price) *
-														(1 - $decryptedTicket?.discount_percentage / 100)}
+													{new Intl.NumberFormat('id-ID', {
+														style: 'currency',
+														currency: 'IDR',
+														minimumFractionDigits: 0,
+														maximumFractionDigits: 0
+													}).format(
+														(adultCount * ($decryptedTicket?.adult_price ?? 0) +
+														childrenCount * ($decryptedTicket?.children_price ?? 0) +
+														infantCount * ($decryptedTicket?.infant_price ?? 0)) *
+														(1 - ($decryptedTicket?.discount_percentage ?? 0) / 100)
+													)}
 												</p>
 											</div>
 											<div>

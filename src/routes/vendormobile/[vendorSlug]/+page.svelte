@@ -137,7 +137,7 @@
 							</div>
 							<div class="my-5">
 								<h2 class="text-xs text-gray-400 font-bold">{listTicket?.product?.category}</h2>
-								<h1 class="text-lg text-black font-bold">{listTicket?.name}</h1>
+								<h1 class="text-lg text-black truncate font-bold">{listTicket?.name}</h1>
 								<p class="text-xs text-gray-600 line-through">
 									From IDR {new Intl.NumberFormat('id-ID', {
 										style: 'currency',

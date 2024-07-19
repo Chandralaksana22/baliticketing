@@ -17,6 +17,9 @@
 			isLoading = false; // Set loading to false after navigation
 		});
 	}
+	function formatNumber(number) {
+		return new Intl.NumberFormat('id-ID').format(number);
+	}
 </script>
 
 {#if isLoading}
@@ -38,7 +41,7 @@
 				/>
 			</div>
 			<div class="col-span-2">
-				<button class="bg-[#926000] rounded-lg p-2 font-bold text-white text-xs uppercase"
+				<button class="bg-[#926000] rounded-lg p-2 font-bold text-white text-xs capitalize "
 					>{listTicket.vendor?.name}</button
 				>
 				<!-- <div class="grid grid-cols-2 mt-2 gap-1">
@@ -50,12 +53,14 @@
 				</div> -->
 				<div class="my-5">
 					<h2 class="text-xs text-gray-400 font-bold">{listTicket?.vendor?.name}</h2>
-					<h1 class="text-md text-black font-bold">{listTicket?.name}</h1>
+					<h1 class="text-md text-black truncate capitalize  font-bold">{listTicket?.name}</h1>
 					<p class="text-xs text-gray-600 line-through">From Rp {listTicket?.adult_price}</p>
 					<p class="text-md text-[#EF681C] font-bold">
-						From Rp {Math.round(
-							listTicket.adult_price -
+						From Rp {formatNumber(
+							Math.round(
+								listTicket.adult_price -
 								(listTicket.adult_price * listTicket.discount_percentage) / 100
+							)
 						)}<span class="text-sm text-black">/person</span>
 					</p>
 				</div>

@@ -39,7 +39,6 @@
 
 	onMount(() => {
 		decryptData();
-		console.log('Decrypted Data:', decryptedData);
 	});
 	async function handleSubmit(event) {
 		event.preventDefault();
