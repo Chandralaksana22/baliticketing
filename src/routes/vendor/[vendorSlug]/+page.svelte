@@ -200,7 +200,7 @@
 		<div id="placetogo" class="hidden md:block container mx-auto">
 			<h4 class="boldfont text-white text-3xl text-center">General Admission</h4>
 			<h4 class="text-white text-lg mb-5 text-center">(For Indonesian ID and Kitas holder)</h4>
-			<div class="grid md:grid-cols-2 lg:grid-cols-3 p-10 gap-4 mb-[-10%]">
+			<div class="grid grid-cols-2 p-10 gap-4 mb-[-10%]">
 				<GeneralAdmissionCard data={product} />
 			</div>
 		</div>
