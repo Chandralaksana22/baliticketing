@@ -38,7 +38,7 @@
 			{#each data.facilities as facility}
 				<div class="flex flex-col items-center justify-center p-4">
 					<img src={facility.path} alt={facility.title} class="w-8 h-8 mb-2" />
-					<p class="text-sm">{facility.title}</p>
+					<p class="text-sm text-center">{facility.title}</p>
 				</div>
 			{/each}
 		</div>

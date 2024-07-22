@@ -2,7 +2,7 @@
 	export let data: any = [];
 </script>
 
-<div class={`grid grid-cols-${data?.length} gap-4 p-10 gap-4 mb-[-10%]`}>
+<div class={`grid grid-cols-${data?.length} gap-4 p-10 gap-4 pb-20`}>
 	{#each data as item}
 		{#if item.type === 'General Admission'}
 			<div class="relative img-border card overflow-hidden zoom-on-hover">

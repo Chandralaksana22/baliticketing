@@ -44,8 +44,8 @@
 						/>
 						<div class="cover p-5">
 							<div class="detail text-white">
-								<h5 class="boldfont text-white text-xl mb-5">{product?.name}</h5>
-								<p class="content text-md line-clamp-3" style="font-size: 12px;">
+								<h5 class="boldfont text-white text-md mb-5">{product?.name}</h5>
+								<p class="content text-md line-clamp-2" style="font-size: 12px;">
 									{product?.short_desc}
 								</p>
 							</div>

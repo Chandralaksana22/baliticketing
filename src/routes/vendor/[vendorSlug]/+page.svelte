@@ -202,17 +202,17 @@
 			<h4 class="text-white text-lg mb-5 text-center">(For Indonesian ID and Kitas holder)</h4>
 			<GeneralAdmissionCard data={product} />
 		</div>
-		<section class="hidden lg:block bg-cover bg-[url('/images/background-biru-desktop.webp')]">
+		<!-- <section class="hidden lg:block bg-cover bg-[url('/images/background-biru-desktop.webp')]">
 			<div class="container mx-auto">
 				<h4 class="boldfont text-white text-3xl pt-[15%] mb-5 text-center">OTHER ACTIVITY</h4>
 				<div class="p-10 grid grid-cols-2 gap-4">
 					<WhatsOnCard data={product} />
 				</div>
 			</div>
-		</section>
+		</section> -->
 	{:else if detail.slug === 'bali-safari'}
 		<div class="mt-10">
-			<div id="placetogo" class="container px-10">
+			<div id="placetogo" class="container mx-auto px-10">
 				<h4 class="boldfont text-white text-3xl mb-5 text-center">General Admission</h4>
 				<GeneralAdmissionBaliSafari data={product} />
 			</div>
@@ -224,7 +224,7 @@
 			>
 				<div>
 					<img
-						src="/assets/varunalogo-BqrHtd8Q.webp"
+						src="/images/varunalogo.webp"
 						class="object-contain h-40 mb-20"
 						alt="images"
 					/>
