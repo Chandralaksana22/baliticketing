@@ -11,6 +11,7 @@
 	import GeneralAdmissionModal from '$lib/components/Modal/GeneralAdmissionModal.svelte';
 	import WhatsOnModal from '$lib/components/Modal/WhatsOnModalHome.svelte';
 	import { onMount } from 'svelte';
+	import Navbar from '$lib/components/Navigation/Navbar.svelte';
 	let isMobile = false;
 
 	function checkDevice() {
@@ -33,7 +34,7 @@
 	let balibird = data?.balibird;
 	let balisafari = data?.balisafari;
 </script>
-
+<Navbar data={vendor} />
 <section class="bg-cover bg-[url('/images/bg-desktop.webp')]">
 	<div
 		class="bg-center bg-cover h-[100vh] bg-no-repeat bg-[url('/images/Header.webp')] lg:bg-[url('/images/bg-home.webp')]"

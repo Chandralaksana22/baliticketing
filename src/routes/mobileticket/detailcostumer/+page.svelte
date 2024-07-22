@@ -2,6 +2,10 @@
 	import { onMount } from 'svelte';
 	import CryptoJS from 'crypto-js';
 	import axios from 'axios';
+	import type { PageServerData } from './$types';
+	import Navbar from '$lib/components/Navigation/Navbar.svelte';
+	export let data: PageServerData;
+	let vendor = data?.vendor
 	let decryptedData: any;
 	let countries = '';
 	let firstname = '';
@@ -66,7 +70,7 @@
 		}
 	}
 </script>
-
+<Navbar data={vendor}/>
 <section class="bg-cover bg-[url('/images/bg-desktop.webp')]">
 	<div
 		class="bg-center bg-cover h-[100] bg-no-repeat"

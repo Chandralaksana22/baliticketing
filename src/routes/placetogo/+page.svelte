@@ -1,12 +1,13 @@
 <script lang="ts">
 	import type { PageServerData } from './$types';
 	import VendorHomeMobile from '$lib/components/Section/VendorHomeMobile.svelte';
+	import Navbar from '$lib/components/Navigation/Navbar.svelte';
 	export let data: PageServerData;
 
 	let vendor = data?.vendor;
 	
 </script>
-
+<Navbar data={vendor}/>
 <section class="bg-cover bg-[url('/images/bg-desktop.webp')]">
 
 	<div class="px-5 pb-0 lg:pb-44 lg:px-10 container mx-auto">

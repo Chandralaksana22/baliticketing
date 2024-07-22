@@ -4,6 +4,7 @@
 	import type { PageServerData } from './$types';
 	export let data: PageServerData;
 	import { goto } from '$app/navigation';
+	import Navbar from '$lib/components/Navigation/Navbar.svelte';
 	let isLoading = false;
 	// function navigateToMobileTicket(listTicket: any) {
 	//     sessionStorage.setItem('selectedTicket', JSON.stringify(listTicket));
@@ -24,7 +25,7 @@
 			isLoading = false;
 		});
 	}
-
+	let vendor = data?.vendor;
 	let detail = data?.detail;
 	let listTicket = data?.listTicket;
 
@@ -59,9 +60,11 @@
 		{detail?.name} | TiketXplorer
 	</title>
 </svelte:head>
+
 {#if isLoading}
 	<div class="loading-overlay">Loading Ticket...</div>
 {/if}
+<Navbar data={vendor}/>
 <div
 	class="bg-center bg-cover bg-no-repeat bg-gray-600 bg-blend-multiply"
 	style="background-image: url({detail?.images[0]?.path});"

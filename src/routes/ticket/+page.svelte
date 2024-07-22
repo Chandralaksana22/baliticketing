@@ -6,6 +6,7 @@
 	import BaliSafariTicket from '$lib/components/Section/Ticket/BaliSafariTicket.svelte';
 	import CardEvent from '$lib/components/Section/CardEvent.svelte';
 	import MobileTicket from '$lib/components/Section/Ticket/MobileTicket.svelte';
+	import Navbar from '$lib/components/Navigation/Navbar.svelte';
 	export let data: PageServerData;
 	let singlePackages = data?.balizoo.filter((item: any) => {
 		return item.type === "What's On" && item.category === 'Single Package';
@@ -22,6 +23,7 @@
 		return item.type === "What's On";
 	});
 	let vendorsData = data?.vendor;
+
 	let activeTab = 'styled-profile';
 	let keyword : string = data?.keyword;
 	let listticket = data?.listticket;
@@ -50,7 +52,7 @@
 		});
 	}
 </script>
-
+<Navbar data={vendorsData}/>
 <section class="hidden lg:block bg-white lg:bg-[url('/images/bg-desktop.webp')]">
 	<div class="relative w-full">
 		<img src="/images/hero-ticket.webp" alt="Hero Ticket" class="w-full h-full object-cover" />

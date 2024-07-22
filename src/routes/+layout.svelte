@@ -5,7 +5,6 @@
 	import Navbar from '$lib/components/Navigation/Navbar.svelte';
 	import Footer from '$lib/components/Navigation/Footer.svelte';
 </script>
-<Navbar />
 <main class="cursor-default">
 	<slot />
 </main>

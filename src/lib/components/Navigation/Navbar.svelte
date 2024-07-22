@@ -1,24 +1,9 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import axios from 'axios';
+	export let data: any = [];
 
-	let vendors: any[] = [];
+	$: vendors = data ?? [];
 
-	onMount(async () => {
-		let config = {
-			method: 'get',
-			maxBodyLength: Infinity,
-			url: 'https://main.tiketxplorer.com/api/v1/get-vendor',
-			headers: {}
-		};
-
-		try {
-			const response = await axios.request(config);
-			vendors = response.data;
-		} catch (error) {
-			console.log(error);
-		}
-	});
 	let isMobile = false;
 
 	function checkDevice() {
@@ -174,7 +159,6 @@
 								</svg>
 							</div>
 							<ul
-								tabindex="0"
 								class="dropdown-content menu bg-base-100 rounded-box z-[1] py-2 px-3 w-52 text-sm shadow"
 							>
 								{#each vendors as vendor}

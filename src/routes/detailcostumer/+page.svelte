@@ -1,6 +1,10 @@
-<script>
+<script lang="ts">
 	import { onMount } from 'svelte';
 	import axios from 'axios';
+	import type { PageServerData } from './$types';
+	import Navbar from '$lib/components/Navigation/Navbar.svelte';
+	export let data: PageServerData;
+	let vendor = data?.vendor;
 	let firstname = '';
 	let lastname = '';
 	let phone = '';
@@ -68,7 +72,7 @@
 		}
 	}
 </script>
-
+<Navbar data={vendor}/>
 <section class="bg-cover bg-[url('/images/bg-desktop.webp')]">
 	<div
 		class="bg-center bg-cover h-[100] bg-no-repeat"

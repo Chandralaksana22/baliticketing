@@ -14,6 +14,7 @@
 	import WhatsOnCard from '$lib/components/Section/Vendor/BaliFarm/WhatsOnCard.svelte';
 	export let data: PageServerData;
 	import { goto } from '$app/navigation';
+	import Navbar from '$lib/components/Navigation/Navbar.svelte';
 	// function navigateToMobileTicket(listTicket: any) {
 	//     sessionStorage.setItem('selectedTicket', JSON.stringify(listTicket));
 	//     goto('/mobileticket');
@@ -35,6 +36,7 @@
 	let product = data?.product;
 	let popular = data?.popularProduct;
 	let listTicket = data?.listTicket;
+	let vendor = data?.vendor;
 
 	let singlePackages = data?.product?.filter((item: any) => {
 		return item?.type === "What's On" && item?.category === 'Single Package';
@@ -78,7 +80,7 @@
 		{detail?.name} | TiketXplorer
 	</title>
 </svelte:head>
-
+<Navbar data={vendor}/>
 <section class="bg-cover bg-white md:bg-[url('/images/bg-desktop.webp')] hidden md:block">
 	<img
 		src={detail?.images[0]?.path}

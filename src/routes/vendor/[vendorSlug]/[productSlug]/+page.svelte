@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import Navbar from '$lib/components/Navigation/Navbar.svelte';
 	import TabsDetail from '$lib/components/Section/Ticket/TabsDetail.svelte';
 	import type { PageServerData } from './$types';
 	import { Button, Modal } from 'flowbite-svelte';
@@ -12,6 +13,7 @@
 	let childrenCount = data?.childrenCount || 0;
 	let infantCount = data?.infantCount || 0;
 	let date = data?.date;
+	let vendor = data?.vendor
 	let openAccordionIndex = 0;
 	let selectedTicket: item | null = null;
 	let showSummary = false;
@@ -76,6 +78,7 @@
 		{detail?.name} | TiketXplorer
 	</title>
 </svelte:head>
+<Navbar data={vendor}/>
 <div
 	class="hidden lg:block bg-center bg-cover h-[100] bg-no-repeat bg-gray-600 bg-blend-multiply lg:bg-[url('/images/hero-ticket.webp')]"
 >

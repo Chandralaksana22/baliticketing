@@ -16,8 +16,10 @@
 	import type { PageServerData } from './$types';
 	import ImageDetail from '$lib/components/Section/Ticket/ImageDetail.svelte';
 	import TicketAbout from '$lib/components/Section/Ticket/TicketAbout.svelte';
+	import Navbar from '$lib/components/Navigation/Navbar.svelte';
 	export let data: PageServerData;
 	let detail = data?.detail;
+	let vendor = data?.vendor;
 	let adultCount = data?.adultCount || 1;
 	let childrenCount = data?.childrenCount || 0;
 	let infantCount = data?.infantCount || 0;
@@ -124,6 +126,7 @@
 		{detail?.name} | TiketXplorer
 	</title>
 </svelte:head>
+<Navbar data={vendor}/>
 <div
 	class="bg-center bg-cover h-[100] bg-no-repeat bg-gray-600 bg-blend-multiply" style="background-image: url({detail?.images[0]?.path});"
 >
