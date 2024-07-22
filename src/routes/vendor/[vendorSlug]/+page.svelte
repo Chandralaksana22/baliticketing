@@ -80,7 +80,7 @@
 		{detail?.name} | TiketXplorer
 	</title>
 </svelte:head>
-<Navbar data={vendor}/>
+<Navbar data={vendor} />
 <section class="bg-cover bg-white md:bg-[url('/images/bg-desktop.webp')] hidden md:block">
 	<img
 		src={detail?.images[0]?.path}
@@ -200,9 +200,7 @@
 		<div id="placetogo" class="hidden md:block container mx-auto">
 			<h4 class="boldfont text-white text-3xl text-center">General Admission</h4>
 			<h4 class="text-white text-lg mb-5 text-center">(For Indonesian ID and Kitas holder)</h4>
-			<div class="grid grid-cols-2 p-10 gap-4 mb-[-10%]">
-				<GeneralAdmissionCard data={product} />
-			</div>
+			<GeneralAdmissionCard data={product} />
 		</div>
 		<section class="hidden lg:block bg-cover bg-[url('/images/background-biru-desktop.webp')]">
 			<div class="container mx-auto">
@@ -225,7 +223,11 @@
 				class="rounded-xl p-10 bg-cover bg-[url('/images/bg-card.webp')] grid grid-cols-2 gap-4 justify-center"
 			>
 				<div>
-					<img src="/assets/varunalogo-BqrHtd8Q.webp" class="object-contain h-40 mb-20" alt="images" />
+					<img
+						src="/assets/varunalogo-BqrHtd8Q.webp"
+						class="object-contain h-40 mb-20"
+						alt="images"
+					/>
 					<h1 class="boldfont text-white text-3xl">Varuna Show</h1>
 					<p class="text-white text-md mt-10">
 						Varuna’s stage bursts to life with vibrant performers, adorned in marine-inspired
