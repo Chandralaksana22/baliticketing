@@ -5,6 +5,7 @@
     url('/fonts/theboldfont.rtf') format('rtf'),
     url('/fonts/theboldfont.ttf') format('truetype'),
 }
+
 @font-face {
   font-family: "Raleway";
   src: url('/fonts/Raleway.ttf');
@@ -415,5 +416,22 @@ a {
 
   &:hover img {
     transform: scale(1.1);
+  }
+}
+
+.active {
+  border-bottom: 2px solid #FFFFFF;
+  border-radius: 0;
+}
+
+.active-mobile {
+  color: #FFD600;
+
+  svg path {
+    fill: #FFD600;
+  }
+
+  p {
+    color: #FFD600;
   }
 }
