@@ -21,6 +21,7 @@
 	import TicketAbout from '$lib/components/Section/Ticket/TicketAbout.svelte';
 	import Navbar from '$lib/components/Navigation/Navbar.svelte';
 	export let data: PageServerData;
+	let size;
 	let detail = data?.detail;
 	let vendor = data?.vendor;
 	let adultCount = data?.adultCount || 1;
@@ -131,12 +132,19 @@
 	</title>
 </svelte:head>
 <Navbar data={vendor} />
-<Modal title="Gallery" bind:open={defaultModal}>
+<Modal
+	title="Gallery"
+	headerClass="py-2 px-4 flex justify-between items-center rounded-t-lg"
+	bodyClass="p-2"
+	bind:open={defaultModal}
+	placement="center"
+	{size}
+>
 	<Carousel>
 		{#each detail?.images as imagePath}
 			<div class="img-container">
 				<!-- svelte-ignore a11y-img-redundant-alt -->
-				<img src={imagePath.path} alt="Image" class="image-item" />
+				<img src={imagePath.path} alt="Image" class="image-item h-[25vh] w-full object-cover" />
 			</div>
 		{/each}
 	</Carousel>
@@ -161,7 +169,7 @@
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
 		<!-- svelte-ignore a11y-no-static-element-interactions -->
 		<div on:click={() => (defaultModal = true)}>
-			<ImageDetail data={detail}  />
+			<ImageDetail data={detail} />
 		</div>
 		<div class="grid lg:grid-cols-3 py-10 gap-8">
 			<div class="col-span-2">
