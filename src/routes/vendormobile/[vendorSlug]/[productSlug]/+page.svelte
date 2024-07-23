@@ -2,7 +2,10 @@
 	import { goto } from '$app/navigation';
 	import { Drawer, Button, CloseButton, A } from 'flowbite-svelte';
 	import { sineIn } from 'svelte/easing';
-
+	import Carousel from 'svelte-carousel';
+	import { Modal } from 'flowbite-svelte';
+	let defaultModalInclusion = false;
+	let defaultModal = false;
 	let hidden8 = true;
 	let transitionParamsBottom = {
 		y: 320,
@@ -91,9 +94,10 @@
 	});
 	function handleSubmit(event) {
 		event.preventDefault();
-		const totalPrice = (adultCount * $decryptedTicket?.adult_price +
-			childrenCount * $decryptedTicket?.children_price +
-			infantCount * $decryptedTicket?.infant_price) *
+		const totalPrice =
+			(adultCount * $decryptedTicket?.adult_price +
+				childrenCount * $decryptedTicket?.children_price +
+				infantCount * $decryptedTicket?.infant_price) *
 			(1 - $decryptedTicket?.discount_percentage / 100);
 		// Simpan data ke local storage
 		localStorage.setItem('selectedTicket', JSON.stringify(selectedTicket));
@@ -126,9 +130,20 @@
 		{detail?.name} | TiketXplorer
 	</title>
 </svelte:head>
-<Navbar data={vendor}/>
+<Navbar data={vendor} />
+<Modal title="Gallery" bind:open={defaultModal}>
+	<Carousel>
+		{#each detail?.images as imagePath}
+			<div class="img-container">
+				<!-- svelte-ignore a11y-img-redundant-alt -->
+				<img src={imagePath.path} alt="Image" class="image-item" />
+			</div>
+		{/each}
+	</Carousel>
+</Modal>
 <div
-	class="bg-center bg-cover h-[100] bg-no-repeat bg-gray-600 bg-blend-multiply" style="background-image: url({detail?.images[0]?.path});"
+	class="bg-center bg-cover h-[100] bg-no-repeat bg-gray-600 bg-blend-multiply"
+	style="background-image: url({detail?.images[0]?.path});"
 >
 	<div class="h-[25vh] lg:h-[50vh] px-5 lg:px-10 flex items-center">
 		<h1
@@ -143,7 +158,11 @@
 		<div class="my-10">
 			<h1 class="boldfont text-lg lg:text-2xl">{detail?.name}</h1>
 		</div>
-		<ImageDetail data={detail} />
+		<!-- svelte-ignore a11y-click-events-have-key-events -->
+		<!-- svelte-ignore a11y-no-static-element-interactions -->
+		<div on:click={() => (defaultModal = true)}>
+			<ImageDetail data={detail}  />
+		</div>
 		<div class="grid lg:grid-cols-3 py-10 gap-8">
 			<div class="col-span-2">
 				<p>{@html detail?.description}</p>
@@ -155,13 +174,15 @@
 						<div class="grid grid-cols-2 gap-4">
 							<div>
 								<h1 class="text-xs font-bold text-black">Ticket Start From</h1>
-								<p class="text-lg font-bold text-blue">IDR 
+								<p class="text-lg font-bold text-blue">
+									IDR
 									{new Intl.NumberFormat('id-ID', {
 										style: 'currency',
 										currency: 'IDR',
 										minimumFractionDigits: 0,
 										maximumFractionDigits: 0
 									}).format($decryptedTicket?.adult_price)}
+								</p>
 							</div>
 							<button
 								class="text-white bg-blue rounded-xl text-white font-semibold text-sm"
@@ -222,7 +243,7 @@
 												</div>
 												<div class="block lg:hidden py-4">
 													<div class="font-semibold text-blue text-sm">
-														IDR 
+														IDR
 														{new Intl.NumberFormat('id-ID', {
 															style: 'currency',
 															currency: 'IDR',
@@ -364,7 +385,7 @@
 												</div>
 												<div class="block lg:hidden py-4">
 													<div class="font-semibold text-blue text-sm">
-														IDR 
+														IDR
 														{new Intl.NumberFormat('id-ID', {
 															style: 'currency',
 															currency: 'IDR',
@@ -445,20 +466,17 @@
 											</div>
 											<div>
 												{#if date}
-												<h1 class="font-semibold text-xs text-black">
-													{new Date(date).toLocaleDateString('en-US', {
-														weekday: 'long',
-														year: 'numeric',
-														month: 'long',
-														day: 'numeric'
-													})}
-												</h1>
+													<h1 class="font-semibold text-xs text-black">
+														{new Date(date).toLocaleDateString('en-US', {
+															weekday: 'long',
+															year: 'numeric',
+															month: 'long',
+															day: 'numeric'
+														})}
+													</h1>
 												{:else}
-												<h1 class="font-semibold text-xs text-black">
-													Choose Date
-												</h1>
+													<h1 class="font-semibold text-xs text-black">Choose Date</h1>
 												{/if}
-												
 											</div>
 										</div>
 										<div class="flex gap-2">
@@ -537,9 +555,9 @@
 														maximumFractionDigits: 0
 													}).format(
 														(adultCount * ($decryptedTicket?.adult_price ?? 0) +
-														childrenCount * ($decryptedTicket?.children_price ?? 0) +
-														infantCount * ($decryptedTicket?.infant_price ?? 0)) *
-														(1 - ($decryptedTicket?.discount_percentage ?? 0) / 100)
+															childrenCount * ($decryptedTicket?.children_price ?? 0) +
+															infantCount * ($decryptedTicket?.infant_price ?? 0)) *
+															(1 - ($decryptedTicket?.discount_percentage ?? 0) / 100)
 													)}
 												</p>
 											</div>

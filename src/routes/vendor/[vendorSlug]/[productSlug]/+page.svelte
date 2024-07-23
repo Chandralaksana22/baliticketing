@@ -108,6 +108,8 @@
 			<h1 class="boldfont text-lg lg:text-2xl">{detail?.name}</h1>
 			<!-- <div class="text-blue">One price available</div> -->
 		</div>
+		<!-- svelte-ignore a11y-click-events-have-key-events -->
+		<!-- svelte-ignore a11y-no-static-element-interactions -->
 		<div class="grid lg:grid-cols-3 gap-4" on:click={() => (defaultModal = true)}>
 			<div class="col-span-2">
 				<img
