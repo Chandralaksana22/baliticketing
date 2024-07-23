@@ -132,23 +132,7 @@
 	</title>
 </svelte:head>
 <Navbar data={vendor} />
-<Modal
-	title="Gallery"
-	headerClass="py-2 px-4 flex justify-between items-center rounded-t-lg"
-	bodyClass="p-2"
-	bind:open={defaultModal}
-	placement="center"
-	{size}
->
-	<Carousel>
-		{#each detail?.images as imagePath}
-			<div class="img-container">
-				<!-- svelte-ignore a11y-img-redundant-alt -->
-				<img src={imagePath.path} alt="Image" class="image-item h-[25vh] w-full object-cover" />
-			</div>
-		{/each}
-	</Carousel>
-</Modal>
+
 <div
 	class="bg-center bg-cover h-[100] bg-no-repeat bg-gray-600 bg-blend-multiply"
 	style="background-image: url({detail?.images[0]?.path});"
@@ -168,9 +152,7 @@
 		</div>
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
 		<!-- svelte-ignore a11y-no-static-element-interactions -->
-		<div on:click={() => (defaultModal = true)}>
-			<ImageDetail data={detail} />
-		</div>
+		<ImageDetail data={detail}  />
 		<div class="grid lg:grid-cols-3 py-10 gap-8">
 			<div class="col-span-2">
 				<p>{@html detail?.description}</p>

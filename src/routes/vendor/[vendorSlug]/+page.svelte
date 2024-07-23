@@ -15,6 +15,7 @@
 	export let data: PageServerData;
 	import { goto } from '$app/navigation';
 	import Navbar from '$lib/components/Navigation/Navbar.svelte';
+	import WhatsOn from '$lib/components/Section/Vendor/BaliSafari/WhatsOn.svelte';
 	// function navigateToMobileTicket(listTicket: any) {
 	//     sessionStorage.setItem('selectedTicket', JSON.stringify(listTicket));
 	//     goto('/mobileticket');
@@ -223,11 +224,7 @@
 				class="rounded-xl p-10 bg-cover bg-[url('/images/bg-card.webp')] grid grid-cols-2 gap-4 justify-center"
 			>
 				<div>
-					<img
-						src="/images/varunalogo.webp"
-						class="object-contain h-40 mb-20"
-						alt="images"
-					/>
+					<img src="/images/varunalogo.webp" class="object-contain h-40 mb-20" alt="images" />
 					<h1 class="boldfont text-white text-3xl">Varuna Show</h1>
 					<p class="text-white text-md mt-10">
 						Varuna’s stage bursts to life with vibrant performers, adorned in marine-inspired
@@ -235,50 +232,7 @@
 						voyage unfolds with every dish, act, and moment, creating an immersive narrative.
 					</p>
 				</div>
-				<div class="flex flex-col gap-4">
-					<div
-						class="gap-4 rounded-xl border-2 border-white backdrop-blur-sm bg-white/30 h-fit p-5"
-					>
-						<div class="flex justify-between items-center">
-							<h1 class="text-white font-semibold text-xl">PREMIUM PACKAGE</h1>
-							<a href="" class="p-2 boldfont text-xs bg-white text-black rounded-lg w-fit float-end"
-								>Book Ticket</a
-							>
-						</div>
-						<p class="mt-5 text-sm text-white">
-							Wine (red/white), 3-course lunch, preferential seating, and VIP waiting lounge with
-							free canape &amp; mocktail/cocktail
-						</p>
-					</div>
-					<div
-						class="gap-4 rounded-xl border-2 border-white backdrop-blur-sm bg-white/30 h-fit p-5"
-					>
-						<div class="flex justify-between items-center">
-							<h1 class="text-white font-semibold text-xl">PREMIUM PACKAGE</h1>
-							<a href="" class="p-2 boldfont text-xs bg-white text-black rounded-lg w-fit float-end"
-								>Book Ticket</a
-							>
-						</div>
-						<p class="mt-5 text-sm text-white">
-							Wine (red/white), 3-course lunch, preferential seating, and VIP waiting lounge with
-							free canape &amp; mocktail/cocktail
-						</p>
-					</div>
-					<div
-						class="gap-4 rounded-xl border-2 border-white backdrop-blur-sm bg-white/30 h-fit p-5"
-					>
-						<div class="flex justify-between items-center">
-							<h1 class="text-white font-semibold text-xl">PREMIUM PACKAGE</h1>
-							<a href="" class="p-2 boldfont text-xs bg-white text-black rounded-lg w-fit float-end"
-								>Book Ticket</a
-							>
-						</div>
-						<p class="mt-5 text-sm text-white">
-							Wine (red/white), 3-course lunch, preferential seating, and VIP waiting lounge with
-							free canape &amp; mocktail/cocktail
-						</p>
-					</div>
-				</div>
+			<WhatsOn data={product}/>
 			</div>
 		</div>
 		<img

@@ -4,6 +4,9 @@
 	import TabsDetail from '$lib/components/Section/Ticket/TabsDetail.svelte';
 	import type { PageServerData } from './$types';
 	import Carousel from 'svelte-carousel';
+	import { Lightbox, LightboxGallery, GalleryThumbnail, GalleryImage } from 'svelte-lightbox';
+
+	let lightboxProgrammaticController;
 	import { Button, Modal } from 'flowbite-svelte';
 	let defaultModalInclusion = false;
 	let defaultModal = false;
@@ -93,16 +96,7 @@
 		</h1>
 	</div>
 </div>
-<Modal title="Gallery" headerClass="py-2 px-4 flex justify-between items-center rounded-t-lg" bodyClass="p-2"  bind:open={defaultModal} {size}>
-	<Carousel>
-		{#each detail?.images as imagePath}
-			<div class="img-container">
-				<!-- svelte-ignore a11y-img-redundant-alt -->
-				<img src={imagePath.path} alt="Image" class="image-item h-[50vh] w-full object-cover" />
-			</div>
-		{/each}
-	</Carousel>
-</Modal>
+
 <div class="bg-white hidden lg:block">
 	<div class="container mx-auto px-5 lg:px-20">
 		<div class="my-10">
@@ -111,7 +105,9 @@
 		</div>
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
 		<!-- svelte-ignore a11y-no-static-element-interactions -->
-		<div class="grid lg:grid-cols-3 gap-4" on:click={() => { size = 'lg'; defaultModal = true; }}>
+		<div
+			class="grid lg:grid-cols-3 gap-4"
+		>
 			<div class="col-span-2">
 				<img
 					src={detail?.images[0]?.path}
