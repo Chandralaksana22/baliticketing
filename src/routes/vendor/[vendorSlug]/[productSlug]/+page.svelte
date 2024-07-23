@@ -3,6 +3,7 @@
 	import Navbar from '$lib/components/Navigation/Navbar.svelte';
 	import TabsDetail from '$lib/components/Section/Ticket/TabsDetail.svelte';
 	import type { PageServerData } from './$types';
+	import Carousel from 'svelte-carousel';
 	import { Button, Modal } from 'flowbite-svelte';
 	let defaultModalInclusion = false;
 	let defaultModal = false;
@@ -91,8 +92,15 @@
 		</h1>
 	</div>
 </div>
-<Modal title="Gallery" bind:open={defaultModal} autoclose>
-	<div class="max-w-4xl space-y-4"></div>
+<Modal title="Gallery" bind:open={defaultModal}>
+	<Carousel>
+		{#each detail?.images as imagePath}
+			<div class="img-container">
+				<!-- svelte-ignore a11y-img-redundant-alt -->
+				<img src={imagePath.path} alt="Image" class="image-item" />
+			</div>
+		{/each}
+	</Carousel>
 </Modal>
 <div class="bg-white hidden lg:block">
 	<div class="container mx-auto px-5 lg:px-20">
