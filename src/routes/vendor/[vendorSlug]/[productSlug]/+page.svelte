@@ -658,7 +658,7 @@
 																				</svg>
 																				<span>{inclusionItem.item}</span>
 																			</li>
-																		{/each}															
+																		{/each}
 																	</ul>
 																</Modal>
 															</div>
@@ -763,23 +763,28 @@
 															)}
 														</p>
 														<div class="flex gap-4">
-															<p class="text-xs line-through">
-																{new Intl.NumberFormat('id-ID', {
-																	style: 'currency',
-																	currency: 'IDR',
-																	minimumFractionDigits: 0,
-																	maximumFractionDigits: 0
-																}).format(
-																	adultCount * (item?.adult_price ?? 0) +
-																		childrenCount * (item?.children_price ?? 0) +
-																		infantCount * (item?.infant_price ?? 0)
-																)}
-															</p>
-															<p
-																class="bg-yellow text-black text-xs font-bold me-2 px-2.5 py-0.5 rounded-full"
-															>
-																{item?.discount_percentage}% Off
-															</p>
+															{#if item?.discount_percentage !== null && item.discount_percentage !== '0'}
+																<p class="text-xs line-through">
+																	{new Intl.NumberFormat('id-ID', {
+																		style: 'currency',
+																		currency: 'IDR',
+																		minimumFractionDigits: 0,
+																		maximumFractionDigits: 0
+																	}).format(
+																		adultCount * (item?.adult_price ?? 0) +
+																			childrenCount * (item?.children_price ?? 0) +
+																			infantCount * (item?.infant_price ?? 0)
+																	)}
+																</p>
+															{/if}
+
+															{#if item?.discount_percentage !== null && item.discount_percentage !== '0'}
+																<p
+																	class="bg-yellow text-black text-xs font-bold me-2 px-2.5 py-0.5 rounded-full"
+																>
+																	{item?.discount_percentage}% Off
+																</p>
+															{/if}
 														</div>
 													</div>
 													<button
