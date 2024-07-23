@@ -132,7 +132,7 @@
 						<a
 							data-sveltekit-reload
 							class="block boldfont py-2 px-3 md:p-0 text-white rounded"
-							class:active={$page.url.pathname === `/`}
+							class:activeNav={$page.url.pathname === `/`}
 							href="/">Home</a
 						>
 					</li>
@@ -142,7 +142,7 @@
 								tabindex="0"
 								role="button"
 								class="flex items-center justify-between w-fullblock boldfont py-2 px-3 md:p-0 text-white rounded"
-								class:active={$page.url.pathname.includes(
+								class:activeNav={$page.url.pathname.includes(
 									`/vendor`
 								  )}
 							>
@@ -182,7 +182,7 @@
 						<a
 							data-sveltekit-reload
 							class="block boldfont py-2 px-3 md:p-0 text-white rounded"
-							class:active={$page.url.pathname === `/ticket`}
+							class:activeNav={$page.url.pathname === `/ticket`}
 							href="/ticket"
 							>Tickets
 						</a>
@@ -192,7 +192,7 @@
 							data-sveltekit-reload
 							class="block boldfont py-2 px-3 md:p-0 text-white rounded"
 							href="/contact"
-							class:active={$page.url.pathname === `/contact`}
+							class:activeNav={$page.url.pathname === `/contact`}
 							>Contact
 						</a>
 					</li>

@@ -79,8 +79,7 @@
 								on:click={() => switchTab('balizooWO')}
 								class:active={activeTab === 'balizooWO'}
 								type="button"
-								role="tab"
-								aria-controls="balizooWO"
+								
 								aria-selected={activeTab === 'balizooWO'}>Bali Zoo</button
 							>
 						</li>
@@ -91,7 +90,6 @@
 								on:click={() => switchTab('balifarmWO')}
 								class:active={activeTab === 'balifarmWO'}
 								type="button"
-								role="tab"
 								aria-controls="balifarmWO"
 								aria-selected={activeTab === 'balifarmWO'}>Bali Farm House</button
 							>
@@ -103,8 +101,7 @@
 								on:click={() => switchTab('balisafariWO')}
 								class:active={activeTab === 'balisafariWO'}
 								type="button"
-								role="tab"
-								aria-controls="balisafariWO"
+								
 								aria-selected={activeTab === 'balisafariWO'}>Bali Safari</button
 							>
 						</li>
@@ -115,8 +112,7 @@
 								on:click={() => switchTab('balibirdWO')}
 								class:active={activeTab === 'balibirdWO'}
 								type="button"
-								role="tab"
-								aria-controls="balibirdWO"
+								
 								aria-selected={activeTab === 'balibirdWO'}>Bali Bird Park</button
 							>
 						</li>
