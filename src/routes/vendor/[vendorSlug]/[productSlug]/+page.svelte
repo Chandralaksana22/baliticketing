@@ -4,6 +4,7 @@
 	import TabsDetail from '$lib/components/Section/Ticket/TabsDetail.svelte';
 	import type { PageServerData } from './$types';
 	import { Button, Modal } from 'flowbite-svelte';
+	let defaultModalInclusion = false;
 	let defaultModal = false;
 	export let data: PageServerData;
 	let detail = data?.detail;
@@ -13,7 +14,7 @@
 	let childrenCount = data?.childrenCount || 0;
 	let infantCount = data?.infantCount || 0;
 	let date = data?.date;
-	let vendor = data?.vendor
+	let vendor = data?.vendor;
 	let openAccordionIndex = 0;
 	let selectedTicket: item | null = null;
 	let showSummary = false;
@@ -78,7 +79,7 @@
 		{detail?.name} | TiketXplorer
 	</title>
 </svelte:head>
-<Navbar data={vendor}/>
+<Navbar data={vendor} />
 <div
 	class="hidden lg:block bg-center bg-cover h-[100] bg-no-repeat bg-gray-600 bg-blend-multiply lg:bg-[url('/images/hero-ticket.webp')]"
 >
@@ -91,9 +92,7 @@
 	</div>
 </div>
 <Modal title="Gallery" bind:open={defaultModal} autoclose>
-    <div class="max-w-4xl space-y-4">
-        
-    </div>
+	<div class="max-w-4xl space-y-4"></div>
 </Modal>
 <div class="bg-white hidden lg:block">
 	<div class="container mx-auto px-5 lg:px-20">
@@ -599,7 +598,7 @@
 															<div class="col-span-1">
 																<h1 class="text-xs font-semibold text-gray-500">Inclusion</h1>
 																<ul class="text-left text-black mt-3">
-																	{#each item?.inclusion as inclusionItem}
+																	{#each item?.inclusion.slice(0, 3) as inclusionItem}
 																		<li
 																			class="flex items-center space-x-3 mb-1 rtl:space-x-reverse text-sm font-semibold"
 																		>
@@ -621,7 +620,47 @@
 																			<span>{inclusionItem.item}</span>
 																		</li>
 																	{/each}
+																	<li
+																		class="flex items-center space-x-3 mb-1 rtl:space-x-reverse font-semibold"
+																	>
+																		<button
+																			class="text-xs text-sky-600"
+																			on:click={() => (defaultModalInclusion = true)}
+																			>Wiew More...</button
+																		>
+																	</li>
 																</ul>
+
+																<Modal
+																	title="Inclusion"
+																	bind:open={defaultModalInclusion}
+																	autoclose
+																>
+																	<ul class="text-left text-black mt-3">
+																		{#each item?.inclusion as inclusionItem}
+																			<li
+																				class="flex items-center space-x-3 mb-1 rtl:space-x-reverse text-sm font-semibold"
+																			>
+																				<svg
+																					class="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400"
+																					aria-hidden="true"
+																					xmlns="http://www.w3.org/2000/svg"
+																					fill="none"
+																					viewBox="0 0 16 12"
+																				>
+																					<path
+																						stroke="currentColor"
+																						stroke-linecap="round"
+																						stroke-linejoin="round"
+																						stroke-width="2"
+																						d="M1 5.917 5.724 10.5 15 1.5"
+																					/>
+																				</svg>
+																				<span>{inclusionItem.item}</span>
+																			</li>
+																		{/each}															
+																	</ul>
+																</Modal>
 															</div>
 															<div class="col-span-2">
 																<a
