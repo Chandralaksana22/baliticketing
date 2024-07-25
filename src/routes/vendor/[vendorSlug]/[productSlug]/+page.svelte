@@ -105,9 +105,7 @@
 		</div>
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
 		<!-- svelte-ignore a11y-no-static-element-interactions -->
-		<div
-			class="grid lg:grid-cols-3 gap-4"
-		>
+		<div class="grid lg:grid-cols-3 gap-4">
 			<div class="col-span-2">
 				<img
 					src={detail?.images[0]?.path}
@@ -604,39 +602,48 @@
 														<div class="mt-5 grid grid-cols-3">
 															<div class="col-span-1">
 																<h1 class="text-xs font-semibold text-gray-500">Inclusion</h1>
-																<ul class="text-left text-black mt-3">
-																	{#each item?.inclusion.slice(0, 3) as inclusionItem}
-																		<li
-																			class="flex items-center space-x-3 mb-1 rtl:space-x-reverse text-sm font-semibold"
-																		>
-																			<svg
-																				class="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400"
-																				aria-hidden="true"
-																				xmlns="http://www.w3.org/2000/svg"
-																				fill="none"
-																				viewBox="0 0 16 12"
+																{#if item?.inclusion.length > 0}
+																	<ul class="text-left text-black mt-3">
+																		{#each item?.inclusion.slice(0, 3) as inclusionItem}
+																			<li
+																				class="flex items-center space-x-3 mb-1 rtl:space-x-reverse text-sm font-semibold"
 																			>
-																				<path
-																					stroke="currentColor"
-																					stroke-linecap="round"
-																					stroke-linejoin="round"
-																					stroke-width="2"
-																					d="M1 5.917 5.724 10.5 15 1.5"
-																				/>
-																			</svg>
-																			<span>{inclusionItem.item}</span>
-																		</li>
-																	{/each}
-																	<li
-																		class="flex items-center space-x-3 mb-1 rtl:space-x-reverse font-semibold"
-																	>
-																		<button
-																			class="text-xs text-sky-600"
-																			on:click={() => (defaultModalInclusion = true)}
-																			>Wiew More...</button
+																				<svg
+																					class="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400"
+																					aria-hidden="true"
+																					xmlns="http://www.w3.org/2000/svg"
+																					fill="none"
+																					viewBox="0 0 16 12"
+																				>
+																					<path
+																						stroke="currentColor"
+																						stroke-linecap="round"
+																						stroke-linejoin="round"
+																						stroke-width="2"
+																						d="M1 5.917 5.724 10.5 15 1.5"
+																					/>
+																				</svg>
+																				<span>{inclusionItem.item}</span>
+																			</li>
+																		{/each}
+																		<li
+																			class="flex items-center space-x-3 mb-1 rtl:space-x-reverse font-semibold"
 																		>
-																	</li>
-																</ul>
+																			<button
+																				class="text-xs text-sky-600"
+																				on:click={() => (defaultModalInclusion = true)}
+																			>
+																				View More...
+																			</button>
+																		</li>
+																	</ul>
+																{:else}
+																	<p class="text-sm font-semibold mt-3">
+																		Details regarding the inclusions provided with each ticket are
+																		available, ensuring that all relevant information is presented
+																		for your convenience and clarity.
+																	</p>
+																{/if}
 
 																<Modal
 																	title="Inclusion"
