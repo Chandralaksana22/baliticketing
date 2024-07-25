@@ -1,5 +1,6 @@
 <script lang="ts">
 	export let data: any = [];
+	export let items: any = [];
 	function toggleAccordion(id: string) {
 	  const accordionBody = document.getElementById(id);
 	  if (accordionBody) {
@@ -74,7 +75,7 @@
 	  <div id="accordion-collapse-body-2" class="hidden">
 		<div class="p-5">
 		  <ul class="space-y-4 text-left text-gray-500 dark:text-gray-400">
-			{#each data.inclusion as item}
+			{#each items.inclusion as item}
 			  <li class="flex items-center space-x-3 rtl:space-x-reverse">
 				<svg
 				  class="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400"
