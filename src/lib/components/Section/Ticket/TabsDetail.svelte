@@ -10,28 +10,35 @@
 		</p>
 	</TabItem>
 	<TabItem title="Inclusion">
-		<ul class="space-y-4 text-left text-gray-500 dark:text-gray-400">
-			{#each data.inclusion as item}
-				<li class="flex items-center space-x-3 rtl:space-x-reverse">
-					<svg
-						class="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400"
-						aria-hidden="true"
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 16 12"
-					>
-						<path
-							stroke="currentColor"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M1 5.917 5.724 10.5 15 1.5"
-						/>
-					</svg>
-					<span>{item.item}</span>
-				</li>
-			{/each}
-		</ul>
+		{#if data?.inclusion.length > 0}
+			<ul class="space-y-4 text-left text-gray-500 dark:text-gray-400">
+				{#each data.inclusion as item}
+					<li class="flex items-center space-x-3 rtl:space-x-reverse">
+						<svg
+							class="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400"
+							aria-hidden="true"
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 16 12"
+						>
+							<path
+								stroke="currentColor"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M1 5.917 5.724 10.5 15 1.5"
+							/>
+						</svg>
+						<span>{item.item}</span>
+					</li>
+				{/each}
+			</ul>
+		{:else}
+			<p class="text-sm font-semibold mt-3">
+				Details regarding the inclusions provided with each ticket are available, ensuring that all
+				relevant information is presented for your convenience and clarity.
+			</p>
+		{/if}
 	</TabItem>
 	<TabItem title="Facilities">
 		<div class="grid grid-cols-5 gap-4">
@@ -56,5 +63,4 @@
 			</p>
 		</div>
 	</TabItem>
-
 </Tabs>
