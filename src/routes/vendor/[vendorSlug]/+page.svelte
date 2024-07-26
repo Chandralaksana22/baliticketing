@@ -98,7 +98,7 @@
 			</div>
 		</div>
 	</div>
-	{#if detail.slug === 'bali-zoo'}
+	{#if detail.layout === 'Layout 1'}
 		<PopularActivity data={popular} />
 		<div class="hidden md:block bg-cover bg-[url('../images/background-biru-desktop.webp')]">
 			<h4 class="boldfont text-white text-3xl pt-[15%] mb-5 text-center">
@@ -197,7 +197,7 @@
 				</div>
 			</div>
 		</section>
-	{:else if detail.slug === 'bali-farm-house'}
+	{:else if detail.layout === 'Layout 2'}
 		<div id="placetogo" class="hidden md:block container mx-auto">
 			<h4 class="boldfont text-white text-3xl text-center">General Admission</h4>
 			<h4 class="text-white text-lg mb-5 text-center">(For Indonesian ID and Kitas holder)</h4>
@@ -211,7 +211,7 @@
 				</div>
 			</div>
 		</section> -->
-	{:else if detail.slug === 'bali-safari'}
+	{:else if detail.slug === 'Layout 3'}
 		<div class="mt-10">
 			<div id="placetogo" class="container mx-auto px-10">
 				<h4 class="boldfont text-white text-3xl mb-5 text-center">General Admission</h4>
@@ -232,7 +232,7 @@
 						voyage unfolds with every dish, act, and moment, creating an immersive narrative.
 					</p>
 				</div>
-			<WhatsOn data={product}/>
+				<WhatsOn data={product} />
 			</div>
 		</div>
 		<img
@@ -240,96 +240,12 @@
 			class="h-[50vh] mt-[-15%] w-full object-cover hidden lg:block"
 			alt="/images/background-biru-desktop.webp"
 		/>
-	{:else if detail.slug === 'bali-bird-park'}{:else}{/if}
-	<!-- <div class="mt-10" v-if="slug === 'bali-zoo'">
-		<PopularActivities :explorerData="explorerData" :vendorSlug="slug" />
-	</div> -->
-	<!-- <div class="mt-10" v-if="slug === 'bali-farm-house'">
-		<div id="placetogo" class="hidden md:block container mx-auto">
-			<h4 class="boldfont text-white text-3xl text-center">General Admission</h4>
-			<h4 class="text-white text-lg mb-5 text-center">(For Indonesian ID and Kitas holder)</h4>
-			<div class="grid md:grid-cols-2 lg:grid-cols-4 p-10 gap-4">
-				<BaliFarmGA :GABaliFarm="GABaliFarm" :vendorSlug="slug" />
-			</div>
+	{:else if detail.slug === 'Layout 4'}
+		<div class="mt-10">
+			<h4 class="boldfont text-white text-3xl mb-5 text-center">Daily Schedule</h4>
+			<!-- <BaliBirdCard :vendorBaliBird="vendorBaliBird" /> -->
 		</div>
-	</div> -->
-	<!-- <div class="mt-10" v-if="slug === 'bali-safari'">
-		<div id="placetogo" class="hidden md:block container mx-auto">
-			<h4 class="boldfont text-white text-3xl text-center">General Admission</h4>
-			<div class="p-10 gap-4">
-				<BaliSafariTicket :balisafari="balisafari" />
-			</div>
-		</div>
-		<h4 class="boldfont text-white text-3xl py-10 text-center">WHAT’S NEW ON BALI SAFARI</h4>
-		<div class="px-10 relative z-10">
-			<div
-				class="rounded-xl p-10 bg-cover bg-[url('/images/bg-card.webp')] grid grid-cols-1 lg:grid-cols-2 gap-4 justify-center"
-			>
-				<div>
-					<img src="~assets/image/varunalogo.webp" class="object-contain h-40 mb-20" alt="images" />
-					<h1 class="boldfont text-white text-3xl">Varuna Show</h1>
-					<p class="text-white text-md mt-10">
-						Varuna’s stage bursts to life with vibrant performers, adorned in marine-inspired
-						attire, guiding you through the captivating odyssey of Varuna, the young hero. The
-						voyage unfolds with every dish, act, and moment, creating an immersive narrative.
-					</p>
-				</div>
-				<div class="flex flex-col gap-4">
-					<div
-						class="gap-4 rounded-xl border-2 border-white backdrop-blur-sm bg-white/30 h-fit p-5"
-					>
-						<div class="flex justify-between items-center">
-							<h1 class="text-white font-semibold text-xl">PREMIUM PACKAGE</h1>
-							<a data-sveltekit-reload  href="" class="p-2 boldfont text-xs bg-white text-black rounded-lg w-fit float-end"
-								>Book Ticket</a
-							>
-						</div>
-						<p class="mt-5 text-sm text-white">
-							Wine (red/white), 3-course lunch, preferential seating, and VIP waiting lounge with
-							free canape &amp; mocktail/cocktail
-						</p>
-					</div>
-					<div
-						class="gap-4 rounded-xl border-2 border-white backdrop-blur-sm bg-white/30 h-fit p-5"
-					>
-						<div class="flex justify-between items-center">
-							<h1 class="text-white font-semibold text-xl">PREMIUM PACKAGE</h1>
-							<a data-sveltekit-reload  href="" class="p-2 boldfont text-xs bg-white text-black rounded-lg w-fit float-end"
-								>Book Ticket</a
-							>
-						</div>
-						<p class="mt-5 text-sm text-white">
-							Wine (red/white), 3-course lunch, preferential seating, and VIP waiting lounge with
-							free canape &amp; mocktail/cocktail
-						</p>
-					</div>
-					<div
-						class="gap-4 rounded-xl border-2 border-white backdrop-blur-sm bg-white/30 h-fit p-5"
-					>
-						<div class="flex justify-between items-center">
-							<h1 class="text-white font-semibold text-xl">PREMIUM PACKAGE</h1>
-							<a data-sveltekit-reload  href="" class="p-2 boldfont text-xs bg-white text-black rounded-lg w-fit float-end"
-								>Book Ticket</a
-							>
-						</div>
-						<p class="mt-5 text-sm text-white">
-							Wine (red/white), 3-course lunch, preferential seating, and VIP waiting lounge with
-							free canape &amp; mocktail/cocktail
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<img
-			src="~assets/image/background-biru-desktop.webp"
-			class="h-[50vh] mt-[-15%] w-full object-cover hidden md:block"
-			alt="~assets/image/background-biru-desktop.webp"
-		/>
-	</div> -->
-	<!-- <div class="mt-10" v-if="slug === 'bali-bird-park'">
-		<h4 class="boldfont text-white text-3xl mb-5 text-center">Daily Schedule</h4>
-		<BaliBirdCard :vendorBaliBird="vendorBaliBird" />
-	</div> -->
+	{:else}{/if}
 </section>
 <div
 	class="block md:hidden bg-center bg-cover bg-no-repeat bg-gray-600 bg-blend-multiply"
