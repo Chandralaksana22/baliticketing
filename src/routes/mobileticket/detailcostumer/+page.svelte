@@ -13,7 +13,7 @@
 	let phone = '';
 	let email = '';
 	let terms = 'on';
-	let selectedCountry = '';
+	let selectedCountry: string = 'Indonesia';
 	let loading = false;
 	let showConfirmation = false;
 	onMount(async () => {
@@ -33,6 +33,7 @@
 				const bytes = CryptoJS.AES.decrypt(encryptedData, secretKey);
 				const decryptedString = bytes.toString(CryptoJS.enc.Utf8);
 				decryptedData = JSON.parse(decryptedString);
+				console.log(decryptedData);
 			} catch (error) {
 				console.error('Error decrypting data:', error);
 			}
@@ -47,7 +48,19 @@
 	async function handleSubmit(event) {
 		event.preventDefault();
 		loading = true;
-		const url = `https://main.tiketxplorer.com/api/v1/send-form?adult=${decryptedData?.adultCount}&children=${decryptedData?.childrenCount}&infant=${decryptedData?.infantCount}&total_price=${decryptedData?.totalPrice}&adult_price=${decryptedData?.decryptedTicket.adult_price}&children_price=${decryptedData?.decryptedTicket.children_price}&infant_price=${decryptedData?.decryptedTicket.infant_price}&total_adult_price=${decryptedData?.adultCount}&total_children_price=${decryptedData.childrenCount}&total_infant_price=${decryptedData.infantCount}&arrival=${decryptedData.date}&firstname=${firstname}&lastname=${lastname}&email=${email}&phone=${phone}&country=${selectedCountry}&terms=${terms}&id=${decryptedData?.decryptedTicket.id}&product_id=${decryptedData.decryptedTicket.product_id}&vendor_id=${decryptedData.decryptedTicket.id}&slug=${decryptedData?.decryptedTicket.vendor.slug}`;
+		const adultPrice = decryptedData?.decryptedTicket.adult_price || 0;
+		const adultCount = decryptedData?.adultCount || 0;
+		const childrenPrice = decryptedData?.decryptedTicket.children_price || 0;
+		const childrenCount = decryptedData?.childrenCount || 0;
+		const infantPrice = decryptedData?.decryptedTicket.infant_price || 0;
+		const infantCount = decryptedData?.infantCount || 0;
+		const discountPercentage = decryptedData?.decryptedTicket.discount_percentage || 0;
+
+		// Calculate total prices with discount
+		const totalAdultPrice = adultPrice * adultCount * (1 - discountPercentage / 100);
+		const totalChildrenPrice = childrenPrice * childrenCount * (1 - discountPercentage / 100);
+		const totalInfantPrice = infantPrice * infantCount * (1 - discountPercentage / 100);
+		const url = `https://main.tiketxplorer.com/api/v1/send-form?adult=${decryptedData?.adultCount}&children=${decryptedData?.childrenCount}&infant=${decryptedData?.infantCount}&total_price=${decryptedData?.totalPrice}&adult_price=${decryptedData?.decryptedTicket.adult_price}&children_price=${decryptedData?.decryptedTicket.children_price}&infant_price=${decryptedData?.decryptedTicket.infant_price}&total_adult_price=${totalAdultPrice}&total_children_price=${totalChildrenPrice}&total_infant_price=${totalInfantPrice}&arrival=${decryptedData.date}&firstname=${firstname}&lastname=${lastname}&email=${email}&phone=${phone}&country=${selectedCountry}&terms=${terms}&id=${decryptedData?.decryptedTicket.id}&product_id=${decryptedData.decryptedTicket.product_id}&vendor_id=${decryptedData.decryptedTicket.id}&slug=${decryptedData?.decryptedTicket.vendor.slug}`;
 
 		try {
 			const response = await axios.post(url);
@@ -139,7 +152,7 @@
 								class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
 							>
 								{#each countries as country}
-									<option value={country.iso2}>{country.name}</option>
+									<option value={country.name}>{country.name}</option>
 								{/each}
 							</select>
 						</div>

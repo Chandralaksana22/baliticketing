@@ -11,7 +11,8 @@
 	let email = '';
 	let terms = 'on';
 	let countries = '';
-	let selectedCountry = '';
+	let selectedCountry: string = "Indonesia";
+	console.log('country', selectedCountry);
 	let loading = false;
 	let showConfirmation = false;
 
@@ -37,19 +38,26 @@
 		childrenCount = parseInt(sessionStorage.getItem('childrenCount'), 10) || 0;
 		infantCount = parseInt(sessionStorage.getItem('infantCount'), 10) || 0;
 		date = sessionStorage.getItem('date') || '';
-
+		console.log(selectedTicket)
 		if (selectedTicket) {
-			totalPrice =
-				(adultCount * (selectedTicket.adult_price || 0) +
-					childrenCount * (selectedTicket.children_price || 0) +
-					infantCount * (selectedTicket.infant_price || 0)) *
-				(1 - (selectedTicket.discount_percentage || 0) / 100).toFixed(2);
+			const adultPrice = selectedTicket.adult_price || 0;
+			const childrenPrice = selectedTicket.children_price || 0;
+			const infantPrice = selectedTicket.infant_price || 0;
+			const discountPercentage = selectedTicket.discount_percentage || 0;
+
+			// Calculate total prices with discount
+			const totalAdultPrice = (adultPrice * adultCount) * (1 - discountPercentage / 100);
+			const totalChildrenPrice = (childrenPrice * childrenCount) * (1 - discountPercentage / 100);
+			const totalInfantPrice = (infantPrice * infantCount) * (1 - discountPercentage / 100);
+
+			totalPrice = (totalAdultPrice + totalChildrenPrice + totalInfantPrice).toFixed(2);
 		}
 	});
+
 	async function handleSubmit(event) {
 		event.preventDefault();
 		loading = true;
-		const url = `https://main.tiketxplorer.com/api/v1/send-form?adult=${adultCount}&children=${childrenCount}&infant=${infantCount}&total_price=${totalPrice}&adult_price=${selectedTicket.adult_price}&children_price=${selectedTicket.children_price}&infant_price=${selectedTicket.infant_price}&total_adult_price=${selectedTicket.total_adult}&total_children_price=${selectedTicket.total_children}&total_infant_price=${selectedTicket.total_infant}&arrival=${date}&firstname=${firstname}&lastname=${lastname}&email=${email}&phone=${phone}&country=${selectedCountry}&terms=${terms}&id=${selectedTicket.id}&product_id=${selectedTicket.product_id}&vendor_id=${selectedTicket.vendor_id}&slug=${selectedTicket.slug}`;
+		const url = `https://main.tiketxplorer.com/api/v1/send-form?adult=${adultCount}&children=${childrenCount}&infant=${infantCount}&total_price=${totalPrice}&adult_price=${selectedTicket.adult_price}&children_price=${selectedTicket.children_price}&infant_price=${selectedTicket.infant_price}&total_adult_price=${(selectedTicket.adult_price * adultCount * (1 - (selectedTicket.discount_percentage || 0) / 100)).toFixed(2)}&total_children_price=${(selectedTicket.children_price * childrenCount * (1 - (selectedTicket.discount_percentage || 0) / 100)).toFixed(2)}&total_infant_price=${(selectedTicket.infant_price * infantCount * (1 - (selectedTicket.discount_percentage || 0) / 100)).toFixed(2)}&arrival=${date}&firstname=${firstname}&lastname=${lastname}&email=${email}&phone=${phone}&country=${selectedCountry}&terms=${terms}&id=${selectedTicket.id}&product_id=${selectedTicket.product_id}&vendor_id=${selectedTicket.vendor_id}&slug=${selectedTicket?.vendor?.slug}`;
 
 		try {
 			const response = await axios.post(url);
@@ -72,7 +80,9 @@
 		}
 	}
 </script>
-<Navbar data={vendor}/>
+
+
+<Navbar data={vendor} />
 <section class="bg-cover bg-[url('/images/bg-desktop.webp')]">
 	<div
 		class="bg-center bg-cover h-[100] bg-no-repeat"
@@ -140,7 +150,7 @@
 								class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
 							>
 								{#each countries as country}
-									<option value={country.iso2}>{country.name}</option>
+									<option value={country.name}>{country.name}</option>
 								{/each}
 							</select>
 						</div>
