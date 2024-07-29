@@ -155,7 +155,7 @@
 <div class="bg-white">
 	<div class="container mx-auto px-5 lg:px-20">
 		<div class="my-10">
-			<h1 class="boldfont text-lg lg:text-2xl">{detail?.name}</h1>
+			<h1 class="boldfont text-lg lg:text-2xl">{$decryptedTicket?.name}</h1>
 		</div>
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
 		<!-- svelte-ignore a11y-no-static-element-interactions -->
@@ -742,11 +742,13 @@
 												</p>
 											</div>
 											<div>
-												<p class="text-xs text-blue font-semibold">
-													By purchasing from this website, you’ve saved <span class="text-lg"
-														>%{$decryptedTicket?.discount_percentage}</span
-													>
-												</p>
+												{#if $decryptedTicket?.discount_percentage !== '0'}
+													<p class="text-xs text-blue font-semibold">
+														By purchasing from this website, you’ve saved <span class="text-lg"
+															>%{$decryptedTicket?.discount_percentage}</span
+														>
+													</p>
+												{/if}
 											</div>
 										</div>
 										<button type="submit" class="p-3 w-full rounded-lg bg-blue text-white text-md"

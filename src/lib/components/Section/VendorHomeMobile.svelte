@@ -12,6 +12,7 @@
 			class="vendor-port"
 		>
 			<img loading="lazy"
+			style="height: 25vh!important;"
 				src={vendor.images.length > 0
 					? vendor.images[1].path
 					: 'https://dashboard.bali-zoo.com/storage/photos/shares/Animals/Lion/Lion.jpg'}
