@@ -24,7 +24,7 @@
 {#if isMobile}
 	<div class="block lg:hidden fixed w-100 bottom-0 left-0 right-0 z-[99]">
 		<div class="nav-bottom-bar flex justify-center items-center justify-between py-5 px-10">
-			<a  href="/" class="flex flex-col items-center" class:active-mobile={$page.url.pathname === `/`}
+			<a data-sveltekit-reload href="/" class="flex flex-col items-center" class:active-mobile={$page.url.pathname === `/`}
 				><svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="24"
@@ -37,7 +37,7 @@
 					></path></svg
 				>
 				<p class="text-white text-center text-xs">Home</p></a
-			><a  href="/placetogo" class="flex flex-col items-center" class:active-mobile={$page.url.pathname.includes('/placetogo') || $page.url.pathname.includes('/vendormobile')}
+			><a data-sveltekit-reload href="/placetogo" class="flex flex-col items-center" class:active-mobile={$page.url.pathname.includes('/placetogo') || $page.url.pathname.includes('/vendormobile')}
 				><svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="24"
@@ -50,7 +50,7 @@
 					></path></svg
 				>
 				<p class="text-white text-center text-xs">Place To Go</p></a
-			><a  href="/ticket" class="flex flex-col items-center" class:active-mobile={$page.url.pathname === `/ticket`}
+			><a data-sveltekit-reload href="/ticket" class="flex flex-col items-center" class:active-mobile={$page.url.pathname === `/ticket`}
 				><svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="24"
@@ -63,7 +63,7 @@
 					></path></svg
 				>
 				<p class="text-white text-center text-xs">Tickets</p></a
-			><a  href="/contact" class="flex flex-col items-center" class:active-mobile={$page.url.pathname === `/contact`}
+			><a data-sveltekit-reload href="/contact" class="flex flex-col items-center" class:active-mobile={$page.url.pathname === `/contact`}
 				><svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="24"
@@ -85,13 +85,13 @@
 		style="z-index: 99;"
 	>
 		<div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-			<a  class="flex items-center space-x-3 rtl:space-x-reverse" href="/">
+			<a data-sveltekit-reload class="flex items-center space-x-3 rtl:space-x-reverse" href="/">
 				<img loading="lazy" src="/images/logo.webp" class="h-16" alt="image" />
 			</a>
 			<div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
 				<a
 					href="/ticket"
-					
+					data-sveltekit-reload
 					type="button"
 					class="text-white border border-gray-300 boldfont bg-transparentfont-medium rounded-lg text-sm px-4 py-2 text-center hover:bg-white hover:text-black"
 					>Enquire</a
@@ -130,7 +130,7 @@
 				>
 					<li>
 						<a
-							
+							data-sveltekit-reload
 							class="block boldfont py-2 px-3 md:p-0 text-white rounded"
 							class:activeNav={$page.url.pathname === `/`}
 							href="/">Home</a
@@ -169,7 +169,7 @@
 								{#each vendors as vendor}
 									<li>
 										<a
-											
+											data-sveltekit-reload
 											href={`/vendor/${vendor.slug}`}
 											class="block text-sm boldfont text-black">{vendor.name}</a
 										>
@@ -180,7 +180,7 @@
 					</li>
 					<li>
 						<a
-							
+							data-sveltekit-reload
 							class="block boldfont py-2 px-3 md:p-0 text-white rounded"
 							class:activeNav={$page.url.pathname === `/ticket`}
 							href="/ticket"
@@ -189,7 +189,7 @@
 					</li>
 					<li>
 						<a
-							
+							data-sveltekit-reload
 							class="block boldfont py-2 px-3 md:p-0 text-white rounded"
 							href="/contact"
 							class:activeNav={$page.url.pathname === `/contact`}
