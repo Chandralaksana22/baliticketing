@@ -9,7 +9,7 @@
 			<div class="flex justify-between items-center">
 				<h1 class="text-white font-semibold text-xl">{product.name}</h1>
 				<a
-					data-sveltekit-reload
+					data-sveltekit-preload-code="eager"
 					href={`/vendor/${product.vendor.slug}/${product.slug}`}
 					class="p-2 boldfont text-xs bg-white text-black rounded-lg w-fit float-end">Book Ticket</a
 				>

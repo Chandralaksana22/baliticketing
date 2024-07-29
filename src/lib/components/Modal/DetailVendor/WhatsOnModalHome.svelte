@@ -60,7 +60,7 @@
 					>
 						{#each filteredWO as product}
 							<div>
-								<a data-sveltekit-reload href={`/vendor/${product?.vendor?.slug}/${product?.slug}`}>
+								<a data-sveltekit-preload-code="eager" href={`/vendor/${product?.vendor?.slug}/${product?.slug}`}>
 									<img
 										class="rounded-none h-[25vh] object-cover w-full object-top"
 										src={product?.images[0].path}
@@ -72,7 +72,7 @@
 										{product?.name}
 									</h5>
 									<a
-										data-sveltekit-reload
+										data-sveltekit-preload-code="eager"
 										href={`/vendor/${product?.vendor?.slug}/${product?.slug}`}
 										class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
 									>

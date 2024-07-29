@@ -40,8 +40,10 @@
 	"type": "module",
 	"dependencies": {
 		"@popperjs/core": "^2.11.8",
+		"@prgm/sveltekit-progress-bar": "^2.0.0",
 		"@react2svelte/image-gallery": "^1.0.1",
 		"@sveltejs/adapter-node": "^5.2.0",
+		"@types/nprogress": "^0.2.3",
 		"autoprefixer": "^10.4.19",
 		"axios": "^1.7.2",
 		"compression": "^1.7.4",
@@ -51,6 +53,7 @@
 		"flowbite": "^2.4.1",
 		"flowbite-svelte": "^0.46.11",
 		"js-cookie": "^3.0.5",
+		"nprogress": "^0.2.0",
 		"svelte-carousel": "^1.0.25",
 		"svelte-lazy": "^1.2.7",
 		"svelte-preprocess": "^6.0.1",

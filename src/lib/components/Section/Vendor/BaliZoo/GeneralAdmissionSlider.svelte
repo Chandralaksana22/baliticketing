@@ -38,7 +38,7 @@
 							class="absolute z-50 bottom-[6rem] left-1/2 -translate-x-1/2 text-center w-full text-white"
 						>
 							<a
-								data-sveltekit-reload
+								data-sveltekit-preload-code="eager"
 								href={`/vendor/${item?.vendor.slug}/${item?.slug}`}
 								class="px-2 py-3 bg-white text-black rounded-md slide boldfont">View Detail</a
 							>

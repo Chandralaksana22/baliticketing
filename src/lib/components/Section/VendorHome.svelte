@@ -8,7 +8,7 @@
     <div
         class="feature-port {index % 4 === 0 || index % 4 === 3 ? 'col-span-12 lg:col-span-7' : 'col-span-12 lg:col-span-5'}"
     >
-        <a data-sveltekit-preload-data  href={`/vendor/${vendor.slug}`} class="vendor-port h-[13rem] lg:h-[25rem] img-border">
+        <a data-sveltekit-preload-code="eager"  href={`/vendor/${vendor.slug}`} class="vendor-port h-[13rem] lg:h-[25rem] img-border">
             <img loading="lazy"
                 src={vendor.images.length > 0
                     ? vendor.images[1].path

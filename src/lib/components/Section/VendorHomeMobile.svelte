@@ -7,7 +7,7 @@
 {#each items as vendor}
 	<div class="feature-port">
 		<a
-			data-sveltekit-preload-data
+			data-sveltekit-preload-code="eager"
 			href={`/vendormobile/${vendor.slug}`}
 			class="vendor-port"
 		>

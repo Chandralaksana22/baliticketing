@@ -27,6 +27,7 @@
 {/if}
 <div>
 	{#each listTicket as listTicket}
+		<!-- svelte-ignore a11y-invalid-attribute -->
 		<a
 			href="#"
 			on:click|preventDefault={() => navigateToMobileTicket(listTicket)}
