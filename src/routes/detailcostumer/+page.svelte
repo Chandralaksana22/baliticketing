@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import axios from 'axios';
+	import { goto } from '$app/navigation';
 	import type { PageServerData } from './$types';
 	import Navbar from '$lib/components/Navigation/Navbar.svelte';
 	export let data: PageServerData;
@@ -11,7 +12,7 @@
 	let email = '';
 	let terms = 'on';
 	let countries = '';
-	let selectedCountry: string = "Indonesia";
+	let selectedCountry: string = 'Indonesia';
 	console.log('country', selectedCountry);
 	let loading = false;
 	let showConfirmation = false;
@@ -25,12 +26,12 @@
 		}
 	});
 
-	let selectedTicket;
-	let adultCount;
-	let childrenCount;
-	let infantCount;
-	let date;
-	let totalPrice;
+	let selectedTicket:any;
+	let adultCount:any;
+	let childrenCount:any;
+	let infantCount:any;
+	let date:any;
+	let totalPrice:any;
 
 	onMount(() => {
 		selectedTicket = JSON.parse(sessionStorage.getItem('selectedTicket')) || {};
@@ -38,17 +39,19 @@
 		childrenCount = parseInt(sessionStorage.getItem('childrenCount'), 10) || 0;
 		infantCount = parseInt(sessionStorage.getItem('infantCount'), 10) || 0;
 		date = sessionStorage.getItem('date') || '';
-		console.log(selectedTicket)
-		if (selectedTicket) {
+		console.log(selectedTicket);
+		if (!selectedTicket || Object.keys(selectedTicket).length === 0) {
+			goto('/ticket', { replace: true });
+		} else {
 			const adultPrice = selectedTicket.adult_price || 0;
 			const childrenPrice = selectedTicket.children_price || 0;
 			const infantPrice = selectedTicket.infant_price || 0;
 			const discountPercentage = selectedTicket.discount_percentage || 0;
 
 			// Calculate total prices with discount
-			const totalAdultPrice = (adultPrice * adultCount) * (1 - discountPercentage / 100);
-			const totalChildrenPrice = (childrenPrice * childrenCount) * (1 - discountPercentage / 100);
-			const totalInfantPrice = (infantPrice * infantCount) * (1 - discountPercentage / 100);
+			const totalAdultPrice = adultPrice * adultCount * (1 - discountPercentage / 100);
+			const totalChildrenPrice = childrenPrice * childrenCount * (1 - discountPercentage / 100);
+			const totalInfantPrice = infantPrice * infantCount * (1 - discountPercentage / 100);
 
 			totalPrice = (totalAdultPrice + totalChildrenPrice + totalInfantPrice).toFixed(2);
 		}
@@ -80,7 +83,6 @@
 		}
 	}
 </script>
-
 
 <Navbar data={vendor} />
 <section class="bg-cover bg-[url('/images/bg-desktop.webp')]">
@@ -150,7 +152,7 @@
 								class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
 							>
 								{#each countries as country}
-									<option value={country.name}>{country.name}</option>
+									<option value={country?.name}>{country?.name}</option>
 								{/each}
 							</select>
 						</div>
@@ -296,7 +298,14 @@
 								</dl>
 								<dl class="flex items-center justify-between gap-4 py-3">
 									<dt class="text-base font-bold text-gray-900 dark:text-white">Total</dt>
-									<dd class="text-base font-bold text-gray-900 dark:text-white">{totalPrice}</dd>
+									<dd class="text-base font-bold text-gray-900 dark:text-white">
+										{new Intl.NumberFormat('id-ID', {
+											style: 'currency',
+											currency: 'IDR',
+											minimumFractionDigits: 0,
+											maximumFractionDigits: 0
+										}).format(totalPrice)}
+									</dd>
 								</dl>
 							</div>
 						{/if}

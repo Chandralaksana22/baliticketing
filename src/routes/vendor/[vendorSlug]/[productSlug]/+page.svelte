@@ -12,13 +12,21 @@
 	let defaultModal = false;
 	let size;
 	export let data: PageServerData;
+	function getCurrentDate(): string {
+		const today = new Date();
+		const year = today.getFullYear();
+		const month = String(today.getMonth() + 1).padStart(2, '0'); // Menambahkan leading zero jika perlu
+		const day = String(today.getDate()).padStart(2, '0'); // Menambahkan leading zero jika perlu
+
+		return `${year}-${month}-${day}`;
+	}
 	let detail = data?.detail;
 	let listTicket = data?.listTicket;
 	let open = true;
 	let adultCount = data?.adultCount || 1;
 	let childrenCount = data?.childrenCount || 0;
 	let infantCount = data?.infantCount || 0;
-	let date = data?.date;
+	let date: string = getCurrentDate();
 	let vendor = data?.vendor;
 	let openAccordionIndex = 0;
 	let selectedTicket: item | null = null;
@@ -105,9 +113,7 @@
 		</div>
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
 		<!-- svelte-ignore a11y-no-static-element-interactions -->
-		<div
-			class="grid lg:grid-cols-3 gap-4"
-		>
+		<div class="grid lg:grid-cols-3 gap-4">
 			<div class="col-span-2">
 				<img
 					src={detail?.images[0]?.path}
@@ -905,16 +911,26 @@
 								<div class="flex justify-between items-center self-stretch">
 									<h1 class="font-bold text-md">Total price</h1>
 									<div>
-										<p class="line-through text-xs text-end">
-											IDR {adultCount * selectedTicket?.adult_price +
-												childrenCount * selectedTicket?.children_price +
-												infantCount * selectedTicket?.infant_price}
-										</p>
+										{#if selectedTicket?.discount_percentage !== null && selectedTicket.discount_percentage !== '0'}
+											<p class="line-through text-xs text-end">
+												IDR {adultCount * selectedTicket?.adult_price +
+													childrenCount * selectedTicket?.children_price +
+													infantCount * selectedTicket?.infant_price}
+											</p>
+										{/if}
+
 										<p class="text-blue font-bold text-lg">
-											IDR {(adultCount * selectedTicket?.adult_price +
-												childrenCount * selectedTicket?.children_price +
-												infantCount * selectedTicket?.infant_price) *
-												(1 - selectedTicket?.discount_percentage / 100)}
+											{new Intl.NumberFormat('id-ID', {
+												style: 'currency',
+												currency: 'IDR',
+												minimumFractionDigits: 0,
+												maximumFractionDigits: 0
+											}).format(
+												(adultCount * selectedTicket?.adult_price +
+													childrenCount * selectedTicket?.children_price +
+													infantCount * selectedTicket?.infant_price) *
+													(1 - selectedTicket?.discount_percentage / 100)
+											)}
 										</p>
 									</div>
 								</div>

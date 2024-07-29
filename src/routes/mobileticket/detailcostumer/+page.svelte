@@ -45,7 +45,7 @@
 	onMount(() => {
 		decryptData();
 	});
-	async function handleSubmit(event) {
+	async function handleSubmit(event:any) {
 		event.preventDefault();
 		loading = true;
 		const adultPrice = decryptedData?.decryptedTicket.adult_price || 0;
@@ -55,8 +55,6 @@
 		const infantPrice = decryptedData?.decryptedTicket.infant_price || 0;
 		const infantCount = decryptedData?.infantCount || 0;
 		const discountPercentage = decryptedData?.decryptedTicket.discount_percentage || 0;
-
-		// Calculate total prices with discount
 		const totalAdultPrice = adultPrice * adultCount * (1 - discountPercentage / 100);
 		const totalChildrenPrice = childrenPrice * childrenCount * (1 - discountPercentage / 100);
 		const totalInfantPrice = infantPrice * infantCount * (1 - discountPercentage / 100);
@@ -152,7 +150,7 @@
 								class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
 							>
 								{#each countries as country}
-									<option value={country.name}>{country.name}</option>
+									<option value={country?.name}>{country?.name}</option>
 								{/each}
 							</select>
 						</div>

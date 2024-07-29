@@ -100,7 +100,7 @@
 			</div>
 		</div>
 	</div>
-	{#if detail.layout === 'Layout 1'}
+	{#if detail?.layout === 'Layout 1'}
 		<PopularActivity data={popular} />
 		<div class="hidden md:block bg-cover bg-[url('../images/background-biru-desktop.webp')]">
 			<h4 class="boldfont text-white text-3xl pt-[15%] mb-5 text-center">
@@ -199,7 +199,7 @@
 				</div>
 			</div>
 		</section>
-	{:else if detail.layout === 'Layout 2'}
+	{:else if detail?.layout === 'Layout 2'}
 		<div id="placetogo" class="hidden md:block container mx-auto">
 			<h4 class="boldfont text-white text-3xl text-center">General Admission</h4>
 			<h4 class="text-white text-lg mb-5 text-center">(For Indonesian ID and Kitas holder)</h4>
@@ -213,7 +213,7 @@
 				</div>
 			</div>
 		</section> -->
-	{:else if detail.layout === 'Layout 3'}
+	{:else if detail?.layout === 'Layout 3'}
 		<div class="mt-10">
 			<div id="placetogo" class="container mx-auto px-10">
 				<h4 class="boldfont text-white text-3xl mb-5 text-center">General Admission</h4>
@@ -242,7 +242,7 @@
 			class="h-[50vh] mt-[-15%] w-full object-cover hidden lg:block"
 			alt="/images/background-biru-desktop.webp"
 		/>
-	{:else if detail.layout === 'Layout 4'}
+	{:else if detail?.layout === 'Layout 4'}
 		<div class="mt-10">
 			<h4 class="boldfont text-white text-3xl mb-5 text-center">Daily Schedule</h4>
 			<BaliBirdCard productsData={detail} />
