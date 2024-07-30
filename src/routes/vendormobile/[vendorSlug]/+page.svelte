@@ -109,11 +109,12 @@
 					fill="#008AC6"
 				></path></svg
 			>
-			<h1 class="boldfont text-lg text-blue">Tickets from Bali Zoo</h1>
+			<h1 class="boldfont text-lg text-blue">Tickets from {detail?.name}</h1>
 		</div>
 		<div class="my-10">
 			{#each listTicket as listTicket}
 				<div>
+					<!-- svelte-ignore a11y-invalid-attribute -->
 					<a
 						href="#"
 						class="grid grid-cols-3 gap-3 pt-5 items-start"
@@ -123,7 +124,7 @@
 							<img
 								src={listTicket?.images[0]?.path}
 								alt="Bali Zoo"
-								class="rounded-2xl h-[130px] w-[130px] object-cover"
+								class="rounded-2xl h-[130px] w-full object-cover"
 							/>
 						</div>
 						<div class="col-span-2">

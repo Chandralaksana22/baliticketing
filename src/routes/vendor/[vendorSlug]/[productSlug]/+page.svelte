@@ -223,7 +223,7 @@
 				<div>
 					<h1 class="boldfont my-5">Ticket Availability Check</h1>
 					<div class="p-5 border-2 border-sky-500 rounded-xl">
-						<form action={`/vendor/${detail.vendor.slug}/${detail.slug}`} data-sveltekit-noscroll>
+						<form action={`/vendor/${detail.vendor.slug}/${detail.slug}/#target`}>
 							<div class="grid grid-cols-3 gap-4">
 								<div class="dropdown">
 									<div
@@ -504,7 +504,9 @@
 						</form>
 					</div>
 				</div>
-				<TabsDetail data={detail} />
+				<div id="target">
+					<TabsDetail data={detail} />
+				</div>
 				{#if listTicket}
 					<div class="mt-5">
 						<div id="accordion-open" data-accordion="open">

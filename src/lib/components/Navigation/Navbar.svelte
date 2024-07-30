@@ -50,7 +50,7 @@
 					></path></svg
 				>
 				<p class="text-white text-center text-xs">Place To Go</p></a
-			><a data-sveltekit-preload-data href="/ticket" class="flex flex-col items-center" class:active-mobile={$page.url.pathname === `/ticket`}
+			><a data-sveltekit-reload="off" href="/ticket" class="flex flex-col items-center" class:active-mobile={$page.url.pathname === `/ticket`}
 				><svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="24"
@@ -63,7 +63,7 @@
 					></path></svg
 				>
 				<p class="text-white text-center text-xs">Tickets</p></a
-			><a data-sveltekit-preload-data href="/contact" class="flex flex-col items-center" class:active-mobile={$page.url.pathname === `/contact`}
+			><a data-sveltekit-reload="off" href="/contact" class="flex flex-col items-center" class:active-mobile={$page.url.pathname === `/contact`}
 				><svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="24"

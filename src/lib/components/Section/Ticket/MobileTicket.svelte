@@ -38,7 +38,7 @@
 				<img
 					src={listTicket?.images[0]?.path}
 					alt={listTicket?.images[0]?.path}
-					class="rounded-2xl h-[130px] w-[130px] object-cover"
+					class="rounded-2xl h-[130px] w-full object-cover"
 				/>
 			</div>
 			<div class="col-span-2">

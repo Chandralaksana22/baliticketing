@@ -1,12 +1,15 @@
-
-
 <template>
 	<footer class="bg-cover bg-[url('/images/bgfooter.webp')]">
 		<div class="container mx-auto px-5 pb-40 lg:pb-0 lg:px-10">
 			<div class="bg-brown rounded-b-[30px] p-4 lg:p-14 mb-10">
 				<div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
 					<div class="lg:col-span-2">
-						<img loading="lazy" src="/images/logo.webp" class="h-[80%] w-auto object-contain mx-auto" alt="images" />
+						<img
+							loading="lazy"
+							src="/images/logo.webp"
+							class="h-[80%] w-auto object-contain mx-auto"
+							alt="images"
+						/>
 					</div>
 					<div class="lg:col-span-8">
 						<p class="text-white text-center lg:text-left text-sm lg:text-md w-full lg:w-3/4">
@@ -17,7 +20,7 @@
 					<div class="lg:col-span-2">
 						<h1 class="boldfont text-center lg:text-left text-white">Follow Us</h1>
 						<div class="flex justify-center lg:justify-start lg:text-left">
-							<a data-sveltekit-preload-data  href="">
+							<a data-sveltekit-preload-data href="">
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									width="28"
@@ -31,7 +34,7 @@
 									></path>
 								</svg>
 							</a>
-							<a data-sveltekit-preload-data  href="">
+							<a data-sveltekit-preload-data href="">
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									width="28"
@@ -53,10 +56,12 @@
 				<div class="lg:col-span-3 gap-4">
 					<ul class="text-center lg:text-start">
 						<li class="mb-2">
-							<a data-sveltekit-preload-data  href="/" class="text-brown boldfont text-md lg:text-xl">Home</a>
+							<a data-sveltekit-preload-data href="/" class="text-brown boldfont text-md lg:text-xl"
+								>Home</a
+							>
 						</li>
 						<li class="mb-2">
-							<div class="text-brown boldfont text-md lg:text-xl">Places to Go</div>
+							<!-- <div class="text-brown boldfont text-md lg:text-xl">Places to Go</div> -->
 							<!-- <ul>
                                 {#each items as vendor}
 
@@ -67,10 +72,18 @@
 							</ul> -->
 						</li>
 						<li class="mb-2">
-							<a data-sveltekit-preload-data  href="/ticket" class="text-brown boldfont text-md lg:text-xl">Tickets</a>
+							<a
+								data-sveltekit-preload-data
+								href="/ticket"
+								class="text-brown boldfont text-md lg:text-xl">Tickets</a
+							>
 						</li>
 						<li class="mb-2">
-							<a data-sveltekit-preload-data  href="/contact" class="text-brown boldfont text-md lg:text-xl">Contact Us</a>
+							<a
+								data-sveltekit-preload-data
+								href="/contact"
+								class="text-brown boldfont text-md lg:text-xl">Contact Us</a
+							>
 						</li>
 					</ul>
 				</div>
@@ -193,23 +206,48 @@
 					<div class="grid grid-cols-3 gap-4">
 						<div class="text-center">
 							<p class="text-brown">Trusted By</p>
-							<img loading="lazy" class="object-contain mx-auto h-20" src="/images/trip.webp" alt="images" />
+							<img
+								loading="lazy"
+								class="object-contain mx-auto h-20"
+								src="/images/trip.webp"
+								alt="images"
+							/>
 							<p class="text-xs lg:text-md text-brown">As Bali’s no. 1 Zoo Ticket Agent</p>
 						</div>
 						<div class="text-center">
 							<p class="text-brown">Trusted By</p>
-							<img loading="lazy" class="object-contain mx-auto h-20" src="/images/iata.webp" alt="images" />
+							<img
+								loading="lazy"
+								class="object-contain mx-auto h-20"
+								src="/images/iata.webp"
+								alt="images"
+							/>
 							<p class="text-xs lg:text-md text-brown">License No. 126.KEP.223/BDG/2011</p>
 						</div>
 						<div class="text-center">
 							<p class="text-brown">Trusted By</p>
-							<img loading="lazy" class="object-contain mx-auto h-20" src="/images/klook.webp" alt="images" />
+							<img
+								loading="lazy"
+								class="object-contain mx-auto h-20"
+								src="/images/klook.webp"
+								alt="images"
+							/>
 							<p class="text-xs lg:text-md text-brown">As Safari Ticket Agent Partner</p>
 						</div>
 					</div>
 				</div>
 				<div class="col-span-6 gap-4">
 					<h1 class="text-md lg:text-xl text-center boldfont text-brown">AVAILABLE PAYMENT</h1>
+					<div class="grid grid-cols-8 gap-4 mt-5 items-end">
+						<img loading="lazy" src="/images/icon- (1).webp" class="object-contain h-[1rem] lg:h-[2rem] w-full" alt="images" />
+						<img loading="lazy" src="/images/icon- (2).webp" class="object-contain h-[1rem] lg:h-[2rem] w-full" alt="images" />
+						<img loading="lazy" src="/images/icon- (3).webp" class="object-contain h-[1rem] lg:h-[2rem] w-full" alt="images" />
+						<img loading="lazy" src="/images/icon- (4).webp" class="object-contain h-[1rem] lg:h-[2rem] w-full" alt="images" />
+						<img loading="lazy" src="/images/icon- (5).webp" class="object-contain h-[1rem] lg:h-[2rem] w-full" alt="images" />
+						<img loading="lazy" src="/images/icon- (6).webp" class="object-contain h-[1rem] lg:h-[2rem] w-full" alt="images" />
+						<img loading="lazy" src="/images/icon- (7).webp" class="object-contain h-[1rem] lg:h-[2rem] w-full" alt="images" />
+						<img loading="lazy" src="/images/icon- (8).webp" class="object-contain h-[1rem] lg:h-[2rem] w-full" alt="images" />
+					</div>
 				</div>
 			</div>
 			<div class="mt-10 text-center text-brown">
