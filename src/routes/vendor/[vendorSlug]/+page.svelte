@@ -37,7 +37,6 @@
 
 	let detail = data?.detail;
 	let product = data?.product;
-	console.log(detail);
 	let popular = data?.popularProduct;
 	let listTicket = data?.listTicket;
 	let vendor = data?.vendor;

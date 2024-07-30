@@ -92,7 +92,6 @@
 				const bytes = CryptoJS.AES.decrypt(encryptedData, secretKey);
 				const decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
 				decryptedTicket.set(decryptedData);
-				console.log('Decrypted Ticket:', decryptedData);
 				inclusionItems = decryptedData.items ? decryptedData.items.inclusion : [];
 			} catch (e) {
 				decryptedTicket.set(null);

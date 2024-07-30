@@ -34,7 +34,6 @@
 				const bytes = CryptoJS.AES.decrypt(encryptedData, secretKey);
 				const decryptedString = bytes.toString(CryptoJS.enc.Utf8);
 				decryptedData = JSON.parse(decryptedString);
-				console.log(decryptedData);
 			} catch (error) {
 				console.error('Error decrypting data:', error);
 			}
@@ -312,14 +311,3 @@
 	</div>
 </section>
 <Footer data={vendor}/>
-<!-- <form method="POST"></form>
-{#if decryptedData}
-	<p>Decrypted Ticket: {decryptedData.decryptedTicket}</p>
-	<p>Detail: {decryptedData.detail}</p>
-	<p>Adult Count: {decryptedData.adultCount}</p>
-	<p>Children Count: {decryptedData.childrenCount}</p>
-	<p>Infant Count: {decryptedData.infantCount}</p>
-	<p>Date: {decryptedData.date}</p>
-{:else}
-	<p>Data not available.</p>
-{/if} -->
