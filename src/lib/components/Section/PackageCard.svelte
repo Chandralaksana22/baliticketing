@@ -70,7 +70,7 @@
 					</div>
 					<div class="absolute bottom-[5%] left-1/2 -translate-x-1/2 text-center w-full">
 						<a
-							data-sveltekit-preload-code="eager"
+							data-sveltekit-preload-data
 							href={`/vendor/${product.vendor.slug}/${product.slug}`}
 							class="bg-white rounded-lg p-2 slide boldfont text-center">Book Tiket</a
 						>

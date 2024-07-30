@@ -136,7 +136,7 @@
 							{#each explorerWO as product}
 								{#if product?.type === "What's On"}
 									<div>
-										<a data-sveltekit-preload-code="eager" href={`/vendor/${product?.vendor.slug}/${product?.slug}`} >
+										<a data-sveltekit-preload-data href={`/vendor/${product?.vendor.slug}/${product?.slug}`} >
 											<img loading="lazy"
 												class="rounded-none h-[25vh] object-cover w-full object-top"
 												src={product?.images[0]?.path}
@@ -149,7 +149,7 @@
 											</h5>
 											<!-- Replace NuxtLink with Svelte Link equivalent -->
 											<a
-												data-sveltekit-preload-code="eager"
+												data-sveltekit-preload-data
 												href={`/vendor/${product?.vendor.slug}/${product?.slug}`}
 												class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
 											>
@@ -173,7 +173,7 @@
 							{#each balifarmWO as product}
 								{#if product?.type === "What's On"}
 									<div>
-										<a data-sveltekit-preload-code="eager" href={`/vendor/${product?.vendor.slug}/${product?.slug}`}>
+										<a data-sveltekit-preload-data href={`/vendor/${product?.vendor.slug}/${product?.slug}`}>
 											<img loading="lazy"
 												class="rounded-none h-[25vh] object-cover w-full object-top"
 												src={product?.images[0]?.path}
@@ -186,7 +186,7 @@
 											</h5>
 											<!-- Replace NuxtLink with Svelte Link equivalent -->
 											<a
-												data-sveltekit-preload-code="eager"
+												data-sveltekit-preload-data
 												href={`/ticket-detail/${product?.vendor.slug}/${product?.slug}`}
 												class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
 											>
@@ -209,7 +209,7 @@
 							{#each balisafariWO as product}
 								{#if product?.type === "What's On"}
 									<div>
-										<a data-sveltekit-preload-code="eager" href={`/vendor/${product?.vendor.slug}/${product?.slug}`}>
+										<a data-sveltekit-preload-data href={`/vendor/${product?.vendor.slug}/${product?.slug}`}>
 											<img loading="lazy"
 												class="rounded-none h-[25vh] object-cover w-full object-top"
 												src={product?.images[0]?.path}
@@ -222,7 +222,7 @@
 											</h5>
 											<!-- Replace NuxtLink with Svelte Link equivalent -->
 											<a
-												data-sveltekit-preload-code="eager"
+												data-sveltekit-preload-data
 												href={`/ticket-detail/${product?.vendor.slug}/${product?.slug}`}
 												class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
 											>
@@ -245,7 +245,7 @@
 							{#each balibirdWO as product}
 								{#if product?.type === "What's On"}
 									<div>
-										<a data-sveltekit-preload-code="eager" href={`/vendor/${product?.vendor.slug}/${product?.slug}`}>
+										<a data-sveltekit-preload-data href={`/vendor/${product?.vendor.slug}/${product?.slug}`}>
 											<img loading="lazy"
 												class="rounded-none h-[25vh] object-cover w-full object-top"
 												src={product?.images[0]?.path}
@@ -258,7 +258,7 @@
 											</h5>
 											<!-- Replace NuxtLink with Svelte Link equivalent -->
 											<a
-												data-sveltekit-preload-code="eager"
+												data-sveltekit-preload-data
 												href={`/ticket-detail/${product?.vendor.slug}/${product?.slug}`}
 												class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
 											>

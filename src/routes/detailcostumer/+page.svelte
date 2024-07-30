@@ -13,7 +13,6 @@
 	let terms = 'on';
 	let countries = '';
 	let selectedCountry: string = 'Indonesia';
-	console.log('country', selectedCountry);
 	let loading = false;
 	let showConfirmation = false;
 
@@ -39,7 +38,6 @@
 		childrenCount = parseInt(sessionStorage.getItem('childrenCount'), 10) || 0;
 		infantCount = parseInt(sessionStorage.getItem('infantCount'), 10) || 0;
 		date = sessionStorage.getItem('date') || '';
-		console.log(selectedTicket);
 		if (!selectedTicket || Object.keys(selectedTicket).length === 0) {
 			goto('/ticket', { replace: true });
 		} else {

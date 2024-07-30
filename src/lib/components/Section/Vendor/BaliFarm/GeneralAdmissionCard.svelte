@@ -19,7 +19,7 @@
 					class="absolute bottom-[5%] left-1/2 z-50 -translate-x-1/2 text-center w-100 text-white"
 				>
 					<a
-						data-sveltekit-preload-code="eager"
+						data-sveltekit-preload-data
 						href={`/vendor/${item.vendor.slug}/${item.slug}`}
 						class="p-2 text-lg bg-white rounded-lg text-black slide boldfont text-center"
 					>

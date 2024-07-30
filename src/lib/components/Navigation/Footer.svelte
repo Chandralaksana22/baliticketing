@@ -17,7 +17,7 @@
 					<div class="lg:col-span-2">
 						<h1 class="boldfont text-center lg:text-left text-white">Follow Us</h1>
 						<div class="flex justify-center lg:justify-start lg:text-left">
-							<a data-sveltekit-preload-code="eager"  href="">
+							<a data-sveltekit-preload-data  href="">
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									width="28"
@@ -31,7 +31,7 @@
 									></path>
 								</svg>
 							</a>
-							<a data-sveltekit-preload-code="eager"  href="">
+							<a data-sveltekit-preload-data  href="">
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									width="28"
@@ -53,7 +53,7 @@
 				<div class="lg:col-span-3 gap-4">
 					<ul class="text-center lg:text-start">
 						<li class="mb-2">
-							<a data-sveltekit-preload-code="eager"  href="/" class="text-brown boldfont text-md lg:text-xl">Home</a>
+							<a data-sveltekit-preload-data  href="/" class="text-brown boldfont text-md lg:text-xl">Home</a>
 						</li>
 						<li class="mb-2">
 							<div class="text-brown boldfont text-md lg:text-xl">Places to Go</div>
@@ -61,16 +61,16 @@
                                 {#each items as vendor}
 
 								<li>
-									<a data-sveltekit-preload-code="eager"  href={`/vendor/${vendor.slug}`} class="text-brown">{vendor.name}</a>
+									<a data-sveltekit-preload-data  href={`/vendor/${vendor.slug}`} class="text-brown">{vendor.name}</a>
 								</li>
 								{/each}
 							</ul> -->
 						</li>
 						<li class="mb-2">
-							<a data-sveltekit-preload-code="eager"  href="/ticket" class="text-brown boldfont text-md lg:text-xl">Tickets</a>
+							<a data-sveltekit-preload-data  href="/ticket" class="text-brown boldfont text-md lg:text-xl">Tickets</a>
 						</li>
 						<li class="mb-2">
-							<a data-sveltekit-preload-code="eager"  href="/contact" class="text-brown boldfont text-md lg:text-xl">Contact Us</a>
+							<a data-sveltekit-preload-data  href="/contact" class="text-brown boldfont text-md lg:text-xl">Contact Us</a>
 						</li>
 					</ul>
 				</div>

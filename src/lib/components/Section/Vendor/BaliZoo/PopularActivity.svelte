@@ -20,7 +20,7 @@
 					</div>
 					<div class="absolute z-50 bottom-[7%] left-1/2 -translate-x-1/2 text-center w-100">
 						<a
-							data-sveltekit-preload-code="eager"
+							data-sveltekit-preload-data
 							href={`/vendor/${item?.vendor.slug}/${item?.slug}`}
 							class="bg-white rounded-lg p-2 slide boldfont text-center">Book Ticket</a
 						>

@@ -29,7 +29,7 @@
 					<div class="px-5 absolute bottom-[5%] text-white">
 						<h1 class="boldfont text-yellow mb-3 text-xl">{item.name}</h1>
 						<div class="mb-5 line-clamp-3">{@html item.description}</div>
-						<a data-sveltekit-preload-code="eager"  href={`/vendor/${item.vendor.slug}/${item.slug}`} class="px-2 py-3 bg-white text-black rounded-md slide boldfont"
+						<a data-sveltekit-preload-data  href={`/vendor/${item.vendor.slug}/${item.slug}`} class="px-2 py-3 bg-white text-black rounded-md slide boldfont"
 							>Book Ticket</a
 						>
 					</div>
