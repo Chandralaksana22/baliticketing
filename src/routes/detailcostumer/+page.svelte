@@ -26,12 +26,12 @@
 		}
 	});
 
-	let selectedTicket:any;
-	let adultCount:any;
-	let childrenCount:any;
-	let infantCount:any;
-	let date:any;
-	let totalPrice:any;
+	let selectedTicket: any;
+	let adultCount: any;
+	let childrenCount: any;
+	let infantCount: any;
+	let date: any;
+	let totalPrice: any;
 
 	onMount(() => {
 		selectedTicket = JSON.parse(sessionStorage.getItem('selectedTicket')) || {};
@@ -57,7 +57,7 @@
 		}
 	});
 
-	async function handleSubmit(event) {
+	async function handleSubmit(event: { preventDefault: () => void }) {
 		event.preventDefault();
 		loading = true;
 		const url = `https://main.tiketxplorer.com/api/v1/send-form?adult=${adultCount}&children=${childrenCount}&infant=${infantCount}&total_price=${totalPrice}&adult_price=${selectedTicket.adult_price}&children_price=${selectedTicket.children_price}&infant_price=${selectedTicket.infant_price}&total_adult_price=${(selectedTicket.adult_price * adultCount * (1 - (selectedTicket.discount_percentage || 0) / 100)).toFixed(2)}&total_children_price=${(selectedTicket.children_price * childrenCount * (1 - (selectedTicket.discount_percentage || 0) / 100)).toFixed(2)}&total_infant_price=${(selectedTicket.infant_price * infantCount * (1 - (selectedTicket.discount_percentage || 0) / 100)).toFixed(2)}&arrival=${date}&firstname=${firstname}&lastname=${lastname}&email=${email}&phone=${phone}&country=${selectedCountry}&terms=${terms}&id=${selectedTicket.id}&product_id=${selectedTicket.product_id}&vendor_id=${selectedTicket.vendor_id}&slug=${selectedTicket?.vendor?.slug}`;
@@ -198,7 +198,9 @@
 								/>
 							</div>
 							<label for="terms" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-								>I agree with the <a
+								>I agree with the 
+								<!-- svelte-ignore a11y-invalid-attribute -->
+								<a
 									href="#"
 									class="text-blue-600 hover:underline dark:text-blue-500">terms and conditions</a
 								></label
