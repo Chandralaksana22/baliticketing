@@ -5,6 +5,7 @@
 	export let data: PageServerData;
 	import { goto } from '$app/navigation';
 	import Navbar from '$lib/components/Navigation/Navbar.svelte';
+	import Footer from '$lib/components/Navigation/Footer.svelte';
 	let isLoading = false;
 	// function navigateToMobileTicket(listTicket: any) {
 	//     sessionStorage.setItem('selectedTicket', JSON.stringify(listTicket));
@@ -169,7 +170,7 @@
 		</div>
 	</div>
 </div>
-
+<Footer data={vendor}/>
 <style>
 	button.package[aria-selected='false'] {
 		background-color: #0887be;

@@ -2,6 +2,7 @@
 	import type { PageServerData } from './$types';
 	import VendorHomeMobile from '$lib/components/Section/VendorHomeMobile.svelte';
 	import Navbar from '$lib/components/Navigation/Navbar.svelte';
+	import Footer from '$lib/components/Navigation/Footer.svelte';
 	export let data: PageServerData;
 
 	let vendor = data?.vendor;
@@ -19,3 +20,4 @@
 		</div>
 	</div>
 </section>
+<Footer data={vendor}/>

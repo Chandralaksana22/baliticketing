@@ -22,4 +22,3 @@
 <main class="cursor-default">
 	<slot />
 </main>
-<Footer />

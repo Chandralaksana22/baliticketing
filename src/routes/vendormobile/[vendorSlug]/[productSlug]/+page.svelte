@@ -20,6 +20,7 @@
 	import ImageDetail from '$lib/components/Section/Ticket/ImageDetail.svelte';
 	import TicketAbout from '$lib/components/Section/Ticket/TicketAbout.svelte';
 	import Navbar from '$lib/components/Navigation/Navbar.svelte';
+	import Footer from '$lib/components/Navigation/Footer.svelte';
 	export let data: PageServerData;
 	let size;
 	let detail = data?.detail;
@@ -764,7 +765,7 @@
 		</div>
 	</div>
 </div>
-
+<Footer data={vendor}/>
 <style>
 	.menu li > *:not(ul, .menu-title, details, .btn):active,
 	.menu li > *:not(ul, .menu-title, details, .btn).active,

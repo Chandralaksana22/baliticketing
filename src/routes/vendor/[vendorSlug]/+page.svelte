@@ -17,6 +17,7 @@
 	import Navbar from '$lib/components/Navigation/Navbar.svelte';
 	import WhatsOn from '$lib/components/Section/Vendor/BaliSafari/WhatsOn.svelte';
 	import BaliBirdCard from '$lib/components/Card/BaliBirdCard.svelte';
+	import Footer from '$lib/components/Navigation/Footer.svelte';
 	// function navigateToMobileTicket(listTicket: any) {
 	//     sessionStorage.setItem('selectedTicket', JSON.stringify(listTicket));
 	//     goto('/mobileticket');
@@ -268,7 +269,7 @@
 		<p>Maaf, sepertinya Anda belum memilih layout yang tersedia.</p>	
 	{/if}
 </section>
-
+<Footer data={vendor}/>
 <style>
 	button.package[aria-selected='false'] {
 		background-color: #0887be;

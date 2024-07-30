@@ -4,24 +4,23 @@
 	import { writable } from 'svelte/store';
 	import type { PageServerData } from './$types';
 	import Navbar from '$lib/components/Navigation/Navbar.svelte';
+	import Footer from '$lib/components/Navigation/Footer.svelte';
 	export let data: PageServerData;
 	let vendor = data?.vendor;
-	const countries = writable([]);
-	const selectedCountry = writable('');
+	let countries = '';
+	let selectedCountry: string = 'Indonesia';
 
-	const fetchCountries = async () => {
+	onMount(async () => {
 		try {
 			const response = await axios.get('https://countriesnow.space/api/v0.1/countries/iso');
+			countries = response.data.data;
 		} catch (error) {
 			console.error('Error fetching countries:', error);
 		}
-	};
-
-	onMount(() => {
-		fetchCountries();
 	});
 </script>
-<Navbar data={vendor}/>
+
+<Navbar data={vendor} />
 <section class="bg-cover bg-[url('/images/bg-desktop.webp')]">
 	<div
 		class="bg-center bg-cover h-[100] bg-no-repeat"
@@ -93,13 +92,13 @@
 									class="block mb-2 text-sm font-bold text-gray-900 dark:text-white">Country</label
 								>
 								<select
-									bind:value={$selectedCountry}
-									id="countries"
-									class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full"
+									id="select-country-input-3"
+									name="country"
+									bind:value={selectedCountry}
+									class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
 								>
-									<option value="" disabled>Select Country</option>
-									{#each $countries as country (country.Iso2)}
-										<option value={country.name}>{country.name}</option>
+									{#each countries as country}
+										<option value={country?.name}>{country?.name}</option>
 									{/each}
 								</select>
 							</div>
@@ -184,3 +183,4 @@
 		</div>
 	</div>
 </section>
+<Footer data={vendor} />

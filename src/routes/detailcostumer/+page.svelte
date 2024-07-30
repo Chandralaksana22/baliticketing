@@ -4,6 +4,7 @@
 	import { goto } from '$app/navigation';
 	import type { PageServerData } from './$types';
 	import Navbar from '$lib/components/Navigation/Navbar.svelte';
+	import Footer from '$lib/components/Navigation/Footer.svelte';
 	export let data: PageServerData;
 	let vendor = data?.vendor;
 	let firstname = '';
@@ -92,7 +93,7 @@
 			<h1
 				class="mb-4 boldfont text-lg text-center mx-auto tracking-tight leading-none text-white md:text-xl lg:text-4xl"
 			>
-				Contact Us
+				Detail Costumer
 			</h1>
 		</div>
 	</div>
@@ -315,3 +316,4 @@
 		</div>
 	</div>
 </section>
+<Footer data={vendor}/>

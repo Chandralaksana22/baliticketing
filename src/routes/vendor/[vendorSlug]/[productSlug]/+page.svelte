@@ -8,6 +8,7 @@
 
 	let lightboxProgrammaticController;
 	import { Button, Modal } from 'flowbite-svelte';
+	import Footer from '$lib/components/Navigation/Footer.svelte';
 	let defaultModalInclusion = false;
 	let defaultModal = false;
 	let size;
@@ -104,7 +105,6 @@
 		</h1>
 	</div>
 </div>
-
 <div class="bg-white hidden lg:block">
 	<div class="container mx-auto px-5 lg:px-20">
 		<div class="my-10">
@@ -994,7 +994,7 @@
 		</div>
 	</div>
 </div>
-
+<Footer data={vendor}/>
 <style>
 	.menu li > *:not(ul, .menu-title, details, .btn):active,
 	.menu li > *:not(ul, .menu-title, details, .btn).active,

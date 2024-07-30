@@ -4,6 +4,7 @@
 	import axios from 'axios';
 	import type { PageServerData } from './$types';
 	import Navbar from '$lib/components/Navigation/Navbar.svelte';
+	import Footer from '$lib/components/Navigation/Footer.svelte';
 	export let data: PageServerData;
 	let vendor = data?.vendor;
 	let decryptedData: any;
@@ -310,7 +311,7 @@
 		</div>
 	</div>
 </section>
-
+<Footer data={vendor}/>
 <!-- <form method="POST"></form>
 {#if decryptedData}
 	<p>Decrypted Ticket: {decryptedData.decryptedTicket}</p>

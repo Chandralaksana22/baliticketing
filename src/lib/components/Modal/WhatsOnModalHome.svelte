@@ -8,7 +8,18 @@
 	export let balibirdWO: any = [];
 	let showModal = false;
 	let activeTab = 'balizooWO';
-
+	const filteredProducts = explorerWO.filter(
+		(product: { type: string }) => product?.type === "What's On"
+	);
+	const filteredProductsbalifarmWO = balifarmWO.filter(
+		(product: { type: string }) => product?.type === "What's On"
+	);
+	const filteredProductsbalisafariWO = balisafariWO.filter(
+		(product: { type: string }) => product?.type === "What's On"
+	);
+	const filteredProductsbalibirdWO = balibirdWO.filter(
+		(product: { type: string }) => product?.type === "What's On"
+	);
 	const dispatch = createEventDispatcher();
 
 	const openModal = () => {
@@ -79,7 +90,6 @@
 								on:click={() => switchTab('balizooWO')}
 								class:active={activeTab === 'balizooWO'}
 								type="button"
-								
 								aria-selected={activeTab === 'balizooWO'}>Bali Zoo</button
 							>
 						</li>
@@ -101,7 +111,6 @@
 								on:click={() => switchTab('balisafariWO')}
 								class:active={activeTab === 'balisafariWO'}
 								type="button"
-								
 								aria-selected={activeTab === 'balisafariWO'}>Bali Safari</button
 							>
 						</li>
@@ -112,7 +121,6 @@
 								on:click={() => switchTab('balibirdWO')}
 								class:active={activeTab === 'balibirdWO'}
 								type="button"
-								
 								aria-selected={activeTab === 'balibirdWO'}>Bali Bird Park</button
 							>
 						</li>
@@ -129,15 +137,19 @@
 						aria-labelledby="balizooWO-tab"
 						hidden={activeTab !== 'balizooWO'}
 					>
-						<div
-							class="overflow-y-auto h-[50vh] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 WOp-2 w-full"
-						>
-							<!-- Svelte loop for products -->
-							{#each explorerWO as product}
-								{#if product?.type === "What's On"}
+						<!-- Svelte loop for products -->
+						{#if filteredProducts.length > 0}
+							<div
+								class="overflow-y-auto h-[50vh] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full gap-2"
+							>
+								{#each filteredProducts as product}
 									<div>
-										<a data-sveltekit-reload="off" href={`/vendor/${product?.vendor.slug}/${product?.slug}`} >
-											<img loading="lazy"
+										<a
+											data-sveltekit-reload="off"
+											href={`/vendor/${product?.vendor.slug}/${product?.slug}`}
+										>
+											<img
+												loading="lazy"
 												class="rounded-none h-[25vh] object-cover w-full object-top"
 												src={product?.images[0]?.path}
 												alt={product?.name}
@@ -147,17 +159,39 @@
 											<h5 class="mb-2 text-md font-bold tracking-tight text-gray-900 truncate">
 												{product?.name}
 											</h5>
-											<!-- Replace NuxtLink with Svelte Link equivalent -->
 											<a
 												data-sveltekit-reload="off"
 												href={`/vendor/${product?.vendor.slug}/${product?.slug}`}
-												class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
+												class="bg-yellow p-2 text-black rounded-lg text-sm"
 											>
+												See Details
+											</a>
 										</div>
 									</div>
-								{/if}
-							{/each}
-						</div>
+								{/each}
+							</div>
+						{:else}
+							<div
+								class="flex items-center justify-center p-4 h-[50vh] mx-auto rounded-lg bg-gray-100"
+							>
+								<div class="text-center">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										width="101"
+										height="100"
+										viewBox="0 0 101 100"
+										fill="none"
+										class="mx-auto mb-4"
+									>
+										<path
+											d="M81.75 12.5H72.375V9.375C72.375 8.5462 72.0458 7.75134 71.4597 7.16529C70.8737 6.57924 70.0788 6.25 69.25 6.25C68.4212 6.25 67.6263 6.57924 67.0403 7.16529C66.4542 7.75134 66.125 8.5462 66.125 9.375V12.5H34.875V9.375C34.875 8.5462 34.5458 7.75134 33.9597 7.16529C33.3737 6.57924 32.5788 6.25 31.75 6.25C30.9212 6.25 30.1263 6.57924 29.5403 7.16529C28.9542 7.75134 28.625 8.5462 28.625 9.375V12.5H19.25C17.5924 12.5 16.0027 13.1585 14.8306 14.3306C13.6585 15.5027 13 17.0924 13 18.75V81.25C13 82.9076 13.6585 84.4973 14.8306 85.6694C16.0027 86.8415 17.5924 87.5 19.25 87.5H81.75C83.4076 87.5 84.9973 86.8415 86.1694 85.6694C87.3415 84.4973 88 82.9076 88 81.25V18.75C88 17.0924 87.3415 15.5027 86.1694 14.3306C84.9973 13.1585 83.4076 12.5 81.75 12.5ZM28.625 18.75V21.875C28.625 22.7038 28.9542 23.4987 29.5403 24.0847C30.1263 24.6708 30.9212 25 31.75 25C32.5788 25 33.3737 24.6708 33.9597 24.0847C34.5458 23.4987 34.875 22.7038 34.875 21.875V18.75H66.125V21.875C66.125 22.7038 66.4542 23.4987 67.0403 24.0847C67.6263 24.6708 68.4212 25 69.25 25C70.0788 25 70.8737 24.6708 71.4597 24.0847C72.0458 23.4987 72.375 22.7038 72.375 21.875V18.75H81.75V31.25H19.25V18.75H28.625ZM81.75 81.25H19.25V37.5H81.75V81.25Z"
+											fill="#BABABA"
+										/>
+									</svg>
+									<p class="text-gray-700">No data available for the selected product.</p>
+								</div>
+							</div>
+						{/if}
 					</div>
 					<!-- Add more tab content here -->
 					<div
@@ -166,15 +200,19 @@
 						aria-labelledby="balifarmWO-tab"
 						hidden={activeTab !== 'balifarmWO'}
 					>
-						<div
-							class="overflow-y-auto h-[50vh] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 WOp-2 w-full"
-						>
-							<!-- Svelte loop for products -->
-							{#each balifarmWO as product}
-								{#if product?.type === "What's On"}
+						<!-- Svelte loop for products -->
+						{#if filteredProductsbalifarmWO.length > 0}
+							<div
+								class="overflow-y-auto h-[50vh] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 w-full"
+							>
+								{#each filteredProductsbalifarmWO as product}
 									<div>
-										<a data-sveltekit-reload="off" href={`/vendor/${product?.vendor.slug}/${product?.slug}`}>
-											<img loading="lazy"
+										<a
+											data-sveltekit-reload="off"
+											href={`/vendor/${product?.vendor.slug}/${product?.slug}`}
+										>
+											<img
+												loading="lazy"
 												class="rounded-none h-[25vh] object-cover w-full object-top"
 												src={product?.images[0]?.path}
 												alt={product?.name}
@@ -184,17 +222,39 @@
 											<h5 class="mb-2 text-md font-bold tracking-tight text-gray-900 truncate">
 												{product?.name}
 											</h5>
-											<!-- Replace NuxtLink with Svelte Link equivalent -->
 											<a
 												data-sveltekit-reload="off"
-												href={`/ticket-detail/${product?.vendor.slug}/${product?.slug}`}
-												class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
+												href={`/vendor/${product?.vendor.slug}/${product?.slug}`}
+												class="bg-yellow p-2 text-black rounded-lg text-sm"
 											>
+												See Details
+											</a>
 										</div>
 									</div>
-								{/if}
-							{/each}
-						</div>
+								{/each}
+							</div>
+						{:else}
+							<div
+								class="flex items-center justify-center p-4 h-[50vh] mx-auto rounded-lg bg-gray-100"
+							>
+								<div class="text-center">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										width="101"
+										height="100"
+										viewBox="0 0 101 100"
+										fill="none"
+										class="mx-auto mb-4"
+									>
+										<path
+											d="M81.75 12.5H72.375V9.375C72.375 8.5462 72.0458 7.75134 71.4597 7.16529C70.8737 6.57924 70.0788 6.25 69.25 6.25C68.4212 6.25 67.6263 6.57924 67.0403 7.16529C66.4542 7.75134 66.125 8.5462 66.125 9.375V12.5H34.875V9.375C34.875 8.5462 34.5458 7.75134 33.9597 7.16529C33.3737 6.57924 32.5788 6.25 31.75 6.25C30.9212 6.25 30.1263 6.57924 29.5403 7.16529C28.9542 7.75134 28.625 8.5462 28.625 9.375V12.5H19.25C17.5924 12.5 16.0027 13.1585 14.8306 14.3306C13.6585 15.5027 13 17.0924 13 18.75V81.25C13 82.9076 13.6585 84.4973 14.8306 85.6694C16.0027 86.8415 17.5924 87.5 19.25 87.5H81.75C83.4076 87.5 84.9973 86.8415 86.1694 85.6694C87.3415 84.4973 88 82.9076 88 81.25V18.75C88 17.0924 87.3415 15.5027 86.1694 14.3306C84.9973 13.1585 83.4076 12.5 81.75 12.5ZM28.625 18.75V21.875C28.625 22.7038 28.9542 23.4987 29.5403 24.0847C30.1263 24.6708 30.9212 25 31.75 25C32.5788 25 33.3737 24.6708 33.9597 24.0847C34.5458 23.4987 34.875 22.7038 34.875 21.875V18.75H66.125V21.875C66.125 22.7038 66.4542 23.4987 67.0403 24.0847C67.6263 24.6708 68.4212 25 69.25 25C70.0788 25 70.8737 24.6708 71.4597 24.0847C72.0458 23.4987 72.375 22.7038 72.375 21.875V18.75H81.75V31.25H19.25V18.75H28.625ZM81.75 81.25H19.25V37.5H81.75V81.25Z"
+											fill="#BABABA"
+										/>
+									</svg>
+									<p class="text-gray-700">No data available for the selected product.</p>
+								</div>
+							</div>
+						{/if}
 					</div>
 					<div
 						class="p-4 rounded-lg bg-gray-50 dark:bg-gray-800"
@@ -202,15 +262,19 @@
 						aria-labelledby="balisafariWO-tab"
 						hidden={activeTab !== 'balisafariWO'}
 					>
-						<div
-							class="overflow-y-auto h-[50vh] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 WOp-2 w-full"
-						>
-							<!-- Svelte loop for products -->
-							{#each balisafariWO as product}
-								{#if product?.type === "What's On"}
+						<!-- Svelte loop for products -->
+						{#if filteredProductsbalisafariWO.length > 0}
+							<div
+								class="overflow-y-auto h-[50vh] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 w-full"
+							>
+								{#each filteredProductsbalisafariWO as product}
 									<div>
-										<a data-sveltekit-reload="off" href={`/vendor/${product?.vendor.slug}/${product?.slug}`}>
-											<img loading="lazy"
+										<a
+											data-sveltekit-reload="off"
+											href={`/vendor/${product?.vendor.slug}/${product?.slug}`}
+										>
+											<img
+												loading="lazy"
 												class="rounded-none h-[25vh] object-cover w-full object-top"
 												src={product?.images[0]?.path}
 												alt={product?.name}
@@ -220,17 +284,39 @@
 											<h5 class="mb-2 text-md font-bold tracking-tight text-gray-900 truncate">
 												{product?.name}
 											</h5>
-											<!-- Replace NuxtLink with Svelte Link equivalent -->
 											<a
 												data-sveltekit-reload="off"
-												href={`/ticket-detail/${product?.vendor.slug}/${product?.slug}`}
-												class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
+												href={`/vendor/${product?.vendor.slug}/${product?.slug}`}
+												class="bg-yellow p-2 text-black rounded-lg text-sm"
 											>
+												See Details
+											</a>
 										</div>
 									</div>
-								{/if}
-							{/each}
-						</div>
+								{/each}
+							</div>
+						{:else}
+							<div
+								class="flex items-center justify-center p-4 h-[50vh] mx-auto rounded-lg bg-gray-100"
+							>
+								<div class="text-center">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										width="101"
+										height="100"
+										viewBox="0 0 101 100"
+										fill="none"
+										class="mx-auto mb-4"
+									>
+										<path
+											d="M81.75 12.5H72.375V9.375C72.375 8.5462 72.0458 7.75134 71.4597 7.16529C70.8737 6.57924 70.0788 6.25 69.25 6.25C68.4212 6.25 67.6263 6.57924 67.0403 7.16529C66.4542 7.75134 66.125 8.5462 66.125 9.375V12.5H34.875V9.375C34.875 8.5462 34.5458 7.75134 33.9597 7.16529C33.3737 6.57924 32.5788 6.25 31.75 6.25C30.9212 6.25 30.1263 6.57924 29.5403 7.16529C28.9542 7.75134 28.625 8.5462 28.625 9.375V12.5H19.25C17.5924 12.5 16.0027 13.1585 14.8306 14.3306C13.6585 15.5027 13 17.0924 13 18.75V81.25C13 82.9076 13.6585 84.4973 14.8306 85.6694C16.0027 86.8415 17.5924 87.5 19.25 87.5H81.75C83.4076 87.5 84.9973 86.8415 86.1694 85.6694C87.3415 84.4973 88 82.9076 88 81.25V18.75C88 17.0924 87.3415 15.5027 86.1694 14.3306C84.9973 13.1585 83.4076 12.5 81.75 12.5ZM28.625 18.75V21.875C28.625 22.7038 28.9542 23.4987 29.5403 24.0847C30.1263 24.6708 30.9212 25 31.75 25C32.5788 25 33.3737 24.6708 33.9597 24.0847C34.5458 23.4987 34.875 22.7038 34.875 21.875V18.75H66.125V21.875C66.125 22.7038 66.4542 23.4987 67.0403 24.0847C67.6263 24.6708 68.4212 25 69.25 25C70.0788 25 70.8737 24.6708 71.4597 24.0847C72.0458 23.4987 72.375 22.7038 72.375 21.875V18.75H81.75V31.25H19.25V18.75H28.625ZM81.75 81.25H19.25V37.5H81.75V81.25Z"
+											fill="#BABABA"
+										/>
+									</svg>
+									<p class="text-gray-700">No data available for the selected product.</p>
+								</div>
+							</div>
+						{/if}
 					</div>
 					<div
 						class="p-4 rounded-lg bg-gray-50 dark:bg-gray-800"
@@ -238,15 +324,19 @@
 						aria-labelledby="balibirdWO-tab"
 						hidden={activeTab !== 'balibirdWO'}
 					>
-						<div
-							class="overflow-y-auto h-[50vh] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 WOp-2 w-full"
-						>
-							<!-- Svelte loop for products -->
-							{#each balibirdWO as product}
-								{#if product?.type === "What's On"}
+						<!-- Svelte loop for products -->
+						{#if filteredProductsbalibirdWO.length > 0}
+							<div
+								class="overflow-y-auto h-[50vh] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 w-full"
+							>
+								{#each filteredProductsbalibirdWO as product}
 									<div>
-										<a data-sveltekit-reload="off" href={`/vendor/${product?.vendor.slug}/${product?.slug}`}>
-											<img loading="lazy"
+										<a
+											data-sveltekit-reload="off"
+											href={`/vendor/${product?.vendor.slug}/${product?.slug}`}
+										>
+											<img
+												loading="lazy"
 												class="rounded-none h-[25vh] object-cover w-full object-top"
 												src={product?.images[0]?.path}
 												alt={product?.name}
@@ -256,17 +346,39 @@
 											<h5 class="mb-2 text-md font-bold tracking-tight text-gray-900 truncate">
 												{product?.name}
 											</h5>
-											<!-- Replace NuxtLink with Svelte Link equivalent -->
 											<a
 												data-sveltekit-reload="off"
-												href={`/ticket-detail/${product?.vendor.slug}/${product?.slug}`}
-												class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
+												href={`/vendor/${product?.vendor.slug}/${product?.slug}`}
+												class="bg-yellow p-2 text-black rounded-lg text-sm"
 											>
+												See Details
+											</a>
 										</div>
 									</div>
-								{/if}
-							{/each}
-						</div>
+								{/each}
+							</div>
+						{:else}
+							<div
+								class="flex items-center justify-center p-4 h-[50vh] mx-auto rounded-lg bg-gray-100"
+							>
+								<div class="text-center">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										width="101"
+										height="100"
+										viewBox="0 0 101 100"
+										fill="none"
+										class="mx-auto mb-4"
+									>
+										<path
+											d="M81.75 12.5H72.375V9.375C72.375 8.5462 72.0458 7.75134 71.4597 7.16529C70.8737 6.57924 70.0788 6.25 69.25 6.25C68.4212 6.25 67.6263 6.57924 67.0403 7.16529C66.4542 7.75134 66.125 8.5462 66.125 9.375V12.5H34.875V9.375C34.875 8.5462 34.5458 7.75134 33.9597 7.16529C33.3737 6.57924 32.5788 6.25 31.75 6.25C30.9212 6.25 30.1263 6.57924 29.5403 7.16529C28.9542 7.75134 28.625 8.5462 28.625 9.375V12.5H19.25C17.5924 12.5 16.0027 13.1585 14.8306 14.3306C13.6585 15.5027 13 17.0924 13 18.75V81.25C13 82.9076 13.6585 84.4973 14.8306 85.6694C16.0027 86.8415 17.5924 87.5 19.25 87.5H81.75C83.4076 87.5 84.9973 86.8415 86.1694 85.6694C87.3415 84.4973 88 82.9076 88 81.25V18.75C88 17.0924 87.3415 15.5027 86.1694 14.3306C84.9973 13.1585 83.4076 12.5 81.75 12.5ZM28.625 18.75V21.875C28.625 22.7038 28.9542 23.4987 29.5403 24.0847C30.1263 24.6708 30.9212 25 31.75 25C32.5788 25 33.3737 24.6708 33.9597 24.0847C34.5458 23.4987 34.875 22.7038 34.875 21.875V18.75H66.125V21.875C66.125 22.7038 66.4542 23.4987 67.0403 24.0847C67.6263 24.6708 68.4212 25 69.25 25C70.0788 25 70.8737 24.6708 71.4597 24.0847C72.0458 23.4987 72.375 22.7038 72.375 21.875V18.75H81.75V31.25H19.25V18.75H28.625ZM81.75 81.25H19.25V37.5H81.75V81.25Z"
+											fill="#BABABA"
+										/>
+									</svg>
+									<p class="text-gray-700">No data available for the selected product.</p>
+								</div>
+							</div>
+						{/if}
 					</div>
 				</div>
 			</div>

@@ -12,6 +12,7 @@
 	import WhatsOnModal from '$lib/components/Modal/WhatsOnModalHome.svelte';
 	import { onMount } from 'svelte';
 	import Navbar from '$lib/components/Navigation/Navbar.svelte';
+	import Footer from '$lib/components/Navigation/Footer.svelte';
 	let isMobile = false;
 
 	function checkDevice() {
@@ -140,3 +141,4 @@
 		</div>
 	</section>
 {/if}
+<Footer data={vendor}/>

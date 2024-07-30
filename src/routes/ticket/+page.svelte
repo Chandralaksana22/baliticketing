@@ -7,6 +7,7 @@
 	import CardEvent from '$lib/components/Section/CardEvent.svelte';
 	import MobileTicket from '$lib/components/Section/Ticket/MobileTicket.svelte';
 	import Navbar from '$lib/components/Navigation/Navbar.svelte';
+	import Footer from '$lib/components/Navigation/Footer.svelte';
 	export let data: PageServerData;
 	let singlePackages = data?.balizoo.filter((item: any) => {
 		return item.type === "What's On" && item.category === 'Single Package';
@@ -164,6 +165,7 @@
 </section>
 <section class="block lg:hidden bg-white">
 	<div class="flex justify-between p-5 items-center">
+		<!-- svelte-ignore a11y-missing-attribute -->
 		<a data-sveltekit-preload-data >
 			<img class="h-[48px] object-contain" src="/images/logomob.webp" alt="images" />
 		</a>
@@ -208,7 +210,7 @@
 		<MobileTicket listTicket={listticket}/>
 	</div>
 </section>
-
+<Footer data={vendorsData}/>
 <style>
 	button.package[aria-selected='false'] {
 		background-color: #0887be;

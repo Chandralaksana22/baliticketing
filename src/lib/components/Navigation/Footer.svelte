@@ -1,3 +1,26 @@
+<script lang="ts">
+	import { onMount } from 'svelte';
+	export let data: any = [];
+	import { page } from '$app/stores';
+
+	$: vendors = data ?? [];
+
+	let isMobile = false;
+
+	function checkDevice() {
+		isMobile = window.innerWidth <= 1023;
+	}
+
+	onMount(() => {
+		checkDevice();
+		window.addEventListener('resize', checkDevice);
+
+		return () => {
+			window.removeEventListener('resize', checkDevice);
+		};
+	});
+</script>
+
 <template>
 	<footer class="bg-cover bg-[url('/images/bgfooter.webp')]">
 		<div class="container mx-auto px-5 pb-40 lg:pb-0 lg:px-10">
@@ -61,15 +84,18 @@
 							>
 						</li>
 						<li class="mb-2">
-							<!-- <div class="text-brown boldfont text-md lg:text-xl">Places to Go</div> -->
-							<!-- <ul>
-                                {#each items as vendor}
-
-								<li>
-									<a data-sveltekit-preload-data  href={`/vendor/${vendor.slug}`} class="text-brown">{vendor.name}</a>
-								</li>
+							<div class="text-brown boldfont text-md lg:text-xl">Places to Go</div>
+							<ul>
+								{#each vendors as vendor}
+									<li>
+										<a
+											data-sveltekit-reload
+											href={`/vendor/${vendor.slug}`}
+											class="text-brown">{vendor.name}</a
+										>
+									</li>
 								{/each}
-							</ul> -->
+							</ul>
 						</li>
 						<li class="mb-2">
 							<a
@@ -157,48 +183,52 @@
 					<h1 class="text-center lg:text-start text-md lg:text-xl boldfont text-brown">
 						Official Partner Of
 					</h1>
-					<div class="hidden lg:grid grid-cols-4 gap-4 items-end">
-						<img loading="lazy" src="/images/Logos.webp" alt="images" />
-						<img loading="lazy" src="/images/Logos2.webp" alt="images" />
-						<img loading="lazy" src="/images/Logos3.webp" alt="images" />
-						<img loading="lazy" src="/images/Logos4.webp" alt="images" />
-					</div>
-					<div class="block lg:hidden">
-						<div class="marquee container">
-							<div class="marquee-content items-end">
-								<div class="marquee-item">
-									<img loading="lazy" src="/images/Logos.webp" alt="images" />
-								</div>
 
-								<div class="marquee-item">
-									<img loading="lazy" src="/images/Logos2.webp" alt="images" />
-								</div>
+					{#if isMobile}
+						<div class="block lg:hidden">
+							<div class="marquee container">
+								<div class="marquee-content items-end">
+									<div class="marquee-item">
+										<img loading="lazy" src="/images/Logos.webp" alt="images" />
+									</div>
 
-								<div class="marquee-item">
-									<img loading="lazy" src="/images/Logos3.webp" alt="images" />
-								</div>
+									<div class="marquee-item">
+										<img loading="lazy" src="/images/Logos2.webp" alt="images" />
+									</div>
 
-								<div class="marquee-item">
-									<img loading="lazy" src="/images/Logos4.webp" alt="images" />
-								</div>
-								<div class="marquee-item">
-									<img loading="lazy" src="/images/Logos.webp" alt="images" />
-								</div>
+									<div class="marquee-item">
+										<img loading="lazy" src="/images/Logos3.webp" alt="images" />
+									</div>
 
-								<div class="marquee-item">
-									<img loading="lazy" src="/images/Logos2.webp" alt="images" />
-								</div>
+									<div class="marquee-item">
+										<img loading="lazy" src="/images/Logos4.webp" alt="images" />
+									</div>
+									<div class="marquee-item">
+										<img loading="lazy" src="/images/Logos.webp" alt="images" />
+									</div>
 
-								<div class="marquee-item">
-									<img loading="lazy" src="/images/Logos3.webp" alt="images" />
-								</div>
+									<div class="marquee-item">
+										<img loading="lazy" src="/images/Logos2.webp" alt="images" />
+									</div>
 
-								<div class="marquee-item">
-									<img loading="lazy" src="/images/Logos4.webp" alt="images" />
+									<div class="marquee-item">
+										<img loading="lazy" src="/images/Logos3.webp" alt="images" />
+									</div>
+
+									<div class="marquee-item">
+										<img loading="lazy" src="/images/Logos4.webp" alt="images" />
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
+					{:else}
+						<div class="hidden lg:grid grid-cols-4 gap-4 items-end">
+							<img loading="lazy" src="/images/Logos.webp" alt="images" />
+							<img loading="lazy" src="/images/Logos2.webp" alt="images" />
+							<img loading="lazy" src="/images/Logos3.webp" alt="images" />
+							<img loading="lazy" src="/images/Logos4.webp" alt="images" />
+						</div>
+					{/if}
 				</div>
 			</div>
 			<div class="grid grid-cols-1 lg:grid-cols-12 gap-4 mt-10">
@@ -239,14 +269,54 @@
 				<div class="col-span-6 gap-4">
 					<h1 class="text-md lg:text-xl text-center boldfont text-brown">AVAILABLE PAYMENT</h1>
 					<div class="grid grid-cols-8 gap-4 mt-5 items-end">
-						<img loading="lazy" src="/images/icon- (1).webp" class="object-contain h-[1rem] lg:h-[2rem] w-full" alt="images" />
-						<img loading="lazy" src="/images/icon- (2).webp" class="object-contain h-[1rem] lg:h-[2rem] w-full" alt="images" />
-						<img loading="lazy" src="/images/icon- (3).webp" class="object-contain h-[1rem] lg:h-[2rem] w-full" alt="images" />
-						<img loading="lazy" src="/images/icon- (4).webp" class="object-contain h-[1rem] lg:h-[2rem] w-full" alt="images" />
-						<img loading="lazy" src="/images/icon- (5).webp" class="object-contain h-[1rem] lg:h-[2rem] w-full" alt="images" />
-						<img loading="lazy" src="/images/icon- (6).webp" class="object-contain h-[1rem] lg:h-[2rem] w-full" alt="images" />
-						<img loading="lazy" src="/images/icon- (7).webp" class="object-contain h-[1rem] lg:h-[2rem] w-full" alt="images" />
-						<img loading="lazy" src="/images/icon- (8).webp" class="object-contain h-[1rem] lg:h-[2rem] w-full" alt="images" />
+						<img
+							loading="lazy"
+							src="/images/icon- (1).webp"
+							class="object-contain h-[1rem] lg:h-[2rem] w-full"
+							alt="images"
+						/>
+						<img
+							loading="lazy"
+							src="/images/icon- (2).webp"
+							class="object-contain h-[1rem] lg:h-[2rem] w-full"
+							alt="images"
+						/>
+						<img
+							loading="lazy"
+							src="/images/icon- (3).webp"
+							class="object-contain h-[1rem] lg:h-[2rem] w-full"
+							alt="images"
+						/>
+						<img
+							loading="lazy"
+							src="/images/icon- (4).webp"
+							class="object-contain h-[1rem] lg:h-[2rem] w-full"
+							alt="images"
+						/>
+						<img
+							loading="lazy"
+							src="/images/icon- (5).webp"
+							class="object-contain h-[1rem] lg:h-[2rem] w-full"
+							alt="images"
+						/>
+						<img
+							loading="lazy"
+							src="/images/icon- (6).webp"
+							class="object-contain h-[1rem] lg:h-[2rem] w-full"
+							alt="images"
+						/>
+						<img
+							loading="lazy"
+							src="/images/icon- (7).webp"
+							class="object-contain h-[1rem] lg:h-[2rem] w-full"
+							alt="images"
+						/>
+						<img
+							loading="lazy"
+							src="/images/icon- (8).webp"
+							class="object-contain h-[1rem] lg:h-[2rem] w-full"
+							alt="images"
+						/>
 					</div>
 				</div>
 			</div>
