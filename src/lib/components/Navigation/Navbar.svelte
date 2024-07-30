@@ -169,7 +169,7 @@
 								{#each vendors as vendor}
 									<li>
 										<a
-											data-sveltekit-reload="off"
+											data-sveltekit-reload
 											href={`/vendor/${vendor.slug}`}
 											class="block text-sm boldfont text-black">{vendor.name}</a
 										>
