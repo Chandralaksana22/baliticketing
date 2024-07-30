@@ -17,7 +17,7 @@
 			isLoading = false; // Set loading to false after navigation
 		});
 	}
-	function formatNumber(number) {
+	function formatNumber(number:any) {
 		return new Intl.NumberFormat('id-ID').format(number);
 	}
 </script>

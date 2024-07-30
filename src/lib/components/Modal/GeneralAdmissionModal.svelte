@@ -115,8 +115,12 @@
 						{#each explorerGA as product}
 							{#if product?.type === 'General Admission'}
 								<div>
-									<a href={product?.link_address}>
-										<img loading="lazy"
+									<a
+										data-sveltekit-reload="off"
+										href={`/vendor/${product?.vendor.slug}/${product?.slug}`}
+									>
+										<img
+											loading="lazy"
 											class="rounded-none h-[25vh] object-cover w-full object-top"
 											src={product?.images[0]?.path}
 											alt={product?.name}
@@ -128,6 +132,7 @@
 										</h5>
 										<!-- Replace NuxtLink with Svelte Link equivalent -->
 										<a
+											data-sveltekit-reload="off"
 											href={`/vendor/${product?.vendor.slug}/${product?.slug}`}
 											class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
 										>
@@ -150,8 +155,12 @@
 						{#each balifarmGA as product}
 							{#if product?.type === 'General Admission'}
 								<div>
-									<a href={product?.link_address}>
-										<img loading="lazy"
+									<a
+										data-sveltekit-reload="off"
+										href={`/vendor/${product?.vendor.slug}/${product?.slug}`}
+									>
+										<img
+											loading="lazy"
 											class="rounded-none h-[25vh] object-cover w-full object-top"
 											src={product?.images[0]?.path}
 											alt={product?.name}
@@ -163,6 +172,7 @@
 										</h5>
 										<!-- Replace NuxtLink with Svelte Link equivalent -->
 										<a
+											data-sveltekit-reload="off"
 											href={`/ticket-detail/${product?.vendor.slug}/${product?.slug}`}
 											class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
 										>
@@ -184,8 +194,12 @@
 						{#each balisafariGA as product}
 							{#if product?.type === 'General Admission'}
 								<div>
-									<a href={product?.link_address}>
-										<img loading="lazy"
+									<a
+										data-sveltekit-reload="off"
+										href={`/vendor/${product?.vendor.slug}/${product?.slug}`}
+									>
+										<img
+											loading="lazy"
 											class="rounded-none h-[25vh] object-cover w-full object-top"
 											src={product?.images[0]?.path}
 											alt={product?.name}
@@ -197,6 +211,7 @@
 										</h5>
 										<!-- Replace NuxtLink with Svelte Link equivalent -->
 										<a
+											data-sveltekit-reload="off"
 											href={`/ticket-detail/${product?.vendor.slug}/${product?.slug}`}
 											class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
 										>
@@ -218,8 +233,12 @@
 						{#each balibirdGA as product}
 							{#if product?.type === 'General Admission'}
 								<div>
-									<a href={product?.link_address}>
-										<img loading="lazy"
+									<a
+										data-sveltekit-reload="off"
+										href={`/vendor/${product?.vendor.slug}/${product?.slug}`}
+									>
+										<img
+											loading="lazy"
 											class="rounded-none h-[25vh] object-cover w-full object-top"
 											src={product?.images[0]?.path}
 											alt={product?.name}
@@ -231,6 +250,7 @@
 										</h5>
 										<!-- Replace NuxtLink with Svelte Link equivalent -->
 										<a
+											data-sveltekit-reload="off"
 											href={`/ticket-detail/${product?.vendor.slug}/${product?.slug}`}
 											class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
 										>

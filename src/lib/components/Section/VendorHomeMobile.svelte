@@ -6,7 +6,7 @@
 
 {#each items as vendor}
 	<div class="feature-port">
-		<a data-sveltekit-preload-data href={`/vendormobile/${vendor.slug}`} class="vendor-port">
+		<a data-sveltekit-reload="off" href={`/vendormobile/${vendor.slug}`} class="vendor-port">
 			<img
 				loading="lazy"
 				style="height: 25vh!important;"

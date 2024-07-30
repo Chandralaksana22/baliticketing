@@ -37,7 +37,7 @@
 
     <div class="text-center mx-auto mt-5">
         <p class="mb-5 text-white">Pesky Parakeet Feeding</p>
-        <a data-sveltekit-preload-data  href={`/vendor/${data[0]?.vendor?.slug}/${data[0]?.slug}`} class="px-2 py-3 bg-white text-black rounded-md slide boldfont">Book Ticket</a>
+        <a data-sveltekit-reload="off"  href={`/vendor/${data[0]?.vendor?.slug}/${data[0]?.slug}`} class="px-2 py-3 bg-white text-black rounded-md slide boldfont">Book Ticket</a>
     </div>
 </div>
 

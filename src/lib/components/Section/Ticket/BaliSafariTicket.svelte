@@ -51,7 +51,7 @@
 							</div>
 						</div>
 						<div class="z-20 absolute bottom-[5%] left-[5%]">
-							<a data-sveltekit-preload-data 
+							<a data-sveltekit-reload="off" 
 								href={`/vendor/${product.vendor.slug}/${product.slug}`}
 								class="bg-white rounded-lg p-2 slide boldfont text-center">Book Ticket</a
 							>

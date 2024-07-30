@@ -64,7 +64,7 @@
 				>
 					{#each filteredGA as product}
 						<div>
-							<a href={`/vendor/${product?.vendor?.slug}/${product?.slug}`}>
+							<a data-sveltekit-reload="off" href={`/vendor/${product?.vendor?.slug}/${product?.slug}`}>
 								<img
 									class="rounded-none h-[25vh] object-cover w-full object-top"
 									src={product?.images[0]?.path}
@@ -76,7 +76,7 @@
 									{product?.name}
 								</h5>
 								<a
-									href={`/vendor/${product?.vendor?.slug}/${product?.slug}`}
+								 data-sveltekit-reload="off"	href={`/vendor/${product?.vendor?.slug}/${product?.slug}`}
 									class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</a
 								>
 							</div>
