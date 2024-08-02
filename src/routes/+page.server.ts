@@ -38,14 +38,6 @@ export const load = (async ({ request, url }) => {
         console.error('Error fetching IP data:', error);
     }
 
-    // Logging the information
-    console.log('IP Address:', ip_address);
-    console.log('Country:', country);
-    console.log('Device:', device);
-    console.log('OS:', os);
-    console.log('Browser:', browser);
-    console.log('URL:', urlweb);
-
     const [
         vendor,
         balifarm,
