@@ -46,7 +46,7 @@
 		"@sveltejs/adapter-node": "^5.2.0",
 		"@types/nprogress": "^0.2.3",
 		"autoprefixer": "^10.4.19",
-		"axios": "^1.7.2",
+		"axios": "^1.7.3",
 		"compression": "^1.7.4",
 		"compressorjs": "^1.2.1",
 		"crypto-js": "^4.2.0",
